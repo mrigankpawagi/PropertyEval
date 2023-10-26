@@ -30,7 +30,14 @@ The `/humaneval_groundtruth` directory contains canonical solutions to HumanEval
 2. _pass@k_ for `Base + Extra`
 3. _pass@k_ for PropertyEval
 
-The `limits/limits.py` file contains several standardized limits for the strategies. The `limits/fuzzer.py` script is for running fuzz-testing on all HumanEval groundtruths, with the strategies. 
+The `limits/limits.py` file contains several standardized limits for the strategies. The `limits/fuzzer.py` script is for running fuzz-testing on all HumanEval groundtruths with the strategies.
+
+## Comparison with EvalPlus
+
+![](https://github.com/mrigankpawagi/PropertyEval/blob/main/reports/pass_1.png)
+![](https://github.com/mrigankpawagi/PropertyEval/blob/main/reports/pass_10.png)
+![](https://github.com/mrigankpawagi/PropertyEval/blob/main/reports/pass_100.png)
+![](https://github.com/mrigankpawagi/PropertyEval/blob/main/reports/pass_1_greedy.png)
 
 ### *Fork of EvalPlus
 
