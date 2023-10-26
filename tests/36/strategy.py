@@ -1,4 +1,4 @@
-import sys; sys.path.append("../.."); from groundtruth_fuzzer.limits import MAX_INT, MIN_INT, MAX_FLOAT, MIN_FLOAT, MAX_SEQUENCE_LEN, VERY_LARGE_INT
+from limits.limits import MAX_INT, MIN_INT, MAX_FLOAT, MIN_FLOAT, MAX_SEQUENCE_LEN, VERY_LARGE_INT
 from hypothesis.strategies import integers
 
 n = integers(min_value=1, max_value=VERY_LARGE_INT)
