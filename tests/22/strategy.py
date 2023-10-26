@@ -1,7 +1,6 @@
-from hypothesis.strategies import one_of, lists, integers, floats, sets, dictionaries, text, booleans, tuples, functions, binary, complex_numbers, none
-# any other type?
+import sys; sys.path.append("../.."); from groundtruth_fuzzer.limits import MAX_INT, MIN_INT, MAX_FLOAT, MIN_FLOAT, MAX_SEQUENCE_LEN
+from hypothesis.strategies import one_of, lists, integers, floats, text
 
-hashable_types = (integers(), floats(), booleans(), text(), binary(), complex_numbers())
-other_types = (none(), functions())
+values = lists(one_of(integers(), floats(), text()), min_size=2, max_size=MAX_SEQUENCE_LEN)
 
-strategy = lists(one_of(*(hashable_types + other_types + (lists(one_of(*hashable_types)), sets(one_of(*(hashable_types + other_types))), dictionaries(one_of(*hashable_types), one_of(*(hashable_types + other_types))), tuples(one_of(*(hashable_types + other_types)))))))
+strategy = values

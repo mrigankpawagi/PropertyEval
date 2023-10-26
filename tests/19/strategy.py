@@ -1,6 +1,6 @@
-from hypothesis.strategies import lists, sampled_from, integers
+import sys; sys.path.append("../.."); from groundtruth_fuzzer.limits import MAX_INT, MIN_INT, MAX_FLOAT, MIN_FLOAT, MAX_SEQUENCE_LEN
+from hypothesis.strategies import lists, sampled_from
 
 allowed_words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
-length = integers(min_value=0)
 
-strategy = lists(sampled_from(allowed_words)).map(lambda words: ' '.join(words))
+strategy = lists(sampled_from(allowed_words), max_size=MAX_SEQUENCE_LEN).map(lambda words: ' '.join(words))

@@ -1,7 +1,9 @@
-from hypothesis.strategies import integers, floats, booleans, one_of
+import sys; sys.path.append("../.."); from groundtruth_fuzzer.limits import MAX_INT, MIN_INT, MAX_FLOAT, MIN_FLOAT, MAX_SEQUENCE_LEN
+from hypothesis.strategies import integers, shared, floats, booleans
 
-x = one_of(integers(), floats(), booleans())
-y = one_of(integers(), floats(), booleans())
-z = one_of(integers(), floats(), booleans())
+n = integers() | floats() | booleans()
+x = shared(n)
+y = shared(n)
+z = shared(n)
 
 strategy = x, y, z

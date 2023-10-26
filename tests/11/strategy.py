@@ -1,8 +1,9 @@
+import sys; sys.path.append("../.."); from groundtruth_fuzzer.limits import MAX_INT, MIN_INT, MAX_FLOAT, MIN_FLOAT, MAX_SEQUENCE_LEN
 from hypothesis.strategies import text, integers, composite, shared
 
 @composite
 def make(draw):
-    n = draw(integers(min_value=1, max_value=10))
+    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
     a = draw(text(alphabet='01', min_size=n, max_size=n))
     b = draw(text(alphabet='01', min_size=n, max_size=n))
     return a, b

@@ -1,10 +1,11 @@
+import sys; sys.path.append("../.."); from groundtruth_fuzzer.limits import MAX_INT, MIN_INT, MAX_FLOAT, MIN_FLOAT, MAX_SEQUENCE_LEN
 from hypothesis.strategies import lists, composite, sampled_from, integers, shared
 
 @composite
 def make(draw):
-    n = draw(integers(min_value=1, max_value=10))
-    operators = draw(lists(sampled_from(["+", "-", "*", "//", "**"]), min_size=n, max_size=n))
-    operands = draw(lists(integers(min_value=0, max_value=20), min_size=n+1, max_size=n+1))
+    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
+    operators = draw(lists(sampled_from(["+", "-", "*", "//", "**"]), min_size=n, max_size=n).filter(lambda x: x.count("**") <= 1))
+    operands = draw(lists(integers(min_value=0, max_value=20), min_size=n+1, max_size=n+1).filter(lambda x: not any([x[i] == 0 and operators[i-1] == "//" for i in range(1, len(x))])))
     
     return operators, operands
 
