@@ -1,84 +1,286 @@
 <html>
-
-<head>
+  <head>
     <title>PropertyEval</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200&family=Roboto+Mono:wght@500&display=swap"
-        rel="stylesheet">
-</head>
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200&family=Roboto+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <h1>🏆 PropertyEval Leaderboard 🏆</h1>
-    <h3>Property-based tests for thorough benchmarking of LLM code generation. <br>
-        <div id="btn"><img src="https://i.imgur.com/8sXmq0I.png"><a href="#">GITHUB</a></div>
+    <h3>
+      Property-based tests for thorough benchmarking of LLM code generation.
+      <br />
+      <div id="btn">
+        <img src="images/git.png" /><a
+          href="https://github.com/mrigankpawagi/PropertyEval"
+          >GitHub</a
+        >
+      </div>
     </h3>
 
+    <h2 class="center">Pass@1 on HumanEval at Temperature 0</h2>
     <div id="tableCtn">
-        <div class="wrap">
-            <h3 style="color: #02871a">PropertyEval</h3>
-            <table id="one">
-                <tr>
-                    <th>#</th>
-                    <th>Model</th>
-                    <th>Size</th>
-                    <th>pass@1*</th>
-                </tr>
-                <tr>
-                    <th>1</th>
-                    <th>lorem</th>
-                    <th>ipsum</th>
-                    <th>ipsum</th>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <th>lorem</th>
-                    <th>ipsum</th>
-                    <th>ipsum</th>
-                </tr>
-                <tr>
-                    <th>3</th>
-                    <th>lorem</th>
-                    <th>ipsum</th>
-                    <th>ipsum</th>
-                </tr>
-            </table>
-        </div>
-        <div class="wrap">
-            <h3 style="color: #c40606">Original</h3>
-            <table id="two">
-                <tr>
-                    <th>#</th>
-                    <th>Model</th>
-                    <th>Size</th>
-                    <th>pass@1*</th>
-                </tr>
-                <tr>
-                    <th>1</th>
-                    <th>lorem</th>
-                    <th>ipsum</th>
-                    <th>ipsum</th>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <th>lorem</th>
-                    <th>ipsum</th>
-                    <th>ipsum</th>
-                </tr>
-                <tr>
-                    <th>3</th>
-                    <th>lorem</th>
-                    <th>ipsum</th>
-                    <th>ipsum</th>
-                </tr>
-            </table>
-        </div>
+      <div class="wrap">
+        <h3 style="color: #02871a">PropertyEval</h3>
+        <table id="one">
+          <tr>
+            <th>#</th>
+            <th>Model</th>
+            <th>Size</th>
+            <th>pass@1</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>GPT-4</td>
+            <td>N/A</td>
+            <td>22.56</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>ChatGPT</td>
+            <td>N/A</td>
+            <td>14.02</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>CodeGen</td>
+            <td>6B</td>
+            <td>4.27</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>CodeGen</td>
+            <td>16B</td>
+            <td>3.05</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>CodeGen</td>
+            <td>2B</td>
+            <td>1.22</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>StarCoder</td>
+            <td>N/A</td>
+            <td>1.22</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>CodeGen2</td>
+            <td>16B</td>
+            <td>0.61</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>CodeGen2</td>
+            <td>3B</td>
+            <td>0.61</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>InCoder</td>
+            <td>1B</td>
+            <td>0.61</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>InCoder</td>
+            <td>6B</td>
+            <td>0.61</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>SantaCoder</td>
+            <td>N/A</td>
+            <td>0.61</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Vicuna</td>
+            <td>13B</td>
+            <td>0.61</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Vicuna</td>
+            <td>7B</td>
+            <td>0.61</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>CodeGen2</td>
+            <td>1B</td>
+            <td>0.00</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>CodeGen2</td>
+            <td>7B</td>
+            <td>0.00</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>GPT-J</td>
+            <td>N/A</td>
+            <td>0.00</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>GPT-Neo</td>
+            <td>2B</td>
+            <td>0.00</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>PolyCoder</td>
+            <td>N/A</td>
+            <td>0.00</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>StableLM</td>
+            <td>7B</td>
+            <td>0.00</td>
+          </tr>
+        </table>
+      </div>
+      <div class="wrap">
+        <h3 style="color: #c40606">Original</h3>
+        <table id="two">
+          <tr>
+            <th>#</th>
+            <th>Model</th>
+            <th>Size</th>
+            <th>pass@1</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>GPT-4</td>
+            <td>N/A</td>
+            <td>88.41</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>ChatGPT</td>
+            <td>N/A</td>
+            <td>73.17</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>StarCoder</td>
+            <td>N/A</td>
+            <td>34.15</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>CodeGen</td>
+            <td>16B</td>
+            <td>32.93</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>CodeGen</td>
+            <td>6B</td>
+            <td>29.27</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>CodeGen</td>
+            <td>2B</td>
+            <td>24.39</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>CodeGen2</td>
+            <td>16B</td>
+            <td>19.51</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>CodeGen2</td>
+            <td>7B</td>
+            <td>18.29</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Vicuna</td>
+            <td>13B</td>
+            <td>16.46</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>CodeGen2</td>
+            <td>3B</td>
+            <td>15.85</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>InCoder</td>
+            <td>6B</td>
+            <td>15.85</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>SantaCoder</td>
+            <td>N/A</td>
+            <td>14.63</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>GPT-J</td>
+            <td>N/A</td>
+            <td>12.20</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>InCoder</td>
+            <td>1B</td>
+            <td>12.20</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>Vicuna</td>
+            <td>7B</td>
+            <td>11.59</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>Codegen2</td>
+            <td>1B</td>
+            <td>10.98</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>GPT-Neo</td>
+            <td>2B</td>
+            <td>7.93</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>PolyCoder</td>
+            <td>N/A</td>
+            <td>6.10</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>StableLM</td>
+            <td>7B</td>
+            <td>2.44</td>
+          </tr>
+        </table>
+      </div>
     </div>
 
-    <h4>Webpage designed by <a href="https://codepen.io/Manyata-Pawagi">Manyata Pawagi</a></h4>
-</body>
-
+    <h4>
+      Webpage designed by
+      <a href="https://codepen.io/Manyata-Pawagi">Manyata Pawagi</a>
+    </h4>
+  </body>
 </html>
