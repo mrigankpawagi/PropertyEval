@@ -7,13 +7,13 @@ client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY")
 )
 
-def generate(prompt):
+def generate_strategy(prompt):
   response = client.chat.completions.create(
     model="gpt-3.5-turbo-16k",
     messages=[
       {
         "role": "system",
-        "content": "You are an experienced python program with expertise in writing property-based tests using Hypothesis, a python library for this. To use hypothesis, we need to write a strategy using the strategies module in hypothesis, and then provide these in the @given decorator on the test function. You will be provided a function signature and docstring and you will be asked to provide a strategy for testing with Hypothesis. You MUST end by creating a variable called 'strategy' which contains the strategies you create. Do NOT include any tests in your responses."
+        "content": "You are an experienced python program with expertise in writing property-based tests using Hypothesis, a python library for this. To use hypothesis, we need to write a strategy using the strategies module in hypothesis, and then provide these in the @given decorator on the test function. You will be provided a function signature and docstring and you will be asked to provide a strategy for testing with Hypothesis. You MUST end by creating a variable called 'strategy' which contains the strategies you create. Do NOT include any tests in your responses. Available limits for use are ONLY MAX_INT, MIN_INT,VERY_SMALL_INT_NEGATIVE, VERY_SMALL_INT, SMALL_INT, VERY_LARGE_INT, MAX_FLOAT, MIN_FLOAT, SMALL_SEQUENCE_LEN, MAX_SEQUENCE_LEN. You can use these in your strategy. If you are using `alphabet` inside `text()`, explicitly provide the string of characters."
       },
       {
         "role": "user",

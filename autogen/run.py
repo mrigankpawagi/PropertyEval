@@ -1,5 +1,5 @@
 import json
-from main import generate
+from main import generate_strategy
 
 with open("../problems.json") as f:
     problems = json.load(f)
@@ -16,7 +16,7 @@ for key in problems:
     # remove everything before the first "def"
     prompt = prompt[prompt.find("def"):]
     
-    print(generate(prompt)[0])
+    print(generate_strategy(prompt)[0])
     print("-"*80)
     
     k += 1
