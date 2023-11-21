@@ -1,0 +1,480 @@
+$ pytest tests --tb=no --continue-on-collection-errors
+=============================================================================================== test session starts ===============================================================================================
+platform linux -- Python 3.11.0rc1, pytest-7.4.0, pluggy-1.3.0
+rootdir: /home/mrigankp/PropertyEvalMAIN/autogen
+plugins: anyio-3.7.1, timeout-2.2.0, hypothesis-6.82.6
+collected 368 items / 61 errors                                                                                                                                                                                   
+
+tests/test_Diff_769.py .                                                                                                                                                                                    [  0%]
+tests/test_Extract_460.py .                                                                                                                                                                                 [  0%]
+tests/test_Find_Max_418.py .                                                                                                                                                                                [  0%]
+tests/test_Find_Max_Length_562.py .                                                                                                                                                                         [  1%]
+tests/test_Find_Min_457.py .                                                                                                                                                                                [  1%]
+tests/test_Find_Min_Length_95.py .                                                                                                                                                                          [  1%]
+tests/test_Split_554.py .                                                                                                                                                                                   [  1%]
+tests/test_Split_629.py .                                                                                                                                                                                   [  2%]
+tests/test__sum_798.py .                                                                                                                                                                                    [  2%]
+tests/test_add_dict_to_tuple_720.py .                                                                                                                                                                       [  2%]
+tests/test_add_lists_106.py .                                                                                                                                                                               [  2%]
+tests/test_add_nested_tuples_401.py F                                                                                                                                                                       [  3%]
+tests/test_add_pairwise_470.py .                                                                                                                                                                            [  3%]
+tests/test_add_string_390.py .                                                                                                                                                                              [  3%]
+tests/test_add_tuple_750.py .                                                                                                                                                                               [  4%]
+tests/test_adjac_630.py .                                                                                                                                                                                   [  4%]
+tests/test_all_Bits_Set_In_The_Given_Range_228.py .                                                                                                                                                         [  4%]
+tests/test_all_Characters_Same_741.py .                                                                                                                                                                     [  4%]
+tests/test_all_unique_281.py .                                                                                                                                                                              [  5%]
+tests/test_amicable_numbers_sum_123.py F                                                                                                                                                                    [  5%]
+tests/test_and_tuples_429.py F                                                                                                                                                                              [  5%]
+tests/test_angle_complex_124.py .                                                                                                                                                                           [  5%]
+tests/test_area_tetrahedron_742.py .                                                                                                                                                                        [  6%]
+tests/test_armstrong_number_598.py .                                                                                                                                                                        [  6%]
+tests/test_ascii_value_269.py .                                                                                                                                                                             [  6%]
+tests/test_babylonian_squareroot_246.py .                                                                                                                                                                   [  7%]
+tests/test_bell_Number_608.py .                                                                                                                                                                             [  7%]
+tests/test_bell_number_67.py F                                                                                                                                                                              [  7%]
+tests/test_big_diff_588.py .                                                                                                                                                                                [  7%]
+tests/test_big_sum_476.py .                                                                                                                                                                                 [  8%]
+tests/test_binomial_Coeff_592.py .                                                                                                                                                                          [  8%]
+tests/test_bitwise_xor_399.py .                                                                                                                                                                             [  8%]
+tests/test_cal_sum_448.py .                                                                                                                                                                                 [  8%]
+tests/test_capital_words_spaces_748.py .                                                                                                                                                                    [  9%]
+tests/test_catalan_number_583.py F                                                                                                                                                                          [  9%]
+tests/test_centered_hexagonal_number_86.py .                                                                                                                                                                [  9%]
+tests/test_change_date_format_427.py F                                                                                                                                                                      [ 10%]
+tests/test_check_char_396.py .                                                                                                                                                                              [ 10%]
+tests/test_check_distinct_394.py .                                                                                                                                                                          [ 10%]
+tests/test_check_element_284.py .                                                                                                                                                                           [ 10%]
+tests/test_check_greater_433.py .                                                                                                                                                                           [ 11%]
+tests/test_check_monthnumb_number_455.py .                                                                                                                                                                  [ 11%]
+tests/test_check_monthnumber_number_762.py .                                                                                                                                                                [ 11%]
+tests/test_check_none_744.py .                                                                                                                                                                              [ 11%]
+tests/test_check_occurences_237.py .                                                                                                                                                                        [ 12%]
+tests/test_check_smaller_809.py .                                                                                                                                                                           [ 12%]
+tests/test_check_str_737.py F                                                                                                                                                                               [ 12%]
+tests/test_check_type_222.py .                                                                                                                                                                              [ 13%]
+tests/test_check_value_464.py F                                                                                                                                                                             [ 13%]
+tests/test_circle_circumference_139.py .                                                                                                                                                                    [ 13%]
+tests/test_closest_num_89.py .                                                                                                                                                                              [ 13%]
+tests/test_colon_tuplex_307.py .                                                                                                                                                                            [ 14%]
+tests/test_comb_sort_71.py .                                                                                                                                                                                [ 14%]
+tests/test_combinations_colors_255.py F                                                                                                                                                                     [ 14%]
+tests/test_combinations_list_462.py .                                                                                                                                                                       [ 14%]
+tests/test_common_element_431.py .                                                                                                                                                                          [ 15%]
+tests/test_common_in_nested_lists_111.py .                                                                                                                                                                  [ 15%]
+tests/test_consecutive_duplicates_730.py .                                                                                                                                                                  [ 15%]
+tests/test_convert_252.py .                                                                                                                                                                                 [ 16%]
+tests/test_convert_list_dictionary_391.py .                                                                                                                                                                 [ 16%]
+tests/test_count_105.py .                                                                                                                                                                                   [ 16%]
+tests/test_count_Occurrence_446.py .                                                                                                                                                                        [ 16%]
+tests/test_count_Primes_nums_256.py F                                                                                                                                                                       [ 17%]
+tests/test_count_Set_Bits_224.py .                                                                                                                                                                          [ 17%]
+tests/test_count_X_250.py .                                                                                                                                                                                 [ 17%]
+tests/test_count_bidirectional_438.py .                                                                                                                                                                     [ 17%]
+tests/test_count_binary_seq_300.py .                                                                                                                                                                        [ 18%]
+tests/test_count_char_position_165.py .                                                                                                                                                                     [ 18%]
+tests/test_count_divisors_781.py .                                                                                                                                                                          [ 18%]
+tests/test_count_element_in_list_425.py .                                                                                                                                                                   [ 19%]
+tests/test_count_first_elements_278.py .                                                                                                                                                                    [ 19%]
+tests/test_count_integer_253.py .                                                                                                                                                                           [ 19%]
+tests/test_count_list_792.py .                                                                                                                                                                              [ 19%]
+tests/test_count_no_of_ways_291.py .                                                                                                                                                                        [ 20%]
+tests/test_count_rotation_802.py .                                                                                                                                                                          [ 20%]
+tests/test_count_same_pair_723.py .                                                                                                                                                                         [ 20%]
+tests/test_count_samepair_142.py .                                                                                                                                                                          [ 20%]
+tests/test_count_vowels_776.py .                                                                                                                                                                            [ 21%]
+tests/test_cube_Sum_420.py F                                                                                                                                                                                [ 21%]
+tests/test_cube_nums_447.py .                                                                                                                                                                               [ 21%]
+tests/test_cummulative_sum_614.py .                                                                                                                                                                         [ 22%]
+tests/test_decimal_to_binary_99.py .                                                                                                                                                                        [ 22%]
+tests/test_dict_depth_301.py F                                                                                                                                                                              [ 22%]
+tests/test_dict_filter_277.py .                                                                                                                                                                             [ 22%]
+tests/test_dif_Square_72.py .                                                                                                                                                                               [ 23%]
+tests/test_diff_even_odd_594.py .                                                                                                                                                                           [ 23%]
+tests/test_difference_555.py .                                                                                                                                                                              [ 23%]
+tests/test_digit_distance_nums_558.py .                                                                                                                                                                     [ 23%]
+tests/test_div_list_618.py .                                                                                                                                                                                [ 24%]
+tests/test_div_sum_164.py .                                                                                                                                                                                 [ 24%]
+tests/test_divisible_by_digits_745.py F                                                                                                                                                                     [ 24%]
+tests/test_dog_age_264.py .                                                                                                                                                                                 [ 25%]
+tests/test_drop_empty_465.py .                                                                                                                                                                              [ 25%]
+tests/test_empty_list_568.py .                                                                                                                                                                              [ 25%]
+tests/test_eulerian_num_103.py F                                                                                                                                                                            [ 25%]
+tests/test_even_Power_Sum_271.py .                                                                                                                                                                          [ 26%]
+tests/test_even_binomial_Coeff_Sum_274.py .                                                                                                                                                                 [ 26%]
+tests/test_even_bit_set_number_235.py .                                                                                                                                                                     [ 26%]
+tests/test_even_ele_580.py F                                                                                                                                                                                [ 26%]
+tests/test_even_position_790.py .                                                                                                                                                                           [ 27%]
+tests/test_expensive_items_585.py .                                                                                                                                                                         [ 27%]
+tests/test_extract_freq_400.py .                                                                                                                                                                            [ 27%]
+tests/test_extract_index_list_754.py .                                                                                                                                                                      [ 27%]
+tests/test_extract_rear_424.py .                                                                                                                                                                            [ 28%]
+tests/test_extract_singly_140.py .                                                                                                                                                                          [ 28%]
+tests/test_extract_string_450.py .                                                                                                                                                                          [ 28%]
+tests/test_extract_values_563.py F                                                                                                                                                                          [ 29%]
+tests/test_filter_data_722.py .                                                                                                                                                                             [ 29%]
+tests/test_filter_oddnumbers_426.py .                                                                                                                                                                       [ 29%]
+tests/test_find_292.py .                                                                                                                                                                                    [ 29%]
+tests/test_find_Average_Of_Cube_422.py .                                                                                                                                                                    [ 30%]
+tests/test_find_Element_304.py .                                                                                                                                                                            [ 30%]
+tests/test_find_First_Missing_627.py .                                                                                                                                                                      [ 30%]
+tests/test_find_Index_739.py .                                                                                                                                                                              [ 30%]
+tests/test_find_Max_Num_57.py .                                                                                                                                                                             [ 31%]
+tests/test_find_Parity_406.py .                                                                                                                                                                             [ 31%]
+tests/test_find_Volume_14.py .                                                                                                                                                                              [ 31%]
+tests/test_find_adverb_position_440.py F                                                                                                                                                                    [ 32%]
+tests/test_find_adverbs_584.py .                                                                                                                                                                            [ 32%]
+tests/test_find_char_long_7.py .                                                                                                                                                                            [ 32%]
+tests/test_find_combinations_780.py .                                                                                                                                                                       [ 32%]
+tests/test_find_dissimilar_579.py .                                                                                                                                                                         [ 33%]
+tests/test_find_even_pair_166.py .                                                                                                                                                                          [ 33%]
+tests/test_find_first_occurrence_733.py F                                                                                                                                                                   [ 33%]
+tests/test_find_kth_597.py .                                                                                                                                                                                [ 33%]
+tests/test_find_length_125.py .                                                                                                                                                                             [ 34%]
+tests/test_find_lists_143.py F                                                                                                                                                                              [ 34%]
+tests/test_find_lucas_389.py F                                                                                                                                                                              [ 34%]
+tests/test_find_remainder_471.py .                                                                                                                                                                          [ 35%]
+tests/test_find_solution_160.py F                                                                                                                                                                           [ 35%]
+tests/test_find_star_num_268.py .                                                                                                                                                                           [ 35%]
+tests/test_find_substring_91.py .                                                                                                                                                                           [ 35%]
+tests/test_find_sum_777.py .                                                                                                                                                                                [ 36%]
+tests/test_find_tuples_75.py F                                                                                                                                                                              [ 36%]
+tests/test_first_Digit_479.py .                                                                                                                                                                             [ 36%]
+tests/test_first_non_repeating_character_395.py .                                                                                                                                                           [ 36%]
+tests/test_first_odd_807.py .                                                                                                                                                                               [ 37%]
+tests/test_first_repeated_char_602.py .                                                                                                                                                                     [ 37%]
+tests/test_freq_count_88.py .                                                                                                                                                                               [ 37%]
+tests/test_frequency_168.py .                                                                                                                                                                               [ 38%]
+tests/test_frequency_lists_97.py .                                                                                                                                                                          [ 38%]
+tests/test_get_Inv_Count_296.py .                                                                                                                                                                           [ 38%]
+tests/test_get_ludic_603.py .                                                                                                                                                                               [ 38%]
+tests/test_get_max_sum_392.py F                                                                                                                                                                             [ 39%]
+tests/test_get_pairs_count_767.py .                                                                                                                                                                         [ 39%]
+tests/test_get_total_number_of_sequences_239.py F                                                                                                                                                           [ 39%]
+tests/test_harmonic_sum_248.py .                                                                                                                                                                            [ 39%]
+tests/test_heap_queue_largest_4.py .                                                                                                                                                                        [ 40%]
+tests/test_heap_sort_635.py .                                                                                                                                                                               [ 40%]
+tests/test_hexagonal_num_135.py .                                                                                                                                                                           [ 40%]
+tests/test_highest_Power_of_2_388.py .                                                                                                                                                                      [ 41%]
+tests/test_index_minimum_94.py .                                                                                                                                                                            [ 41%]
+tests/test_insert_element_251.py .                                                                                                                                                                          [ 41%]
+tests/test_interleave_lists_578.py .                                                                                                                                                                        [ 41%]
+tests/test_intersection_array_249.py .                                                                                                                                                                      [ 42%]
+tests/test_is_Diff_77.py .                                                                                                                                                                                  [ 42%]
+tests/test_is_Even_600.py .                                                                                                                                                                                 [ 42%]
+tests/test_is_Monotonic_68.py .                                                                                                                                                                             [ 42%]
+tests/test_is_Power_Of_Two_6.py .                                                                                                                                                                           [ 43%]
+tests/test_is_Sub_Array_576.py .                                                                                                                                                                            [ 43%]
+tests/test_is_Sum_Of_Powers_Of_Two_138.py .                                                                                                                                                                 [ 43%]
+tests/test_is_decimal_759.py .                                                                                                                                                                              [ 44%]
+tests/test_is_majority_223.py .                                                                                                                                                                             [ 44%]
+tests/test_is_nonagonal_641.py .                                                                                                                                                                            [ 44%]
+tests/test_is_not_prime_3.py .                                                                                                                                                                              [ 44%]
+tests/test_is_num_decagonal_279.py .                                                                                                                                                                        [ 45%]
+tests/test_is_octagonal_59.py .                                                                                                                                                                             [ 45%]
+tests/test_is_perfect_square_803.py F                                                                                                                                                                       [ 45%]
+tests/test_is_polite_765.py .                                                                                                                                                                               [ 45%]
+tests/test_is_product_even_804.py .                                                                                                                                                                         [ 46%]
+tests/test_is_sublist_69.py .                                                                                                                                                                               [ 46%]
+tests/test_is_undulating_92.py .                                                                                                                                                                            [ 46%]
+tests/test_is_woodall_20.py .                                                                                                                                                                               [ 47%]
+tests/test_issort_list_567.py .                                                                                                                                                                             [ 47%]
+tests/test_jacobsthal_num_752.py .                                                                                                                                                                          [ 47%]
+tests/test_k_smallest_pairs_408.py .                                                                                                                                                                        [ 47%]
+tests/test_kth_element_101.py .                                                                                                                                                                             [ 48%]
+tests/test_larg_nnum_232.py .                                                                                                                                                                               [ 48%]
+tests/test_large_product_308.py .                                                                                                                                                                           [ 48%]
+tests/test_largest_neg_443.py .                                                                                                                                                                             [ 48%]
+tests/test_largest_subset_620.py .                                                                                                                                                                          [ 49%]
+tests/test_last_793.py .                                                                                                                                                                                    [ 49%]
+tests/test_last_Digit_435.py .                                                                                                                                                                              [ 49%]
+tests/test_last_Digit_Factorial_577.py .                                                                                                                                                                    [ 50%]
+tests/test_lateralsuface_cylinder_233.py .                                                                                                                                                                  [ 50%]
+tests/test_lateralsurface_cone_731.py .                                                                                                                                                                     [ 50%]
+tests/test_left_insertion_736.py .                                                                                                                                                                          [ 50%]
+tests/test_left_rotate_799.py .                                                                                                                                                                             [ 51%]
+tests/test_list_split_265.py .                                                                                                                                                                              [ 51%]
+tests/test_list_to_float_117.py .                                                                                                                                                                           [ 51%]
+tests/test_list_tuple_587.py .                                                                                                                                                                              [ 51%]
+tests/test_long_words_128.py .                                                                                                                                                                              [ 52%]
+tests/test_loss_amount_452.py .                                                                                                                                                                             [ 52%]
+tests/test_maxAverageOfPath_721.py .                                                                                                                                                                        [ 52%]
+tests/test_max_Abs_Diff_145.py .                                                                                                                                                                            [ 52%]
+tests/test_max_Product_415.py .                                                                                                                                                                             [ 53%]
+tests/test_max_difference_63.py .                                                                                                                                                                           [ 53%]
+tests/test_max_length_290.py .                                                                                                                                                                              [ 53%]
+tests/test_max_length_list_393.py .                                                                                                                                                                         [ 54%]
+tests/test_max_occurrences_130.py .                                                                                                                                                                         [ 54%]
+tests/test_max_of_nth_611.py .                                                                                                                                                                              [ 54%]
+tests/test_max_product_468.py .                                                                                                                                                                             [ 54%]
+tests/test_max_product_tuple_120.py .                                                                                                                                                                       [ 55%]
+tests/test_max_sub_array_sum_559.py .                                                                                                                                                                       [ 55%]
+tests/test_max_sub_array_sum_repeated_286.py .                                                                                                                                                              [ 55%]
+tests/test_max_subarray_product_463.py .                                                                                                                                                                    [ 55%]
+tests/test_max_sum_245.py .                                                                                                                                                                                 [ 56%]
+tests/test_max_sum_increasing_subseq_306.py F                                                                                                                                                               [ 56%]
+tests/test_max_val_294.py .                                                                                                                                                                                 [ 56%]
+tests/test_maximize_elements_259.py .                                                                                                                                                                       [ 57%]
+tests/test_maximum_309.py .                                                                                                                                                                                 [ 57%]
+tests/test_median_numbers_397.py .                                                                                                                                                                          [ 57%]
+tests/test_median_trapezium_432.py .                                                                                                                                                                        [ 57%]
+tests/test_merge_dictionaries_three_87.py .                                                                                                                                                                 [ 58%]
+tests/test_merge_sorted_list_108.py .                                                                                                                                                                       [ 58%]
+tests/test_min_Jumps_617.py .                                                                                                                                                                               [ 58%]
+tests/test_min_Swaps_595.py .                                                                                                                                                                               [ 58%]
+tests/test_min_k_753.py .                                                                                                                                                                                   [ 59%]
+tests/test_min_of_three_227.py .                                                                                                                                                                            [ 59%]
+tests/test_min_product_tuple_409.py .                                                                                                                                                                       [ 59%]
+tests/test_min_val_410.py .                                                                                                                                                                                 [ 60%]
+tests/test_minimum_404.py .                                                                                                                                                                                 [ 60%]
+tests/test_move_num_619.py .                                                                                                                                                                                [ 60%]
+tests/test_move_zero_632.py .                                                                                                                                                                               [ 60%]
+tests/test_mul_even_odd_784.py .                                                                                                                                                                            [ 61%]
+tests/test_multiple_to_single_439.py .                                                                                                                                                                      [ 61%]
+tests/test_multiply_elements_726.py .                                                                                                                                                                       [ 61%]
+tests/test_multiply_int_127.py .                                                                                                                                                                            [ 61%]
+tests/test_multiply_num_98.py .                                                                                                                                                                             [ 62%]
+tests/test_my_dict_582.py .                                                                                                                                                                                 [ 62%]
+tests/test_neg_nos_436.py .                                                                                                                                                                                 [ 62%]
+tests/test_new_tuple_788.py .                                                                                                                                                                               [ 63%]
+tests/test_newman_prime_260.py F                                                                                                                                                                            [ 63%]
+tests/test_next_Perfect_Square_244.py .                                                                                                                                                                     [ 63%]
+tests/test_next_power_of_2_167.py .                                                                                                                                                                         [ 63%]
+tests/test_next_smallest_palindrome_100.py .                                                                                                                                                                [ 64%]
+tests/test_noprofit_noloss_637.py .                                                                                                                                                                         [ 64%]
+tests/test_nth_nums_623.py F                                                                                                                                                                                [ 64%]
+tests/test_number_ctr_764.py .                                                                                                                                                                              [ 64%]
+tests/test_number_of_substrings_238.py .                                                                                                                                                                    [ 65%]
+tests/test_odd_Equivalent_109.py .                                                                                                                                                                          [ 65%]
+tests/test_odd_length_sum_782.py .                                                                                                                                                                          [ 65%]
+tests/test_odd_num_sum_770.py .                                                                                                                                                                             [ 66%]
+tests/test_odd_position_775.py .                                                                                                                                                                            [ 66%]
+tests/test_odd_values_string_226.py .                                                                                                                                                                       [ 66%]
+tests/test_opposite_Signs_58.py .                                                                                                                                                                           [ 66%]
+tests/test_otherside_rightangle_293.py .                                                                                                                                                                    [ 67%]
+tests/test_overlapping_414.py .                                                                                                                                                                             [ 67%]
+tests/test_pack_consecutive_duplicates_778.py .                                                                                                                                                             [ 67%]
+tests/test_pair_wise_766.py .                                                                                                                                                                               [ 67%]
+tests/test_pancake_sort_141.py .                                                                                                                                                                            [ 68%]
+tests/test_parabola_directrix_430.py .                                                                                                                                                                      [ 68%]
+tests/test_perfect_squares_589.py .                                                                                                                                                                         [ 68%]
+tests/test_perimeter_pentagon_171.py .                                                                                                                                                                      [ 69%]
+tests/test_polar_rect_590.py F                                                                                                                                                                              [ 69%]
+tests/test_pos_count_66.py .                                                                                                                                                                                [ 69%]
+tests/test_positive_count_442.py .                                                                                                                                                                          [ 69%]
+tests/test_power_93.py .                                                                                                                                                                                    [ 70%]
+tests/test_power_base_sum_724.py F                                                                                                                                                                          [ 70%]
+tests/test_prime_num_605.py .                                                                                                                                                                               [ 70%]
+tests/test_radian_degree_606.py .                                                                                                                                                                           [ 70%]
+tests/test_rear_extract_272.py .                                                                                                                                                                            [ 71%]
+tests/test_rearrange_bigger_407.py .                                                                                                                                                                        [ 71%]
+tests/test_rectangle_area_458.py .                                                                                                                                                                          [ 71%]
+tests/test_remove_Occ_11.py .                                                                                                                                                                               [ 72%]
+tests/test_remove_all_spaces_800.py .                                                                                                                                                                       [ 72%]
+tests/test_remove_elements_161.py .                                                                                                                                                                         [ 72%]
+tests/test_remove_kth_element_610.py .                                                                                                                                                                      [ 72%]
+tests/test_remove_length_772.py .                                                                                                                                                                           [ 73%]
+tests/test_remove_lowercase_478.py F                                                                                                                                                                        [ 73%]
+tests/test_remove_nested_791.py .                                                                                                                                                                           [ 73%]
+tests/test_remove_odd_412.py F                                                                                                                                                                              [ 73%]
+tests/test_removezero_ip_593.py .                                                                                                                                                                           [ 74%]
+tests/test_replace_blank_230.py .                                                                                                                                                                           [ 74%]
+tests/test_replace_char_474.py .                                                                                                                                                                            [ 74%]
+tests/test_replace_list_240.py .                                                                                                                                                                            [ 75%]
+tests/test_replace_spaces_628.py .                                                                                                                                                                          [ 75%]
+tests/test_replace_spaces_631.py .                                                                                                                                                                          [ 75%]
+tests/test_replace_specialchar_732.py F                                                                                                                                                                     [ 75%]
+tests/test_return_sum_796.py .                                                                                                                                                                              [ 76%]
+tests/test_rev_56.py .                                                                                                                                                                                      [ 76%]
+tests/test_reverse_Array_Upto_K_644.py .                                                                                                                                                                    [ 76%]
+tests/test_reverse_string_list_456.py .                                                                                                                                                                     [ 76%]
+tests/test_reverse_vowels_131.py .                                                                                                                                                                          [ 77%]
+tests/test_rgb_to_hsv_783.py .                                                                                                                                                                              [ 77%]
+tests/test_right_insertion_786.py .                                                                                                                                                                         [ 77%]
+tests/test_rotate_right_743.py .                                                                                                                                                                            [ 77%]
+tests/test_round_and_sum_419.py .                                                                                                                                                                           [ 78%]
+tests/test_sample_nam_639.py .                                                                                                                                                                              [ 78%]
+tests/test_search_119.py .                                                                                                                                                                                  [ 78%]
+tests/test_second_smallest_755.py .                                                                                                                                                                         [ 79%]
+tests/test_sector_area_746.py .                                                                                                                                                                             [ 79%]
+tests/test_sequence_84.py F                                                                                                                                                                                 [ 79%]
+tests/test_sequential_search_280.py .                                                                                                                                                                       [ 79%]
+tests/test_set_left_most_unset_bit_311.py .                                                                                                                                                                 [ 80%]
+tests/test_set_middle_bits_735.py .                                                                                                                                                                         [ 80%]
+tests/test_shell_sort_428.py .                                                                                                                                                                              [ 80%]
+tests/test_similar_elements_2.py .                                                                                                                                                                          [ 80%]
+tests/test_smallest_num_62.py .                                                                                                                                                                             [ 81%]
+tests/test_snake_to_camel_411.py F                                                                                                                                                                          [ 81%]
+tests/test_sort_counter_475.py .                                                                                                                                                                            [ 81%]
+tests/test_sort_matrix_12.py .                                                                                                                                                                              [ 82%]
+tests/test_sort_numeric_strings_749.py .                                                                                                                                                                    [ 82%]
+tests/test_sort_sublists_104.py .                                                                                                                                                                           [ 82%]
+tests/test_sort_sublists_569.py .                                                                                                                                                                           [ 82%]
+tests/test_split_565.py .                                                                                                                                                                                   [ 83%]
+tests/test_split_Arr_586.py .                                                                                                                                                                               [ 83%]
+tests/test_split_two_parts_262.py .                                                                                                                                                                         [ 83%]
+tests/test_square_Sum_267.py .                                                                                                                                                                              [ 83%]
+tests/test_square_Sum_287.py .                                                                                                                                                                              [ 84%]
+tests/test_square_nums_8.py .                                                                                                                                                                               [ 84%]
+tests/test_square_perimeter_17.py .                                                                                                                                                                         [ 84%]
+tests/test_start_withp_305.py .                                                                                                                                                                             [ 85%]
+tests/test_str_to_list_18.py .                                                                                                                                                                              [ 85%]
+tests/test_string_to_tuple_310.py .                                                                                                                                                                         [ 85%]
+tests/test_sub_list_282.py .                                                                                                                                                                                [ 85%]
+tests/test_subject_marks_64.py .                                                                                                                                                                            [ 86%]
+tests/test_substract_elements_273.py F                                                                                                                                                                      [ 86%]
+tests/test_sum_126.py .                                                                                                                                                                                     [ 86%]
+tests/test_sum_Of_Subarray_Prod_734.py .                                                                                                                                                                    [ 86%]
+tests/test_sum_average_599.py .                                                                                                                                                                             [ 87%]
+tests/test_sum_digits_566.py .                                                                                                                                                                              [ 87%]
+tests/test_sum_div_295.py .                                                                                                                                                                                 [ 87%]
+tests/test_sum_even_and_even_index_270.py .                                                                                                                                                                 [ 88%]
+tests/test_sum_list_728.py .                                                                                                                                                                                [ 88%]
+tests/test_sum_negativenum_133.py .                                                                                                                                                                         [ 88%]
+tests/test_sum_odd_797.py .                                                                                                                                                                                 [ 88%]
+tests/test_sum_of_digits_398.py .                                                                                                                                                                           [ 89%]
+tests/test_sum_range_list_170.py .                                                                                                                                                                          [ 89%]
+tests/test_sum_series_162.py .                                                                                                                                                                              [ 89%]
+tests/test_sumofFactors_453.py F                                                                                                                                                                            [ 89%]
+tests/test_surface_Area_581.py .                                                                                                                                                                            [ 90%]
+tests/test_surfacearea_cube_441.py .                                                                                                                                                                        [ 90%]
+tests/test_surfacearea_cylinder_574.py .                                                                                                                                                                    [ 90%]
+tests/test_surfacearea_sphere_85.py .                                                                                                                                                                       [ 91%]
+tests/test_swap_List_591.py .                                                                                                                                                                               [ 91%]
+tests/test_swap_List_625.py .                                                                                                                                                                               [ 91%]
+tests/test_swap_numbers_257.py .                                                                                                                                                                            [ 91%]
+tests/test_test_duplicate_19.py E.                                                                                                                                                                          [ 92%]
+tests/test_test_three_equal_801.py E.                                                                                                                                                                       [ 92%]
+tests/test_tetrahedral_number_80.py .                                                                                                                                                                       [ 93%]
+tests/test_text_lowercase_underscore_16.py .                                                                                                                                                                [ 93%]
+tests/test_text_match_three_787.py .                                                                                                                                                                        [ 93%]
+tests/test_text_match_two_three_285.py .                                                                                                                                                                    [ 94%]
+tests/test_text_match_wordz_middle_643.py .                                                                                                                                                                 [ 94%]
+tests/test_text_match_zero_one_756.py .                                                                                                                                                                     [ 94%]
+tests/test_text_starta_endb_794.py F                                                                                                                                                                        [ 94%]
+tests/test_triangle_area_626.py .                                                                                                                                                                           [ 95%]
+tests/test_trim_tuple_444.py F                                                                                                                                                                              [ 95%]
+tests/test_tuple_intersection_473.py .                                                                                                                                                                      [ 95%]
+tests/test_tuple_str_int_785.py F                                                                                                                                                                           [ 95%]
+tests/test_tuple_to_dict_740.py .                                                                                                                                                                           [ 96%]
+tests/test_tuple_to_int_116.py .                                                                                                                                                                            [ 96%]
+tests/test_two_unique_nums_572.py .                                                                                                                                                                         [ 96%]
+tests/test_union_elements_560.py .                                                                                                                                                                          [ 97%]
+tests/test_unique_Element_760.py .                                                                                                                                                                          [ 97%]
+tests/test_unique_product_573.py .                                                                                                                                                                          [ 97%]
+tests/test_unique_sublists_758.py F                                                                                                                                                                         [ 97%]
+tests/test_unique_sublists_779.py .                                                                                                                                                                         [ 98%]
+tests/test_validate_283.py .                                                                                                                                                                                [ 98%]
+tests/test_volume_cone_312.py .                                                                                                                                                                             [ 98%]
+tests/test_volume_cube_234.py .                                                                                                                                                                             [ 98%]
+tests/test_volume_cylinder_276.py .                                                                                                                                                                         [ 99%]
+tests/test_volume_sphere_82.py .                                                                                                                                                                            [ 99%]
+tests/test_wind_chill_638.py .                                                                                                                                                                              [ 99%]
+tests/test_zero_count_137.py .                                                                                                                                                                              [100%]
+
+============================================================================================= short test summary info =============================================================================================
+FAILED tests/test_add_nested_tuples_401.py::test_fuzz - UnboundLocalError: cannot access local variable 'tuples' where it is not associated with a value
+FAILED tests/test_amicable_numbers_sum_123.py::test_fuzz - hypothesis.errors.DeadlineExceeded: Test took 251.12ms, which exceeds the deadline of 200.00ms
+FAILED tests/test_and_tuples_429.py::test_fuzz - TypeError: tuples() got an unexpected keyword argument 'min_size'
+FAILED tests/test_bell_number_67.py::test_fuzz - hypothesis.errors.DeadlineExceeded: Test took 248.74ms, which exceeds the deadline of 200.00ms
+FAILED tests/test_catalan_number_583.py::test_fuzz - hypothesis.errors.Flaky: Inconsistent test results! Test case was Conclusion(status=Status.INTERESTING, interesting_origin=(<class 'hypothesis.errors.DeadlineExceeded'>, '/home/mrigankp/.local/lib/python3.1...
+FAILED tests/test_change_date_format_427.py::test_fuzz - ValueError: day is out of range for month
+FAILED tests/test_check_str_737.py::test_fuzz - hypothesis.errors.InvalidArgument: Expected a SearchStrategy but got <function check_str at 0x7f2d1aec3920> (type=function)
+FAILED tests/test_check_value_464.py::test_fuzz - TypeError: unhashable type: 'list'
+FAILED tests/test_combinations_colors_255.py::test_fuzz - hypothesis.errors.DeadlineExceeded: Test took 238.11ms, which exceeds the deadline of 200.00ms
+FAILED tests/test_count_Primes_nums_256.py::test_fuzz - hypothesis.errors.DeadlineExceeded: Test took 252.82ms, which exceeds the deadline of 200.00ms
+FAILED tests/test_cube_Sum_420.py::test_fuzz - hypothesis.errors.DeadlineExceeded: Test took 248.22ms, which exceeds the deadline of 200.00ms
+FAILED tests/test_dict_depth_301.py::test_fuzz - NameError: name 'base' is not defined
+FAILED tests/test_divisible_by_digits_745.py::test_fuzz - hypothesis.errors.DeadlineExceeded: Test took 254.14ms, which exceeds the deadline of 200.00ms
+FAILED tests/test_eulerian_num_103.py::test_fuzz - hypothesis.errors.Flaky: Hypothesis test_fuzz(args=(22, 9)) produces unreliable results: Falsified on the first call but did not on a subsequent one
+FAILED tests/test_even_ele_580.py::test_fuzz - hypothesis.errors.FailedHealthCheck: It looks like your strategy is filtering out a lot of data. Health check found 50 filtered examples but only 0 good ones. This will make your tests much slower, and also...
+FAILED tests/test_extract_values_563.py::test_fuzz - UnboundLocalError: cannot access local variable 'text' where it is not associated with a value
+FAILED tests/test_find_adverb_position_440.py::test_fuzz - AttributeError: 'str' object has no attribute 'validate'
+FAILED tests/test_find_first_occurrence_733.py::test_fuzz - NameError: name 'sorted_lists' is not defined
+FAILED tests/test_find_lists_143.py::test_fuzz - UnboundLocalError: cannot access local variable 'lists' where it is not associated with a value
+FAILED tests/test_find_lucas_389.py::test_fuzz - hypothesis.errors.Flaky: Hypothesis test_fuzz(args=(29,)) produces unreliable results: Falsified on the first call but did not on a subsequent one
+FAILED tests/test_find_solution_160.py::test_fuzz - timeout.TimeoutError: Timeout
+FAILED tests/test_find_tuples_75.py::test_fuzz - UnboundLocalError: cannot access local variable 'tuples' where it is not associated with a value
+FAILED tests/test_get_max_sum_392.py::test_fuzz - hypothesis.errors.DeadlineExceeded: Test took 250.36ms, which exceeds the deadline of 200.00ms
+FAILED tests/test_get_total_number_of_sequences_239.py::test_fuzz - hypothesis.errors.DeadlineExceeded: Test took 246.30ms, which exceeds the deadline of 200.00ms
+FAILED tests/test_is_perfect_square_803.py::test_fuzz - hypothesis.errors.DeadlineExceeded: Test took 248.72ms, which exceeds the deadline of 200.00ms
+FAILED tests/test_max_sum_increasing_subseq_306.py::test_fuzz - hypothesis.errors.DeadlineExceeded: Test took 246.27ms, which exceeds the deadline of 200.00ms
+FAILED tests/test_newman_prime_260.py::test_fuzz - hypothesis.errors.Flaky: Hypothesis test_fuzz(args=(28,)) produces unreliable results: Falsified on the first call but did not on a subsequent one
+FAILED tests/test_nth_nums_623.py::test_fuzz - hypothesis.errors.DeadlineExceeded: Test took 254.58ms, which exceeds the deadline of 200.00ms
+FAILED tests/test_polar_rect_590.py::test_fuzz - NameError: name 'math' is not defined
+FAILED tests/test_power_base_sum_724.py::test_fuzz - hypothesis.errors.DeadlineExceeded: Test took 249.06ms, which exceeds the deadline of 200.00ms
+FAILED tests/test_remove_lowercase_478.py::test_fuzz - NameError: name 'string' is not defined
+FAILED tests/test_remove_odd_412.py::test_fuzz - TypeError: unsupported operand type(s) for %: 'list' and 'int'
+FAILED tests/test_replace_specialchar_732.py::test_fuzz - hypothesis.errors.FailedHealthCheck: It looks like your strategy is filtering out a lot of data. Health check found 50 filtered examples but only 8 good ones. This will make your tests much slower, and also...
+FAILED tests/test_sequence_84.py::test_fuzz - hypothesis.errors.Flaky: Hypothesis test_fuzz(args=(19,)) produces unreliable results: Falsified on the first call but did not on a subsequent one
+FAILED tests/test_snake_to_camel_411.py::test_fuzz - NameError: name 'string' is not defined
+FAILED tests/test_substract_elements_273.py::test_fuzz - TypeError: tuples() got an unexpected keyword argument 'min_size'
+FAILED tests/test_sumofFactors_453.py::test_fuzz - timeout.TimeoutError: Timeout
+FAILED tests/test_text_starta_endb_794.py::test_fuzz - hypothesis.errors.FailedHealthCheck: It looks like your strategy is filtering out a lot of data. Health check found 50 filtered examples but only 0 good ones. This will make your tests much slower, and also...
+FAILED tests/test_trim_tuple_444.py::test_fuzz - UnboundLocalError: cannot access local variable 'tuples' where it is not associated with a value
+FAILED tests/test_tuple_str_int_785.py::test_fuzz - ValueError: invalid literal for int() with base 10: ''
+FAILED tests/test_unique_sublists_758.py::test_fuzz - hypothesis.errors.InvalidArgument: Expected a SearchStrategy, such as st.sampled_from(elements), but got elements=[] (type=list)
+ERROR tests/test_area_polygon_163.py - NameError: name 'MAX_SIDE_LENGTH' is not defined
+ERROR tests/test_average_tuple_615.py - NameError: name 'MIN_TUPLE_SIZE' is not defined
+ERROR tests/test_check_Consecutive_472.py - TypeError: lists() got an unexpected keyword argument 'ordered'
+ERROR tests/test_check_K_808.py - NameError: name 'MAX_TUPLE_LEN' is not defined
+ERROR tests/test_check_expression_771.py - NameError: name 'st' is not defined
+ERROR tests/test_check_integer_113.py - NameError: name 'MAX_STRING_LEN' is not defined
+ERROR tests/test_check_min_heap_helper_751.py - NameError: name 'MAX_HEAP_SIZE' is not defined
+ERROR tests/test_check_tuplex_405.py - TypeError: tuples() got an unexpected keyword argument 'elements'
+ERROR tests/test_concatenate_tuple_421.py - TypeError: tuples() got an unexpected keyword argument 'elements'
+ERROR tests/test_count_Pairs_564.py - NameError: name 'n' is not defined
+ERROR tests/test_count_Substrings_61.py - NameError: name 'strategy' is not defined
+ERROR tests/test_count_charac_242.py - NameError: name 'MAX_STRING_LEN' is not defined
+ERROR tests/test_count_occurance_172.py - NameError: name 'string' is not defined
+ERROR tests/test_count_reverse_pairs_757.py - NameError: name 'string' is not defined
+ERROR tests/test_division_elements_261.py - TypeError: 'LazyStrategy' object is not callable
+ERROR tests/test_divisor_96.py - NameError: name 'positive_integers' is not defined
+ERROR tests/test_empty_dit_115.py - NameError: name 'any_type' is not defined
+ERROR tests/test_extract_nth_element_413.py - TypeError: tuples() got an unexpected keyword argument 'elements'
+ERROR tests/test_extract_quotation_725.py - TypeError: cannot unpack non-iterable LazyStrategy object
+ERROR tests/test_find_Odd_Pair_556.py - NameError: name 'N' is not defined
+ERROR tests/test_find_Rotations_9.py - NameError: name 'string' is not defined
+ERROR tests/test_find_equal_tuple_70.py - NameError: name 'MAX_TUPLE_SIZE' is not defined
+ERROR tests/test_find_literals_607.py - TypeError: 'LazyStrategy' object is not callable
+ERROR tests/test_find_min_diff_763.py - NameError: name 'n' is not defined
+ERROR tests/test_flatten_list_297.py - ValueError: Cannot | a SearchStrategy with <function lists at 0x7f2d1b11fe20>
+ERROR tests/test_geometric_sum_738.py - NameError: name 'MAX_N' is not defined
+ERROR tests/test_get_Char_83.py - NameError: name 'MIN_SEQUENCE_LEN' is not defined
+ERROR tests/test_get_median_622.py - NameError: name 'n' is not defined
+ERROR tests/test_group_tuples_417.py - TypeError: tuples() got an unexpected keyword argument 'elements'
+ERROR tests/test_index_multiplication_445.py - TypeError: cannot unpack non-iterable LazyStrategy object
+ERROR tests/test_is_lower_477.py - NameError: name 'string' is not defined
+ERROR tests/test_is_samepatterns_74.py - TypeError: object of type 'LazyStrategy' has no len()
+ERROR tests/test_is_upper_624.py - NameError: name 'string' is not defined
+ERROR tests/test_lateralsurface_cube_266.py - NameError: name 'MAX_LEN' is not defined
+ERROR tests/test_lcs_of_three_747.py - TypeError: cannot unpack non-iterable LazyStrategy object
+ERROR tests/test_len_log_90.py - NameError: name 'string' is not defined
+ERROR tests/test_lps_247.py - NameError: name 'string' is not defined
+ERROR tests/test_magic_square_test_129.py - IndexError: list index out of range
+ERROR tests/test_max_aggregate_299.py - TypeError: 'LazyStrategy' object is not callable
+ERROR tests/test_max_run_uppercase_806.py - TypeError: characters() got an unexpected keyword argument 'uppercase'
+ERROR tests/test_max_sum_list_805.py - NameError: name 'MIN_LIST_LEN' is not defined
+ERROR tests/test_merge_612.py - NameError: name 'any_type' is not defined
+ERROR tests/test_occurance_substring_773.py - TypeError: 'LazyStrategy' object is not callable
+ERROR tests/test_pair_xor_Sum_633.py - NameError: name 'n' is not defined
+ERROR tests/test_re_arrange_array_229.py - NameError: name 'n' is not defined
+ERROR tests/test_recursive_list_sum_65.py - NameError: name 'data_list' is not defined
+ERROR tests/test_remove_odd_437.py - NameError: name 'string' is not defined
+ERROR tests/test_remove_parenthesis_640.py - NameError: name 'string' is not defined
+ERROR tests/test_remove_uppercase_459.py - NameError: name 'string' is not defined
+ERROR tests/test_remove_whitespaces_451.py - NameError: name 'string' is not defined
+ERROR tests/test_reverse_words_604.py - NameError: name 'string' is not defined
+ERROR tests/test_snake_to_camel_102.py - NameError: name 'string' is not defined
+ERROR tests/test_string_to_list_118.py - NameError: name 'string' is not defined
+ERROR tests/test_text_match_one_434.py - NameError: name 'string' is not defined
+ERROR tests/test_text_match_wordz_454.py - NameError: name 'string' is not defined
+ERROR tests/test_toggle_string_557.py - NameError: name 'string' is not defined
+ERROR tests/test_tup_string_132.py - TypeError: tuples() got an unexpected keyword argument 'elements'
+ERROR tests/test_tuple_modulo_616.py - TypeError: cannot unpack non-iterable LazyStrategy object
+ERROR tests/test_tuple_size_596.py - TypeError: tuples() got an unexpected keyword argument 'elements'
+ERROR tests/test_upper_ctr_461.py - NameError: name 'string' is not defined
+ERROR tests/test_word_len_79.py - NameError: name 'string' is not defined
+ERROR tests/test_test_duplicate_19.py::test_duplicate
+ERROR tests/test_test_three_equal_801.py::test_three_equal
+============================================================================== 41 failed, 325 passed, 63 errors in 506.62s (0:08:26) ==============================================================================
