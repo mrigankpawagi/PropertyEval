@@ -10,8 +10,8 @@ from typing import *
                 
 import math
 
-r = floats(min_value=0)
-h = floats(min_value=0)
+r = floats(min_value=0.0)
+h = floats(min_value=0.0)
 
 strategy = r, h
 if not isinstance(strategy, tuple):

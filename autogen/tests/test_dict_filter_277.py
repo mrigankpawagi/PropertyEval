@@ -10,13 +10,13 @@ from typing import *
                 
 from hypothesis import strategies as st
 
-def dict_filter(dictionary: Dict[str, int], n: int) -> Dict[str, int]:
-    return {k: v for k, v in dictionary.items() if v >= n}
+@st.composite
+def dictionary_and_integer(draw):
+    keys = st.text(min_size=1)
+    values = st.integers()
+    return draw(st.dictionaries(keys, values)), draw(st.integers(min_value=0))
 
-dictionary = st.dictionaries(st.text(min_size=1), st.integers())
-n = st.integers()
-
-strategy = dictionary, n
+strategy = dictionary_and_integer()
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

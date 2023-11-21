@@ -8,23 +8,13 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from typing import List
-
 @composite
-def generate_min_heap(draw, size):
-    heap = []
-    for i in range(size):
-        heap.append(draw(integers()))
-        if i > 0 and heap[i] < heap[(i-1)//2]:
-            temp = heap[i]
-            j = i
-            while j > 0 and temp < heap[(j-1)//2]:
-                heap[j] = heap[(j-1)//2]
-                j = (j-1)//2
-            heap[j] = temp
-    return heap
+def create_min_heap(draw):
+    n = draw(integers(min_value=1, max_value=100))
+    arr = draw(lists(integers(min_value=1, max_value=100), min_size=n, max_size=n))
+    return arr
 
-arr = generate_min_heap(size=MAX_HEAP_SIZE)
+arr = create_min_heap()
 
 strategy = arr
 if not isinstance(strategy, tuple):

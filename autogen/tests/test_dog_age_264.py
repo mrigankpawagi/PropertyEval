@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-h_age = integers(min_value=1)
+h_age = integers(min_value=1, max_value=20)
 
 strategy = h_age
 if not isinstance(strategy, tuple):

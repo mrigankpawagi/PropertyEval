@@ -8,9 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-arr = lists(integers(), min_size=1)
-ranges = lists(lists(integers(min_value=0), min_size=2, max_size=2), min_size=1)
-rotations = integers(min_value=0)
+arr = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=1, max_size=MAX_SEQUENCE_LEN)
+ranges = lists(lists(integers(min_value=0, max_value=MAX_SEQUENCE_LEN-1), min_size=2, max_size=2), max_size=MAX_SEQUENCE_LEN)
+rotations = integers(min_value=0, max_value=MAX_INT)
 index = integers(min_value=0)
 
 strategy = arr, ranges, rotations, index

@@ -8,9 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-dict1 = dictionaries(keys=text(), values=text())
-dict2 = dictionaries(keys=text(), values=text())
-dict3 = dictionaries(keys=text(), values=text())
+dict1 = dictionaries(keys=text(alphabet=string.ascii_uppercase), values=text(alphabet=string.ascii_uppercase))
+dict2 = dictionaries(keys=text(alphabet=string.ascii_uppercase), values=text(alphabet=string.ascii_uppercase))
+dict3 = dictionaries(keys=text(alphabet=string.ascii_uppercase), values=text(alphabet=string.ascii_uppercase))
 
 strategy = dict1, dict2, dict3
 if not isinstance(strategy, tuple):

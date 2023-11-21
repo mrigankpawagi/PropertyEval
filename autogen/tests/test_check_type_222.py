@@ -9,11 +9,12 @@ from timeout import run_with_timeout
 from typing import *
                 
 @composite
-def get_tuple(draw):
-    elements = draw(lists(elements=integers() | floats() | text() | booleans(), min_size=1, max_size=MAX_SEQUENCE_LEN))
+def create_mixed_tuple(draw):
+    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
+    elements = draw(lists(one_of(integers(), floats(), text())), min_size=n, max_size=n)
     return tuple(elements)
 
-test_tuple = get_tuple()
+test_tuple = create_mixed_tuple()
 
 strategy = test_tuple
 if not isinstance(strategy, tuple):

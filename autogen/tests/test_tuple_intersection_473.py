@@ -14,10 +14,10 @@ def create_tuple_list(draw):
     tuple_list = draw(lists(tuples(integers(), integers()), min_size=n, max_size=n))
     return tuple_list
 
-tuple_list1 = create_tuple_list()
-tuple_list2 = create_tuple_list()
+test_list1 = create_tuple_list()
+test_list2 = create_tuple_list()
 
-strategy = tuple_list1, tuple_list2
+strategy = test_list1, test_list2
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

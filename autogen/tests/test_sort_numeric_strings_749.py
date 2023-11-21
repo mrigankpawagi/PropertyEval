@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-nums_str = lists(text(alphabet=characters(min_codepoint=48, max_codepoint=57), min_size=1, max_size=MAX_SEQUENCE_LEN))
+nums_str = lists(text(alphabet=digits(min_value=0, max_value=9), min_size=1, max_size=10), min_size=1, max_size=10)
 
 strategy = nums_str
 if not isinstance(strategy, tuple):

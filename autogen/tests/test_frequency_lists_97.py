@@ -8,13 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def create_list(draw):
-    n = draw(integers(min_value=1, max_value=10))
-    lst = draw(lists(integers(min_value=1, max_value=100), min_size=n, max_size=n))
-    return lst
-
-list1 = create_list()
+list1 = lists(lists(integers(), max_size=MAX_SEQUENCE_LEN), max_size=MAX_SEQUENCE_LEN)
 
 strategy = list1
 if not isinstance(strategy, tuple):

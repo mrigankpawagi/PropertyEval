@@ -9,12 +9,14 @@ from timeout import run_with_timeout
 from typing import *
                 
 @composite
-def create_ip_address(draw):
-    nums = [str(draw(integers(min_value=0, max_value=255))) for _ in range(4)]
-    ip = '.'.join(nums)
-    return ip
+def ip_address(draw):
+    a = draw(integers(min_value=0, max_value=255))
+    b = draw(integers(min_value=0, max_value=255))
+    c = draw(integers(min_value=0, max_value=255))
+    d = draw(integers(min_value=0, max_value=255))
+    return f"{a}.{b}.{c}.{d}"
 
-ip = create_ip_address()
+ip = ip_address()
 
 strategy = ip
 if not isinstance(strategy, tuple):

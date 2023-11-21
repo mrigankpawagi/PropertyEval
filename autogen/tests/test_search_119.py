@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-arr = lists(integers(), min_size=1, unique=True)
+arr = lists(integers(), min_size=3, average_size=10).map(sorted)
 
 strategy = arr
 if not isinstance(strategy, tuple):

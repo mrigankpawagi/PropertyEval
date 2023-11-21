@@ -8,9 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-listval = lists(one_of(integers(), floats(), text()), min_size=1, max_size=MAX_SEQUENCE_LEN)
+def create_listval():
+    return lists(one_of(integers(), floats(), text()), min_size=1)
 
-strategy = listval
+strategy = create_listval()
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-list1 = lists(lists(text(), max_size=MAX_SEQUENCE_LEN), max_size=MAX_SEQUENCE_LEN)
+list1 = lists(lists(text(), min_size=1))
 
 strategy = list1
 if not isinstance(strategy, tuple):

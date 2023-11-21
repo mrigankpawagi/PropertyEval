@@ -9,12 +9,13 @@ from timeout import run_with_timeout
 from typing import *
                 
 @composite
-def create_text(draw):
-    n = draw(integers(min_value=1, max_value=10))
-    text = draw(text(min_size=n, max_size=n))
+def create_quoted_string(draw):
+    values = draw(lists(text(min_size=1, alphabet=characters(blacklist_categories=('Cs', 'Cc', 'Pi', 'Pf'), whitelist_categories=('L', 'Z', 'P'))), min_size=1))
+    quoted_values = [f'"{value}"' for value in values]
+    text = ', '.join(quoted_values)
     return text
 
-text = create_text()
+text = create_quoted_string()
 
 strategy = text
 if not isinstance(strategy, tuple):

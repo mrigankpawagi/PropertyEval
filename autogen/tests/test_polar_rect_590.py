@@ -8,13 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def polar_coordinates(draw):
-    r = draw(floats(min_value=0))
-    theta = draw(floats(min_value=0, max_value=2 * math.pi))
-    return r, theta
-
-x, y = polar_coordinates(), polar_coordinates()
+x = floats(min_value=0.0)
+y = floats(min_value=0.0)
 
 strategy = x, y
 if not isinstance(strategy, tuple):

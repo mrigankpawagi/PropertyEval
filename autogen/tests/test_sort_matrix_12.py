@@ -8,15 +8,16 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from typing import List
-from hypothesis import strategies as st
+@composite
+def create_matrix(draw):
+    n = draw(integers(min_value=1, max_value=10))
+    m = draw(integers(min_value=1, max_value=10))
+    matrix = draw(lists(lists(integers(), min_size=m, max_size=m), min_size=n, max_size=n))
+    return matrix
 
-def sort_matrix(M: List[List[int]]) -> List[List[int]]:
-    return sorted(M, key=lambda row: sum(row))
+M = create_matrix()
 
-matrix_strategy = st.lists(st.lists(st.integers()))
-
-strategy = matrix_strategy,
+strategy = M
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

@@ -8,23 +8,30 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
+from collections import defaultdict
+
+@composite
+def create_string(draw):
+    size = draw(integers(min_value=1, max_value=100))
+    string = draw(text(alphabet='123456789', min_size=size, max_size=size))
+    return string
+
 def count_Substrings(string: str) -> int:
-    """
-    Count the number of substrings with the sum of digits equal to their length.
+    count = 0
+    prefix_sum = defaultdict(int)
+    prefix_sum[0] = 1
+    current_sum = 0
+    
+    for digit in string:
+        current_sum += int(digit)
+        count += prefix_sum[current_sum - len(string)]
+        prefix_sum[current_sum] += 1
+    
+    return count
 
-    Args:
-        string: The input string.
+string = create_string()
 
-    Returns:
-        The count of substrings.
-
-    Examples:
-        >>> count_Substrings('112112')
-        6
-        >>> count_Substrings('111')
-        6
-    """
-    pass
+strategy = string
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

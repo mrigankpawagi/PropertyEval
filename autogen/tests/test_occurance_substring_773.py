@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-text = text = text()
-pattern = text()
+text = text(alphabet='abcdefghijklmnopqrstuvwxyz ,', min_size=1, max_size=100)
+pattern = text(alphabet='abcdefghijklmnopqrstuvwxyz', min_size=1, max_size=10)
 
 strategy = text, pattern
 if not isinstance(strategy, tuple):

@@ -8,10 +8,17 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-test_tup = tuples(elements=one_of(integers(), text()), min_size=2, max_size=10)
-delimiter = text()
+test_tup = tuples(
+    one_of(
+        integers(), 
+        text(alphabet=string.ascii_letters), 
+        text(alphabet=string.digits)
+    ),
+    min_size=1,
+    max_size=MAX_SEQUENCE_LEN
+).map(lambda x: tuple(map(str, x)))
 
-strategy = test_tup, delimiter
+strategy = test_tup
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

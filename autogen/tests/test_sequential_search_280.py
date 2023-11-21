@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-dlist = lists(integers(), min_size=1)
+dlist = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
 item = integers()
 
 strategy = dlist, item

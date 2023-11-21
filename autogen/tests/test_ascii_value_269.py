@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-k = characters()
+k = characters(blacklist_categories=('C',))
 
 strategy = k
 if not isinstance(strategy, tuple):

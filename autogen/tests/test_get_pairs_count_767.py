@@ -8,10 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-arr = lists(integers(), min_size=2)
-sum_value = integers()
+arr = lists(integers(min_value=MIN_INT, max_value=MAX_INT), max_size=MAX_SEQUENCE_LEN)
+sum = integers(min_value=MIN_INT, max_value=MAX_INT)
 
-strategy = arr, sum_value
+strategy = arr, sum
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

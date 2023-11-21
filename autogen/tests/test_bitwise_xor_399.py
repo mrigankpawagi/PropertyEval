@@ -9,15 +9,12 @@ from timeout import run_with_timeout
 from typing import *
                 
 @composite
-def create_tuples(draw):
-    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
-    tuple_len = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
-    tuple_values = draw(lists(integers(), min_size=tuple_len, max_size=tuple_len))
-    tup = tuple([tuple_values] * n)
-    return tup
+def create_tuple(draw):
+    n = draw(integers(min_value=1, max_value=10))
+    return draw(tuples(integers(), min_size=n, max_size=n))
 
-test_tup1 = create_tuples()
-test_tup2 = create_tuples()
+test_tup1 = create_tuple()
+test_tup2 = create_tuple()
 
 strategy = test_tup1, test_tup2
 if not isinstance(strategy, tuple):

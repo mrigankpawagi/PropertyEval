@@ -8,16 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def create_tuples(draw):
-    n = draw(integers(min_value=1, max_value=10))
-    tuple1 = draw(tuples(integers(min_value=1, max_value=100), min_size=n, max_size=n))
-    tuple2 = draw(tuples(integers(min_value=1, max_value=100), min_size=n, max_size=n))
-    return tuple1, tuple2
+test_tup1 = tuples(floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT, allow_nan=False, allow_infinity=False), min_size=1, max_size=SMALL_SEQUENCE_LEN)
+test_tup2 = tuples(floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT, allow_nan=False, allow_infinity=False), min_size=1, max_size=SMALL_SEQUENCE_LEN)
 
-tuples = create_tuples()
-
-strategy = tuples
+strategy = test_tup1, test_tup2
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

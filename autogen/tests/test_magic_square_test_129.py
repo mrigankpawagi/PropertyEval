@@ -8,47 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from typing import List
+my_matrix = lists(lists(integers(), min_size=3, max_size=3), min_size=3, max_size=3)
 
-from hypothesis import strategies as st, given
-
-
-def magic_square_test(matrix: List[List[int]]) -> bool:
-    """
-    Calculate whether the matrix is a magic square.
-
-    Args:
-        matrix: The matrix to check.
-
-    Returns:
-        True if the matrix is a magic square, False otherwise.
-    """
-    n = len(matrix)
-    target_sum = sum(matrix[0])
-
-    # Check rows
-    if any(sum(row) != target_sum for row in matrix):
-        return False
-
-    # Check columns
-    if any(sum(col) != target_sum for col in zip(*matrix)):
-        return False
-
-    # Check diagonals
-    if sum(matrix[i][i] for i in range(n)) != target_sum:
-        return False
-    if sum(matrix[i][n - i - 1] for i in range(n)) != target_sum:
-        return False
-
-    return True
-
-
-@given(st.lists(st.lists(st.integers())))
-def test_magic_square(matrix):
-    magic_square_test(matrix)
-
-
-test_magic_square()
+strategy = my_matrix
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

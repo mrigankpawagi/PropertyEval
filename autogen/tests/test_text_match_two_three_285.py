@@ -8,11 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-text = text(
-    alphabet=characters(min_codepoint=97, max_codepoint=99),
-    min_size=1,
-    max_size=4
-)
+from hypothesis import strategies as st
+
+text = st.text()
 
 strategy = text
 if not isinstance(strategy, tuple):

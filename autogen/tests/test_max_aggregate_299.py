@@ -8,11 +8,14 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-names = lists(text(min_size=1), min_size=1, unique=True)
-scores = lists(integers(min_value=0))
-tuples = lists(tuples(names, scores), min_size=1)
+@composite
+def create_tuple_list(draw):
+    n = draw(integers(min_value=1, max_value=100))
+    return draw(lists(tuples(text(), integers(min_value=0, max_value=100)), min_size=n, max_size=n))
 
-strategy = tuples
+tuples_list = create_tuple_list()
+
+strategy = tuples_list
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

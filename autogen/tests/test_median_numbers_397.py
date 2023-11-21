@@ -8,9 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-a = integers(min_value=MIN_INT, max_value=MAX_INT)
-b = integers(min_value=MIN_INT, max_value=MAX_INT)
-c = integers(min_value=MIN_INT, max_value=MAX_INT)
+a = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
+b = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
+c = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
 
 strategy = a, b, c
 if not isinstance(strategy, tuple):

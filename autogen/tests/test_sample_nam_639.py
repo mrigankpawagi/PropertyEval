@@ -8,8 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-sample_names = lists(text(alphabet=characters(min_codepoint=65, max_codepoint=90)),
-                      min_size=1, max_size=MAX_SEQUENCE_LEN)
+sample_names = lists(text(alphabet=string.ascii_letters, min_size=1), min_size=1)
 
 strategy = sample_names
 if not isinstance(strategy, tuple):

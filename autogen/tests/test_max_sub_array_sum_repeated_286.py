@@ -8,14 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def create_array(draw):
-    n = draw(integers(min_value=1, max_value=10))
-    a = draw(lists(integers(min_value=-100, max_value=100), min_size=n, max_size=n))
-    return a
-
-a = create_array()
-n = integers(min_value=1, max_value=10)
+a = lists(integers(min_value=MIN_INT, max_value=MAX_INT))
+n = integers(min_value=1, max_value=100)
 k = integers(min_value=1, max_value=10)
 
 strategy = a, n, k

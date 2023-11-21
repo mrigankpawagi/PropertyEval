@@ -9,12 +9,14 @@ from timeout import run_with_timeout
 from typing import *
                 
 @composite
-def nested_dict(draw):
-    key = draw(text())
-    value = recursive(base, dictionaries)
-    return {key: value}
+def create_dict(draw):
+    keys = draw(lists(text(alphabet=string.ascii_letters, min_size=1, max_size=10), min_size=1, max_size=5))
+    def recur_dict():
+        values = draw(lists(one_of(integers(), text()), min_size=1, max_size=5))
+        return dict(zip(keys, values))
+    return draw(recursive(none() | recur_dict, dict))
 
-d = nested_dict()
+d = create_dict()
 
 strategy = d
 if not isinstance(strategy, tuple):

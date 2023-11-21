@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-numbers = floats(min_value=-MAX_FLOAT, max_value=MAX_FLOAT)
+numbers = floats()
 
 strategy = numbers
 if not isinstance(strategy, tuple):

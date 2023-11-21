@@ -8,12 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def snake_case_strings(draw):
-    word = draw(text(alphabet=string.ascii_lowercase + '_', min_size=1))
-    return word
-
-word = snake_case_strings()
+word = text(alphabet='abcdefghijklmnopqrstuvwxyz_')
+# Exclude min size 0 to avoid empty string
+word = word.filter(lambda x: len(x) > 0)
 
 strategy = word
 if not isinstance(strategy, tuple):

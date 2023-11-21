@@ -9,9 +9,9 @@ from timeout import run_with_timeout
 from typing import *
                 
 b = integers(min_value=1, max_value=10)
-h = integers(min_value=1, max_value=10)
+s = integers(min_value=1, max_value=10)
 
-strategy = b, h
+strategy = b, s
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

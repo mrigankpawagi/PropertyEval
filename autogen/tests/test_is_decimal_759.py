@@ -8,17 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from decimal import Decimal
-
-@composite
-def decimal_precision_2(draw):
-    num = draw(floats(min_value=0.0, max_value=1000.0))
-    num = "{:.2f}".format(num)
-    return num
-
-num = decimal_precision_2()
-
-strategy = num
+num = text(alphabet='0123456789.', min_size=3, max_size=10)
+strategy = num.filter(lambda x: x.count('.') == 1 and len(x.split('.')[1]) == 2)
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

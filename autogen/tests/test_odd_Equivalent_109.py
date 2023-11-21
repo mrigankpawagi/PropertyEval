@@ -8,10 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from hypothesis import strategies as st
-
-s = st.text(alphabet="01", min_size=1)
-n = st.integers(min_value=0)
+s = text(alphabet='01', min_size=1, max_size=MAX_SEQUENCE_LEN)
+n = integers(min_value=0, max_value=MAX_INT)
 
 strategy = s, n
 if not isinstance(strategy, tuple):

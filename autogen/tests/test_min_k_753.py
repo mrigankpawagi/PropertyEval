@@ -8,13 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from hypothesis import strategies as st
-
-def min_k(test_list, K):
-    return sorted(test_list, key=lambda x: x[1])[:K]
-
-test_list = st.lists(st.tuples(st.text(), st.integers()))
-K = st.integers(min_value=1)
+test_list = lists(tuples(text(), integers()), min_size=1, max_size=10)
+K = integers(min_value=1, max_value=10)
 
 strategy = test_list, K
 if not isinstance(strategy, tuple):

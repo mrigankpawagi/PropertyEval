@@ -9,14 +9,9 @@ from timeout import run_with_timeout
 from typing import *
                 
 Input = lists(
-    tuples(
-        integers(min_value=MIN_INT, max_value=MAX_INT),
-        min_size=1,
-        max_size=MAX_TUPLE_SIZE
-    ),
-    min_size=1,
-    max_size=MAX_LIST_SIZE
-)
+  tuples(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=1, max_size=MAX_SEQUENCE_LEN),
+  min_size=1,
+  max_size=MAX_SEQUENCE_LEN)
 
 strategy = Input
 if not isinstance(strategy, tuple):

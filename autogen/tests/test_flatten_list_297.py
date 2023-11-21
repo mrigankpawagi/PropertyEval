@@ -8,7 +8,11 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-list1 = recursive(integers() | lists, max_leaves=MAX_SEQUENCE_LEN)
+@composite
+def nested_list():
+    return lists(one_of(integers(), integers().flatmap(nested_list())), min_size=1)
+
+list1 = nested_list()
 
 strategy = list1
 if not isinstance(strategy, tuple):

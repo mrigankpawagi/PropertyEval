@@ -8,15 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-nums = lists(
-    tuples(
-        integers(min_value=MIN_INT, max_value=MAX_INT),
-        min_size=MIN_TUPLE_SIZE,
-        max_size=MAX_TUPLE_SIZE,
-    ),
-    min_size=MIN_LIST_SIZE,
-    max_size=MAX_LIST_SIZE,
-)
+nums = tuples(integers())
 
 strategy = nums
 if not isinstance(strategy, tuple):

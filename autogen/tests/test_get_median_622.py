@@ -10,7 +10,7 @@ from typing import *
                 
 arr1 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=n, max_size=n)
 arr2 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=n, max_size=n)
-n = integers(min_value=1, max_value=MAX_LEN)
+n = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
 
 strategy = arr1, arr2, n
 if not isinstance(strategy, tuple):

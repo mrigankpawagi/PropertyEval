@@ -8,7 +8,13 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-text = text(alphabet=characters(), min_size=1).filter(lambda x: 'a' in x and x.endswith('b'))
+@composite
+def create_text(draw):
+    prefix = draw(text(alphabet='abcdefghijklmnopqrstuvwxyz', min_size=0, max_size=10))
+    suffix = draw(text(alphabet='abcdefghijklmnopqrstuvwxyz', min_size=1, max_size=10))
+    return prefix + 'a' + suffix + 'b'
+
+text = create_text()
 
 strategy = text
 if not isinstance(strategy, tuple):

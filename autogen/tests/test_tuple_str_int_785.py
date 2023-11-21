@@ -8,15 +8,13 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from hypothesis.strategies import integers, text, tuples
+import ast
 
-def tuple_str_int(test_str):
-    int_list = [int(x) for x in test_str.strip('()').split(', ')]
-    return tuple(int_list)
+def remove_paren(test_str):
+    test_str = test_str.replace('(', '').replace(')', '')
+    return test_str
 
-test_str = text().map(lambda x: f'({x})')
-
-strategy = test_str.map(tuple_str_int)
+strategy = text(min_size=1).filter(lambda x: '(' in x and ')' in x).map(remove_paren).map(lambda x: ast.literal_eval(x))
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

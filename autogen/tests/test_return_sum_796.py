@@ -8,9 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-dict = dictionaries(text(), integers())
+keys = lists(text(alphabet=string.ascii_lowercase, min_size=1, max_size=1), unique=True, min_size=1, max_size=5)
+values = lists(integers(min_value=0, max_value=100), min_size=1, max_size=5)
 
-strategy = dict
+strategy = dictionaries(keys, values)
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

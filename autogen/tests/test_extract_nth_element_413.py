@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-list1 = lists(tuples(elements=text(), min_size=1), min_size=1)
+list1 = lists(tuples(tuples(text(alphabet=string.ascii_letters, min_size=1, max_size=20), integers(min_value=0, max_value=100), integers(min_value=0, max_value=100)))).filter(lambda x: len(x) > 0)
 n = integers(min_value=0)
 
 strategy = list1, n

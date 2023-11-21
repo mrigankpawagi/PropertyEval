@@ -8,10 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-def lps_string():
-    return text(alphabet=string.ascii_uppercase + ' ', min_size=1)
+string = text(alphabet=characters(whitelist_categories=('L', 'P')), min_size=SMALL_SEQUENCE_LEN, max_size=MAX_SEQUENCE_LEN)
 
-strategy = lps_string()
+strategy = string
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

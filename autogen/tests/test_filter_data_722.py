@@ -8,22 +8,14 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from typing import Dict, Tuple
-
-@composite
-def create_data(draw):
-    n = draw(integers(min_value=1, max_value=10))
-    students = {}
-    for _ in range(n):
-        name = draw(text(alphabet=characters(min_codepoint=97, max_codepoint=122), min_size=1, max_size=10))
-        height = draw(floats(min_value=4.0, max_value=7.0, allow_nan=False, allow_infinity=False))
-        weight = draw(integers(min_value=40, max_value=100))
-        students[name] = (height, weight)
-    return students
-
-students = create_data()
-h = floats(min_value=4.0, max_value=7.0, allow_nan=False, allow_infinity=False)
-w = integers(min_value=40, max_value=100)
+students = dictionaries(
+    keys=text(alphabet=characters(min_codepoint=32, max_codepoint=126)),
+    values=tuples(floats(min_value=0, max_value=10), integers(min_value=0, max_value=100)),
+    min_size=1,
+    max_size=10
+)
+h = floats(min_value=0, max_value=10)
+w = floats(min_value=0, max_value=100)
 
 strategy = students, h, w
 if not isinstance(strategy, tuple):

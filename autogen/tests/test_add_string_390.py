@@ -9,7 +9,7 @@ from timeout import run_with_timeout
 from typing import *
                 
 list_ = lists(elements=one_of(integers(), characters()), min_size=1, max_size=MAX_SEQUENCE_LEN)
-string = from_regex(r'^[a-zA-Z0-9{}]*$', fullmatch=True)
+string = text(alphabet=string.ascii_letters + string.digits, min_size=1)
 
 strategy = list_, string
 if not isinstance(strategy, tuple):

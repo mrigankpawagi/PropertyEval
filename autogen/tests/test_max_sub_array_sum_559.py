@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-a = lists(integers(min_value=MIN_INT, max_value=MAX_INT), max_size=MAX_SEQUENCE_LEN)
+a = lists(integers(), min_size=size, max_size=size)
 size = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
 
 strategy = a, size

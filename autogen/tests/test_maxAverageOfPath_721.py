@@ -10,13 +10,13 @@ from typing import *
                 
 @composite
 def create_cost_matrix(draw):
-    n = draw(integers(min_value=1, max_value=10))
-    cost_matrix = draw(lists(lists(integers(min_value=1, max_value=10), min_size=n, max_size=n), min_size=n, max_size=n))
-    return cost_matrix
+    n = draw(integers(min_value=1, max_value=100))
+    cost = draw(lists(lists(integers(min_value=1, max_value=100), min_size=n, max_size=n), min_size=n, max_size=n))
+    return cost
 
-cost_matrix = create_cost_matrix()
+cost = create_cost_matrix()
 
-strategy = cost_matrix
+strategy = cost
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

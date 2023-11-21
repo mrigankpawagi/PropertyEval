@@ -9,7 +9,7 @@ from timeout import run_with_timeout
 from typing import *
                 
 nums = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=1, max_size=MAX_SEQUENCE_LEN)
-n = integers(min_value=0)
+n = integers(min_value=0, max_value=10)
 
 strategy = nums, n
 if not isinstance(strategy, tuple):

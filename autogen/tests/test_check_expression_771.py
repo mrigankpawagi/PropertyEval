@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-exp = st.from_regex(r'^[()[\]{}]*$', fullmatch=True)
+exp = text(alphabet="{}[]()", min_size=0)
 
 strategy = exp
 if not isinstance(strategy, tuple):

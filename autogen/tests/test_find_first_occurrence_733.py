@@ -8,14 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def create_array(draw):
-    n = draw(integers(min_value=1, max_value=100))
-    array = draw(sorted_lists(integers(), min_size=n, max_size=n))
-    return array
-
-A = create_array()
-x = integers()
+A = lists(integers(min_value=MIN_INT, max_value=MAX_INT), unique=True, max_size=MAX_SEQUENCE_LEN)
+x = integers(min_value=MIN_INT, max_value=MAX_INT)
 
 strategy = A, x
 if not isinstance(strategy, tuple):

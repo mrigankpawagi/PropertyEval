@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-limit = integers(min_value=1, max_value=9999)
+limit = integers(min_value=1, max_value=10000)
 
 strategy = limit
 if not isinstance(strategy, tuple):

@@ -8,13 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-test_tup = tuples(integers(), integers(), integers(), integers())
-
-test_dict = fixed_dictionaries({
-    'MSAM': integers(),
-    'is': integers(),
-    'best': integers()
-})
+test_tup = tuples(integers(min_value=MIN_INT, max_value=MAX_INT), integers(min_value=MIN_INT, max_value=MAX_INT), integers(min_value=MIN_INT, max_value=MAX_INT))
+test_dict = fixed_dictionaries({'key': text(), 'value': integers()})
 
 strategy = test_tup, test_dict
 if not isinstance(strategy, tuple):

@@ -9,7 +9,7 @@ from timeout import run_with_timeout
 from typing import *
                 
 test_tup1 = tuples(integers())
-test_tup2 = tuples(integers())
+test_tup2 = tuples(integers()).filter(lambda t: all(x < y for x, y in zip(t, test_tup1)))
 
 strategy = test_tup1, test_tup2
 if not isinstance(strategy, tuple):

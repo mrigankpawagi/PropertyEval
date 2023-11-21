@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-dict1 = dictionaries(keys=text(), values=one_of(text(), none()))
+dict1 = dictionaries(keys=text(alphabet=string.ascii_lowercase), values=one_of(text(), none()))
 
 strategy = dict1
 if not isinstance(strategy, tuple):

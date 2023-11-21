@@ -10,10 +10,10 @@ from typing import *
                 
 from math import sqrt
 
-a = floats(min_value=0, exclude_min=True)
-b = floats(min_value=0, exclude_min=True)
+w = floats(min_value=0.0, exclude_min=True)
+h = floats(min_value=0.0, exclude_min=True)
 
-strategy = a, b
+strategy = w, h
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

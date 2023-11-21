@@ -8,15 +8,15 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from hypothesis import strategies as st
+import re
 
-def vowels():
-    return st.sampled_from(['a', 'e', 'i', 'o', 'u'])
+vowels = ['a', 'e', 'i', 'o', 'u']
+start_with_vowel = sampled_from(vowels)
 
 def check_str():
-    return st.from_regex(r'^[aeiou]', fullmatch=True)
+    return strings().filter(lambda s: re.match(start_with_vowel, s[0]))
 
-strategy = check_str
+strategy = check_str()
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

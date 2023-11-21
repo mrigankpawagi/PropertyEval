@@ -8,18 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-import datetime
+dt = dates()
+date_format = "%d-%m-%Y"
 
-def get_date():
-    year = integers(min_value=1000, max_value=9999)
-    month = integers(min_value=1, max_value=12)
-    day = integers(min_value=1, max_value=31)
-    date = year.flatmap(lambda y: month.flatmap(lambda m: day.map(lambda d: (y, m, d))))
-    return date.map(lambda x: datetime.date(*x))
-
-dt = get_date()
-
-strategy = dt
+strategy = dt.map(lambda dt: dt.strftime(date_format))
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

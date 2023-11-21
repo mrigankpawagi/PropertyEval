@@ -9,13 +9,27 @@ from timeout import run_with_timeout
 from typing import *
                 
 @composite
-def create_string(draw):
-    string = draw(text(alphabet='abcdefghijklmnopqrstuvwxz', min_size=1))
-    return string
+def vowels():
+    return one_of(just('a'), just('e'), just('i'), just('o'), just('u'), just('A'), just('E'), just('I'), just('O'), just('U'))
 
-str1 = create_string()
+@composite
+def consonants():
+    return characters(blacklist_characters='aeiouAEIOUyY')
 
-strategy = str1
+@composite
+def build_strings_with_vowels():
+    s = draw(text(alphabet=consonants(), min_size=1))
+    v = draw(lists(vowels(), min_size=1))
+    return s + ''.join(v)
+
+@composite
+def build_strings_without_vowels():
+    s = draw(text(alphabet=consonants(), min_size=1))
+    return s
+
+str1 = st.one_of(build_strings_with_vowels(), build_strings_without_vowels())
+
+strategy = strings
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

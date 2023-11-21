@@ -8,7 +8,18 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-data_list = recursive(shared(data_list()), max_leaves=10).filter(lambda x: isinstance(x, int))
+@composite
+def nested_list():
+    elements = one_of(integers(), nested_lists())
+    return lists(elements)
+
+def recursive_list_sum(lst):
+    if isinstance(lst, int):
+        return lst
+    else:
+        return sum(recursive_list_sum(x) for x in lst)
+
+data_list = nested_list()
 
 strategy = data_list
 if not isinstance(strategy, tuple):

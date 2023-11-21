@@ -8,12 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def create_string(draw):
-    letters = draw(lists(text(alphabet=string.ascii_letters, min_size=1, max_size=1)))
-    return ''.join(letters)
-
-str1 = create_string()
+str1 = text(alphabet=string.ascii_lowercase + string.ascii_uppercase,
+            min_size=SMALL_SEQUENCE_LEN,
+            max_size=MAX_SEQUENCE_LEN)
 
 strategy = str1
 if not isinstance(strategy, tuple):

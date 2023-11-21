@@ -9,13 +9,14 @@ from timeout import run_with_timeout
 from typing import *
                 
 tuplex = tuples(
-    sampled_from(['HELLO', 5, [], True]), 
-    integers(), 
-    integers()
+    text(),  # string
+    integers(),  # integer
+    lists(),  # list
+    booleans()  # boolean
 )
 
-m = integers()
-n = integers()
+m = integers(min_value=0, max_value=100)
+n = integers(min_value=0, max_value=100)
 
 strategy = tuplex, m, n
 if not isinstance(strategy, tuple):

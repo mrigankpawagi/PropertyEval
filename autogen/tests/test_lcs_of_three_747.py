@@ -11,7 +11,7 @@ from typing import *
 @composite
 def create_strings(draw):
     n = draw(integers(min_value=1, max_value=10))
-    strings = draw(lists(text(min_size=n, max_size=n), min_size=3, max_size=3))
+    strings = [draw(text(alphabet=characters(min_codepoint=65, max_codepoint=90), min_size=n, max_size=n)) for _ in range(3)]
     return strings
 
 X, Y, Z = create_strings()

@@ -8,9 +8,11 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-xs = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=1)
+from typing import List
+smallest_num = min(xs)
+# Using the min function to find the smallest number in the list
 
-strategy = xs
+strategy = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=1)
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

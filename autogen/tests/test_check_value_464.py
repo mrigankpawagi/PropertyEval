@@ -8,14 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-dict_keys = lists(text(min_size=1), min_size=1, unique=True)
-dict_values = shared(integers())
+dictionary = dictionaries(keys=text(), values=integers(), min_size=1, max_size=10)
+n = integers(min_value=MIN_INT, max_value=MAX_INT)
 
-d = dictionaries(keys=dict_keys, values=dict_values, min_size=1)
-
-n = shared(dict_values)
-
-strategy = d, n
+strategy = dictionary, n
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

@@ -8,7 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-test_list = lists(tuples(text(), text()))
+test_list = lists(
+    tuples(text(alphabet=characters(min_codepoint=48, max_codepoint=57)), text(alphabet=characters(min_codepoint=48, max_codepoint=57))),
+    max_size=MAX_SEQUENCE_LEN
+)
 
 strategy = test_list
 if not isinstance(strategy, tuple):

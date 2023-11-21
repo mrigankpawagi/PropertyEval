@@ -8,9 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-numbers = lists(integers(), min_size=1)
+lst = lists(integers(min_value=MIN_INT, max_value=MAX_INT))
 
-strategy = numbers
+strategy = lst
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

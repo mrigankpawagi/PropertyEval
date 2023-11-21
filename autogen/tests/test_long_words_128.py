@@ -8,18 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def create_word_list(draw):
-    n = draw(integers(min_value=0, max_value=10))
-    word_list = draw(lists(text(alphabet=characters(min_codepoint=97, max_codepoint=122)),
-                           min_size=n,
-                           max_size=n))
-    return word_list
+n = integers(min_value=0, max_value=MAX_SEQUENCE_LEN)
+string = text(min_size=SMALL_SEQUENCE_LEN, max_size=MAX_SEQUENCE_LEN, alphabet=string.ascii_letters)
 
-n = integers(min_value=0, max_value=10)
-word_list = create_word_list()
-
-strategy = n, word_list
+strategy = n, string
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

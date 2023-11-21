@@ -8,9 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-l = floats(min_value=0.0, exclude_min=True)
-b = floats(min_value=0.0, exclude_min=True)
-h = floats(min_value=0.0, exclude_min=True)
+l = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
+b = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
+h = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
 
 strategy = l, b, h
 if not isinstance(strategy, tuple):

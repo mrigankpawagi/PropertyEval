@@ -8,10 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-array1 = lists(integers(), unique=True)
-array2 = lists(integers(), unique=True)
+array_nums1 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), unique=True, max_size=MAX_SEQUENCE_LEN)
+array_nums2 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), unique=True, max_size=MAX_SEQUENCE_LEN)
 
-strategy = array1, array2
+strategy = array_nums1, array_nums2
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

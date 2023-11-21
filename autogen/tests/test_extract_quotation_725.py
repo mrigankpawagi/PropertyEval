@@ -9,17 +9,13 @@ from timeout import run_with_timeout
 from typing import *
                 
 @composite
-def create_quoted_string(draw):
-    n = draw(integers(min_value=1, max_value=10))
-    strings = draw(lists(text(alphabet=characters(min_codepoint=32, max_codepoint=126), min_size=n, max_size=n), min_size=n, max_size=n))
-    text = ' '.join(['"' + s + '"' for s in strings])
-    return strings, text
+def extract_quotation_text(draw):
+    text = draw(text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 "', min_size=1, max_size=100))
+    return text
 
-def extract_quotation():
-    strings, text = create_quoted_string()
-    return text, strings
+text1 = extract_quotation_text()
 
-strategy = extract_quotation()
+strategy = text1
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

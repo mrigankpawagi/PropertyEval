@@ -8,9 +8,11 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-r = floats(min_value=0)
+import math
 
-strategy = r
+radius = floats(min_value=0.0)
+
+strategy = radius
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

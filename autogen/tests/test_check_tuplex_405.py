@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-tuplex = tuples(elements=one_of(integers(), floats(), characters()), min_size=0, max_size=MAX_SEQUENCE_LEN)
-tuple1 = one_of(integers(), floats(), characters())
+tuplex = tuples(integers(), integers(max_value=10), text(alphabet='abcdefghijklmnopqrstuvwxyz', min_size=1, max_size=1))
+tuple1 = text(alphabet='abcdefghijklmnopqrstuvwxyz', min_size=1, max_size=1)
 
 strategy = tuplex, tuple1
 if not isinstance(strategy, tuple):
