@@ -338,8 +338,8 @@ tests/test_surfacearea_sphere_85.py .                                    [ 90%]
 tests/test_swap_List_591.py .                                            [ 90%]
 tests/test_swap_List_625.py .                                            [ 90%]
 tests/test_swap_numbers_257.py .                                         [ 91%]
-tests/test_test_duplicate_19.py E.                                       [ 91%]
-tests/test_test_three_equal_801.py E.                                    [ 92%]
+tests/test_test_duplicate_19.py E.                                       [ 91%] ##### THIS IS NOT A TEST
+tests/test_test_three_equal_801.py E.                                    [ 92%] ##### THIS IS NOT A TEST
 tests/test_tetrahedral_number_80.py .                                    [ 92%]
 tests/test_text_lowercase_underscore_16.py .                             [ 92%]
 tests/test_text_match_one_434.py .                                       [ 93%]
@@ -472,3 +472,5 @@ ERROR tests/test_upper_ctr_461.py - NameError: name 'string' is not defined
 ERROR tests/test_test_duplicate_19.py::test_duplicate
 ERROR tests/test_test_three_equal_801.py::test_three_equal
 ====== 22 failed, 342 passed, 3 warnings, 65 errors in 107.92s (0:01:47) =======
+
+#### 342 passed, 22 failed, 63 couldn't be colelcted
