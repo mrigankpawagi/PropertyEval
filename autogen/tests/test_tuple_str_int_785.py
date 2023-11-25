@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-test_str = tuples(text(alphabet='123456789', min_size=1, max_size=1), text(alphabet='1234567890', min_size=1, max_size=1)).map(lambda t: f'({t[0]}, {t[1]})')
+test_str = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN).map(lambda x: str(tuple(x)))
 strategy = test_str
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

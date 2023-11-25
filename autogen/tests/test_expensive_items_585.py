@@ -8,8 +8,14 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-items = lists(integers(min_value=1, max_value=100), unique=True)
-n = integers(min_value=1, max_value=10)
+@composite
+def create(draw):
+  n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
+  item = builds(lambda name, price: {'name': name, 'price': price}, text(), floats(min_value=0.0, max_value=MAX_FLOAT))
+  items = draw(lists(item, min_size=n, max_size=n))
+  return items, n
+items = shared(create(), key='eval').map(lambda x: x[0])
+n = shared(create(), key='eval').map(lambda x: x[1])
 
 strategy = items, n
 if not isinstance(strategy, tuple):

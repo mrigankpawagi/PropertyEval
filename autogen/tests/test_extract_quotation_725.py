@@ -10,11 +10,9 @@ from typing import *
                 
 import re
 
-text1 = text(alphabet="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ", max_size=MAX_SEQUENCE_LEN)
-
 @composite
 def quotation_string(draw):
-    text_inp = draw(text1)
+    text_inp = draw(text(alphabet="abc", max_size=MAX_SEQUENCE_LEN))
     # Generating random strings with quotation marks
     quo_str = ''.join(draw(text(alphabet='"', min_size=1, max_size=1)) + draw(text(min_size=1, max_size=10)) + draw(text(alphabet='"', min_size=1, max_size=1)) for _ in range(3))
     quo_str = re.sub(r'\s+', ' ', quo_str).strip()

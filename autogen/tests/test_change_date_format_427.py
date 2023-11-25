@@ -10,7 +10,7 @@ from typing import *
                 
 import datetime
 
-dt = dates(min_value=datetime.date(1000, 1, 1), max_value=datetime.date(9999, 12, 31))
+dt = dates(min_value=datetime.date(1000, 1, 1), max_value=datetime.date(9999, 12, 31)).map(str)
 strategy = dt
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

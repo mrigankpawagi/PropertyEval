@@ -10,9 +10,6 @@ from typing import *
                 
 from hypothesis import strategies as st
 
-def combinations_colors(l, n):
-    return st.lists(elements=st.sampled_from(l), min_size=n, max_size=n).map(tuple)
-
 strategy = st.lists(st.integers(), min_size=1, max_size=MAX_SEQUENCE_LEN), st.integers(min_value=1, max_value=5)
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

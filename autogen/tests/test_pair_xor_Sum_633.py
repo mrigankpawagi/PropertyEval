@@ -8,8 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-arr = lists(integers(), max_size=MAX_SEQUENCE_LEN)
-n = integers(min_value=0)
+L = lists(integers(), max_size=MAX_SEQUENCE_LEN)
+arr = shared(L, key='eval')
+n = builds(lambda x: len(x), shared(L, key='eval'))
 
 strategy = arr, n
 if not isinstance(strategy, tuple):

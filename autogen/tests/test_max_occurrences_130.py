@@ -8,10 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from collections import Counter
-
-items = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
-max_freq_item = items.flatmap(lambda lst: just(Counter(lst).most_common(1)[0][0]))
+max_freq_item = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
 
 strategy = max_freq_item
 if not isinstance(strategy, tuple):

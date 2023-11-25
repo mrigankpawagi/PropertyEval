@@ -8,8 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-a = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
-size = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
+L = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
+a = builds(lambda l: lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=l, max_size=l), shared(L))
+size = shared(L)
 
 strategy = a, size
 if not isinstance(strategy, tuple):

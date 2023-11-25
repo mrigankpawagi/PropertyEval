@@ -12,7 +12,7 @@ from typing import *
 def create(draw):
   n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
   arr = draw(lists(integers(), min_size=n, max_size=n))
-  return arr, n
+  return tuple(arr), n
 
 arr = shared(create(), key="eval").map(lambda x: x[0])
 n = shared(create(), key="eval").map(lambda x: x[1])

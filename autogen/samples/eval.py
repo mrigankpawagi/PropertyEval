@@ -5,6 +5,7 @@ from util import tasks_list, dataset, properteval_dataset, base_test, properteva
 def evaluate(model):
     results = {}
 
+    k = 0
     for problem in dataset:
         task_id = problem["task_id"]
         if task_id not in tasks_list:
@@ -17,8 +18,16 @@ def evaluate(model):
         entry_point = code[code.rfind("def "):].split("def ")[1].split("(")[0].strip()
         
         # Noted exceptions
-        if task_id == 6:
-            entry_point = "differ_At_One_Bit_Pos"
+        exceptions = {
+            6: "differ_At_One_Bit_Pos",
+            70: "find_equal_tuple",
+            580: "even_ele",
+            592: "binomial_Coeff",
+            630: "adjac",
+            797: "sum_odd",
+        }
+        if task_id in exceptions:
+            entry_point = exceptions[task_id]
         
         try:
             with open(f"models/{model}/Mbpp_{task_id}/0.py", "r") as f:
@@ -26,6 +35,9 @@ def evaluate(model):
 
         except Exception as e:
             continue # skip if this task is not in the model
+        
+        k += 1
+        print(f"Doing {k}/399")
         
         entry_point_index = raw_completion.find(f"def {entry_point}")
         
@@ -58,21 +70,21 @@ def evaluate(model):
             
         base = base_test(completion, test_list, entry_point)
         properteval = properteval_test(completion, strategy, entry_point, task_id)
-        mbppplus = mbppplus_test(completion, entry_point, task_id)
+        # mbppplus = mbppplus_test(completion, entry_point, task_id)
         
         results[task_id] = {
             "base": base,
             "properteval": properteval,
-            "mbppplus": mbppplus
+            # "mbppplus": mbppplus
         }
 
     statistics = {
         "Total": len(results),
         "Base": len([1 for task_id in results if results[task_id]["base"]]),
         "PropertyEval": len([1 for task_id in results if results[task_id]["properteval"]]),
-        "MBPP+": len([1 for task_id in results if results[task_id]["mbppplus"]]),
+        # "MBPP+": len([1 for task_id in results if results[task_id]["mbppplus"]]),
         "Base + PropertyEval": len([1 for task_id in results if results[task_id]["base"] and results[task_id]["properteval"]]),
-        "Base + MBPP+": len([1 for task_id in results if results[task_id]["base"] and results[task_id]["mbppplus"]])
+        # "Base + MBPP+": len([1 for task_id in results if results[task_id]["base"] and results[task_id]["mbppplus"]])
     }
 
     with open(f"results/{model}.json", "w") as f:

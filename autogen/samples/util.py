@@ -9,6 +9,7 @@ from hypothesis.strategies import *
 from hypothesis import given
 import importlib
 import string
+import math
 
 tasks_list = set()
 
@@ -53,7 +54,7 @@ def test_base():
 test_base()""")
         return True
     except Exception as e:
-        print("BASE ERR:", e)
+        # print(f"BASE ERR {entry_point}:", e)
         return False    
 
 def properteval_test(completion: str, strategy: str, entry_point: str, task_id: int) -> bool:
@@ -78,7 +79,7 @@ test_properteval()""")
 
         return True
     except Exception as e:
-        print("PROP ERR:", e)
+        # print(f"PROP ERR {entry_point}:", e)
         return False    
 
 def mbppplus_test(completion: str, entry_point: str, task_id: int) -> bool:
@@ -99,5 +100,5 @@ for inp in mbppplus_tests[task_id]:
 
         return True
     except Exception as e:
-        print("MBBP ERR:", e)
+        # print("MBBP ERR:", e)
         return False    

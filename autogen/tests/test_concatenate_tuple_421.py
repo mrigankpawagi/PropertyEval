@@ -8,9 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from hypothesis import strategies as st
-
-test_tup = st.tuples(st.text(), st.text(), st.text())
+test_tup = lists(integers() | floats() | text() | booleans(), max_size=MAX_SEQUENCE_LEN).map(tuple)
 
 strategy = test_tup
 if not isinstance(strategy, tuple):

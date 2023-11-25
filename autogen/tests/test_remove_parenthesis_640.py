@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-items_without_parenthesis = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', max_size=MAX_SEQUENCE_LEN).filter(lambda x: len(x) < MAX_SEQUENCE_LEN)
-strategy = items_without_parenthesis
+items = lists(text(alphabet='abc()', max_size=MAX_SEQUENCE_LEN), max_size=MAX_SEQUENCE_LEN)
+strategy = items
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 
