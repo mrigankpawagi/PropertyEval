@@ -1,6 +1,6 @@
 import json
 import os
-from util import tasks_list, dataset, properteval_dataset, base_test, properteval_test
+from util import tasks_list, dataset, properteval_dataset, base_test, properteval_test, mbppplus_test
 
 def evaluate(model):
     results = {}
@@ -15,6 +15,10 @@ def evaluate(model):
         strategy = properteval_dataset[task_id]["strategy"]
         
         entry_point = code[code.rfind("def "):].split("def ")[1].split("(")[0].strip()
+        
+        # Noted exceptions
+        if task_id == 6:
+            entry_point = "differ_At_One_Bit_Pos"
         
         try:
             with open(f"models/{model}/Mbpp_{task_id}/0.py", "r") as f:
@@ -54,17 +58,21 @@ def evaluate(model):
             
         base = base_test(completion, test_list, entry_point)
         properteval = properteval_test(completion, strategy, entry_point, task_id)
+        mbppplus = mbppplus_test(completion, entry_point, task_id)
         
         results[task_id] = {
             "base": base,
-            "properteval": properteval
+            "properteval": properteval,
+            "mbppplus": mbppplus
         }
 
     statistics = {
-        "total": len(results),
-        "base": len([1 for task_id in results if results[task_id]["base"]]),
-        "properteval": len([1 for task_id in results if results[task_id]["properteval"]]),
-        "both": len([1 for task_id in results if results[task_id]["base"] and results[task_id]["properteval"]])
+        "Total": len(results),
+        "Base": len([1 for task_id in results if results[task_id]["base"]]),
+        "PropertyEval": len([1 for task_id in results if results[task_id]["properteval"]]),
+        "MBPP+": len([1 for task_id in results if results[task_id]["mbppplus"]]),
+        "Base + PropertyEval": len([1 for task_id in results if results[task_id]["base"] and results[task_id]["properteval"]]),
+        "Base + MBPP+": len([1 for task_id in results if results[task_id]["base"] and results[task_id]["mbppplus"]])
     }
 
     with open(f"results/{model}.json", "w") as f:

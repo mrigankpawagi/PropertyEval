@@ -32,30 +32,38 @@ with open ("../gen.json") as f:
         properteval_dataset[problem["task_id"]] = problem
         del problem["task_id"]
 
+mbppplus_tests = {}        
+with open("mbppplus.json") as f:
+    mbppplus_dataset = json.load(f)
+    for problem in mbppplus_dataset:
+        task_id = int(problem["task_id"].split("/")[-1])
+        mbppplus_tests[task_id] = problem["plus_input"]
+
 def base_test(completion: str, test_list: list[str], entry_point: str) -> bool:
     completion_with_timeout = completion.replace(f"def {entry_point}", f"@timeout()\ndef {entry_point}", 1)
     tests = "\n".join([f"  {test}" for test in test_list])
-    test_base = lambda: None
 
     try:
         exec(f"""{completion_with_timeout}
 
 def test_base():
-{tests}""")
-        
-        test_base()
+  global {entry_point}
+{tests}
+
+test_base()""")
         return True
     except Exception as e:
+        print("BASE ERR:", e)
         return False    
 
 def properteval_test(completion: str, strategy: str, entry_point: str, task_id: int) -> bool:
     completion_with_timeout = completion.replace(f"def {entry_point}", f"@timeout()\ndef {entry_point}", 1)    
-    test_properteval = lambda: None
 
     try:
-        gt_module = importlib.import_module(f"groundtruth.{task_id}")
-        gt_func = getattr(gt_module, entry_point)
-        exec(f"""{completion_with_timeout}
+        exec(f"""gt_module = importlib.import_module("groundtruth.{task_id}")
+gt_func = getattr(gt_module, entry_point)
+
+{completion_with_timeout}
 
 {strategy}
 if not isinstance(strategy, tuple):
@@ -63,9 +71,33 @@ if not isinstance(strategy, tuple):
 
 @given(tuples(*strategy))
 def test_properteval(args):
-    {entry_point}(*args) == gt_func(*args)""")
-        
-        test_properteval()
+    global {entry_point}, gt_func
+    assert {entry_point}(*args) == gt_func(*args)
+    
+test_properteval()""")
+
         return True
     except Exception as e:
+        print("PROP ERR:", e)
+        return False    
+
+def mbppplus_test(completion: str, entry_point: str, task_id: int) -> bool:
+    completion_with_timeout = completion.replace(f"def {entry_point}", f"@timeout()\ndef {entry_point}", 1)
+
+    try:
+        exec(f"""gt_module = importlib.import_module("groundtruth.{task_id}")
+gt_func = getattr(gt_module, entry_point)
+
+{completion_with_timeout}
+
+def test_mbppplus(args):
+    global {entry_point}, gt_func
+    assert {entry_point}(*args) == gt_func(*args)
+
+for inp in mbppplus_tests[task_id]:
+    test_mbppplus(inp)""")  
+
+        return True
+    except Exception as e:
+        print("MBBP ERR:", e)
         return False    

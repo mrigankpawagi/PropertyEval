@@ -20,7 +20,7 @@
     {
         "task_id": 6,
         "prompt": "def is_Power_Of_Two (x): \n  \"\"\"Write a python function to check whether the two numbers differ at one bit position only or not.\n  \"\"\"",
-        "strategy": "@composite\ndef power_of_two(draw):\n    n = draw(integers(min_value=0, max_value=30))\n    return 2 ** n\n\nx = power_of_two()\n\nstrategy = x",
+        "strategy": "a = integers(min_value=0, max_value=MAX_INT)\nb = integers(min_value=0, max_value=MAX_INT)\n\nstrategy = a, b",
         "code": "def is_Power_Of_Two (x): \n    return x and (not(x & (x - 1))) \ndef differ_At_One_Bit_Pos(a,b): \n    return is_Power_Of_Two(a ^ b)"
     },
     {
