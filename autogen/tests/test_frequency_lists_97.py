@@ -8,7 +8,6 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
 def frequency_list():
     elements = lists(integers(), min_size=1, max_size=10)
     return elements

@@ -8,9 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-pattern = r'a{1}b{3}'
-text = text(alphabet='abcdefghijklmnopqrstuvwxyz' + 'ab' * 100, max_size=MAX_SEQUENCE_LEN)
-strategy = text, pattern
+text_inp = text(alphabet='abc')
+strategy = text_inp
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

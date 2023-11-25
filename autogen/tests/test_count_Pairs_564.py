@@ -9,9 +9,9 @@ from timeout import run_with_timeout
 from typing import *
                 
 arr = lists(integers(), min_size=2, max_size=MAX_SEQUENCE_LEN)
-n = len(arr)
+n = builds(lambda x: len(x), arr)
 
-strategy = arr, just(n)
+strategy = arr, n
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

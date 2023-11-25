@@ -11,13 +11,7 @@ from typing import *
 actual_cost = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
 sale_amount = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
 
-@given(actual_cost, sale_amount)
-def loss_amount(actual_cost, sale_amount):
-    if actual_cost > sale_amount:
-        return actual_cost - sale_amount
-    return 0
-
-strategy = loss_amount
+strategy = actual_cost, sale_amount
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

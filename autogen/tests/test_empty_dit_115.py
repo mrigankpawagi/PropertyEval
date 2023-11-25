@@ -8,14 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def empty_dict():
-
-    empty_dict = {}
-
-    return empty_dict
-
-list1 = lists(empty_dict(), min_size=1, max_size=MAX_SEQUENCE_LEN)
+list1 = lists(dictionaries(integers() | text() | floats() | booleans(), integers() | text() | floats() | booleans()), min_size=1, max_size=MAX_SEQUENCE_LEN)
 
 strategy = list1
 if not isinstance(strategy, tuple):

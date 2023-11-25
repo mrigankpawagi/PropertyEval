@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-test_tup = tuples(any_type(), any_type())
-test_dict = dictionaries(any_type(), any_type())
+test_tup = lists(integers() | floats() | booleans() | text()).map(tuple)
+test_dict = dictionaries(integers() | floats() | booleans() | text(), integers() | floats() | booleans() | text())
 
 strategy = test_tup, test_dict
 if not isinstance(strategy, tuple):

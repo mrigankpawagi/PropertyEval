@@ -45,10 +45,15 @@ def evaluate(model):
                 if completion[i: i + 4] == "def " or completion[i: i + 7] == "import " or completion[i: i + 5] == "from ":
                     code_start_index = i
                     break
-            completion = completion[code_start_index:]               
+            completion = completion[code_start_index:]
+            
+        # save groundtruth if not exists
+        if not os.path.exists(f"groundtruth/{task_id}.py"):
+            with open(f"groundtruth/{task_id}.py", "w") as f:
+                f.write(code)         
             
         base = base_test(completion, test_list, entry_point)
-        properteval = properteval_test(completion, strategy, code, entry_point, task_id)
+        properteval = properteval_test(completion, strategy, entry_point, task_id)
         
         results[task_id] = {
             "base": base,

@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-startnum = integers(min_value=0)
-endnum = integers(min_value=0)
+startnum = integers(min_value=0, max_value=MAX_INT)
+endnum = integers(min_value=0, max_value=MAX_INT)
 
 strategy = startnum, endnum
 if not isinstance(strategy, tuple):

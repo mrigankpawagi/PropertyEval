@@ -8,19 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def find_intersection(draw):
-    n = draw(integers(min_value=0, max_value=MAX_SEQUENCE_LEN))
-    common_elements = draw(lists(integers(), min_size=n, max_size=n))
-    list1 = draw(lists(integers(), min_size=n, max_size=n))
-    list2 = draw(lists(integers(), min_size=n, max_size=n))
-    
-    test_list1 = draw(lists(sampled_from(list1), min_size=n, max_size=n))
-    test_list2 = draw(lists(sampled_from(list2), min_size=n, max_size=n))
-    
-    return common_elements, test_list1, test_list2
+test_list1 = lists(integers(), max_size=MAX_SEQUENCE_LEN).map(tuple)
+test_list2 = lists(integers(), max_size=MAX_SEQUENCE_LEN).map(tuple)
 
-strategy = find_intersection()
+strategy = test_list1, test_list2
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

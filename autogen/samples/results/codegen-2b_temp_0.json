@@ -1,9 +1,9 @@
 {
     "statistics": {
-        "total": 338,
-        "base": 315,
-        "properteval": 265,
-        "both": 265
+        "total": 377,
+        "base": 348,
+        "properteval": 344,
+        "both": 344
     },
     "results": {
         "2": {
@@ -20,7 +20,7 @@
         },
         "6": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "7": {
             "base": true,
@@ -60,7 +60,7 @@
         },
         "19": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "20": {
             "base": true,
@@ -88,7 +88,7 @@
         },
         "62": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "63": {
             "base": true,
@@ -100,7 +100,7 @@
         },
         "65": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "66": {
             "base": true,
@@ -118,6 +118,10 @@
             "base": true,
             "properteval": true
         },
+        "70": {
+            "base": true,
+            "properteval": true
+        },
         "71": {
             "base": true,
             "properteval": true
@@ -128,7 +132,7 @@
         },
         "74": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "75": {
             "base": true,
@@ -150,6 +154,10 @@
             "base": true,
             "properteval": true
         },
+        "83": {
+            "base": true,
+            "properteval": true
+        },
         "85": {
             "base": true,
             "properteval": true
@@ -160,7 +168,7 @@
         },
         "87": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "88": {
             "base": true,
@@ -198,6 +206,10 @@
             "base": true,
             "properteval": true
         },
+        "97": {
+            "base": true,
+            "properteval": true
+        },
         "98": {
             "base": true,
             "properteval": true
@@ -216,7 +228,7 @@
         },
         "102": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "103": {
             "base": true,
@@ -224,7 +236,7 @@
         },
         "104": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "105": {
             "base": true,
@@ -250,13 +262,17 @@
             "base": true,
             "properteval": true
         },
+        "115": {
+            "base": true,
+            "properteval": true
+        },
         "116": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "119": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "120": {
             "base": true,
@@ -264,7 +280,7 @@
         },
         "123": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "124": {
             "base": false,
@@ -284,7 +300,7 @@
         },
         "128": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "129": {
             "base": true,
@@ -296,11 +312,11 @@
         },
         "131": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "132": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "133": {
             "base": true,
@@ -344,7 +360,7 @@
         },
         "160": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "161": {
             "base": true,
@@ -382,13 +398,25 @@
             "base": true,
             "properteval": true
         },
+        "222": {
+            "base": true,
+            "properteval": true
+        },
         "224": {
+            "base": true,
+            "properteval": true
+        },
+        "226": {
             "base": true,
             "properteval": true
         },
         "227": {
             "base": true,
             "properteval": true
+        },
+        "229": {
+            "base": false,
+            "properteval": false
         },
         "230": {
             "base": true,
@@ -462,6 +490,10 @@
             "base": true,
             "properteval": true
         },
+        "255": {
+            "base": true,
+            "properteval": true
+        },
         "256": {
             "base": true,
             "properteval": true
@@ -470,9 +502,13 @@
             "base": true,
             "properteval": true
         },
+        "259": {
+            "base": true,
+            "properteval": true
+        },
         "261": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "262": {
             "base": true,
@@ -484,7 +520,7 @@
         },
         "265": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "266": {
             "base": true,
@@ -501,6 +537,10 @@
         "269": {
             "base": false,
             "properteval": false
+        },
+        "270": {
+            "base": true,
+            "properteval": true
         },
         "271": {
             "base": true,
@@ -520,7 +560,7 @@
         },
         "278": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "279": {
             "base": true,
@@ -540,7 +580,7 @@
         },
         "283": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "284": {
             "base": true,
@@ -582,6 +622,10 @@
             "base": false,
             "properteval": false
         },
+        "297": {
+            "base": false,
+            "properteval": false
+        },
         "299": {
             "base": true,
             "properteval": true
@@ -590,8 +634,16 @@
             "base": false,
             "properteval": false
         },
+        "301": {
+            "base": true,
+            "properteval": false
+        },
         "305": {
             "base": true,
+            "properteval": true
+        },
+        "306": {
+            "base": false,
             "properteval": false
         },
         "308": {
@@ -616,11 +668,11 @@
         },
         "390": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "391": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "392": {
             "base": false,
@@ -628,7 +680,7 @@
         },
         "394": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "395": {
             "base": true,
@@ -680,7 +732,7 @@
         },
         "413": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "414": {
             "base": true,
@@ -704,7 +756,7 @@
         },
         "421": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "422": {
             "base": true,
@@ -722,7 +774,15 @@
             "base": true,
             "properteval": true
         },
+        "427": {
+            "base": true,
+            "properteval": true
+        },
         "428": {
+            "base": true,
+            "properteval": true
+        },
+        "429": {
             "base": true,
             "properteval": true
         },
@@ -764,7 +824,7 @@
         },
         "440": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "441": {
             "base": true,
@@ -798,6 +858,10 @@
             "base": true,
             "properteval": true
         },
+        "454": {
+            "base": true,
+            "properteval": true
+        },
         "455": {
             "base": true,
             "properteval": true
@@ -824,6 +888,10 @@
         },
         "461": {
             "base": true,
+            "properteval": true
+        },
+        "462": {
+            "base": false,
             "properteval": false
         },
         "463": {
@@ -832,13 +900,25 @@
         },
         "465": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "468": {
             "base": true,
             "properteval": true
         },
+        "470": {
+            "base": true,
+            "properteval": true
+        },
         "471": {
+            "base": true,
+            "properteval": true
+        },
+        "472": {
+            "base": true,
+            "properteval": true
+        },
+        "473": {
             "base": true,
             "properteval": true
         },
@@ -848,15 +928,19 @@
         },
         "475": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "476": {
             "base": true,
             "properteval": true
         },
+        "477": {
+            "base": true,
+            "properteval": true
+        },
         "478": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "479": {
             "base": true,
@@ -868,7 +952,7 @@
         },
         "555": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "556": {
             "base": true,
@@ -884,7 +968,7 @@
         },
         "559": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "560": {
             "base": true,
@@ -896,7 +980,7 @@
         },
         "563": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "565": {
             "base": true,
@@ -938,9 +1022,13 @@
             "base": true,
             "properteval": true
         },
+        "579": {
+            "base": true,
+            "properteval": true
+        },
         "580": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "581": {
             "base": true,
@@ -950,9 +1038,17 @@
             "base": false,
             "properteval": false
         },
-        "585": {
+        "583": {
             "base": true,
             "properteval": false
+        },
+        "585": {
+            "base": true,
+            "properteval": true
+        },
+        "586": {
+            "base": true,
+            "properteval": true
         },
         "587": {
             "base": true,
@@ -972,7 +1068,7 @@
         },
         "592": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "594": {
             "base": true,
@@ -984,7 +1080,7 @@
         },
         "596": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "597": {
             "base": false,
@@ -1004,13 +1100,17 @@
         },
         "602": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "605": {
             "base": true,
             "properteval": true
         },
         "606": {
+            "base": true,
+            "properteval": true
+        },
+        "607": {
             "base": true,
             "properteval": true
         },
@@ -1032,11 +1132,15 @@
         },
         "614": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "615": {
             "base": true,
             "properteval": true
+        },
+        "616": {
+            "base": true,
+            "properteval": false
         },
         "618": {
             "base": true,
@@ -1050,13 +1154,17 @@
             "base": false,
             "properteval": false
         },
+        "622": {
+            "base": false,
+            "properteval": false
+        },
         "623": {
             "base": true,
             "properteval": true
         },
         "624": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "626": {
             "base": true,
@@ -1064,7 +1172,7 @@
         },
         "628": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "629": {
             "base": true,
@@ -1082,6 +1190,10 @@
             "base": true,
             "properteval": true
         },
+        "633": {
+            "base": true,
+            "properteval": true
+        },
         "635": {
             "base": true,
             "properteval": true
@@ -1094,6 +1206,10 @@
             "base": true,
             "properteval": true
         },
+        "639": {
+            "base": true,
+            "properteval": false
+        },
         "640": {
             "base": true,
             "properteval": true
@@ -1104,9 +1220,13 @@
         },
         "643": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "644": {
+            "base": true,
+            "properteval": true
+        },
+        "720": {
             "base": true,
             "properteval": true
         },
@@ -1119,6 +1239,14 @@
             "properteval": true
         },
         "724": {
+            "base": true,
+            "properteval": true
+        },
+        "725": {
+            "base": true,
+            "properteval": true
+        },
+        "726": {
             "base": true,
             "properteval": true
         },
@@ -1172,23 +1300,31 @@
         },
         "743": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "744": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "746": {
             "base": true,
             "properteval": true
         },
+        "748": {
+            "base": true,
+            "properteval": true
+        },
         "749": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "750": {
             "base": true,
             "properteval": true
+        },
+        "751": {
+            "base": false,
+            "properteval": false
         },
         "752": {
             "base": true,
@@ -1214,11 +1350,19 @@
             "base": true,
             "properteval": true
         },
+        "759": {
+            "base": true,
+            "properteval": true
+        },
         "760": {
             "base": true,
             "properteval": true
         },
         "762": {
+            "base": true,
+            "properteval": true
+        },
+        "763": {
             "base": true,
             "properteval": true
         },
@@ -1254,6 +1398,10 @@
             "base": true,
             "properteval": true
         },
+        "773": {
+            "base": true,
+            "properteval": true
+        },
         "775": {
             "base": true,
             "properteval": true
@@ -1261,6 +1409,10 @@
         "778": {
             "base": false,
             "properteval": false
+        },
+        "780": {
+            "base": true,
+            "properteval": true
         },
         "781": {
             "base": true,
@@ -1280,9 +1432,13 @@
         },
         "785": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "786": {
+            "base": true,
+            "properteval": true
+        },
+        "787": {
             "base": true,
             "properteval": true
         },
@@ -1308,11 +1464,11 @@
         },
         "794": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "796": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "797": {
             "base": true,
@@ -1332,7 +1488,7 @@
         },
         "801": {
             "base": true,
-            "properteval": false
+            "properteval": true
         },
         "803": {
             "base": true,
@@ -1356,7 +1512,7 @@
         },
         "808": {
             "base": true,
-            "properteval": false
+            "properteval": true
         }
     }
 }

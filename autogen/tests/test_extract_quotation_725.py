@@ -14,12 +14,11 @@ text1 = text(alphabet="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ", m
 
 @composite
 def quotation_string(draw):
-    text = draw(text1)
+    text_inp = draw(text1)
     # Generating random strings with quotation marks
     quo_str = ''.join(draw(text(alphabet='"', min_size=1, max_size=1)) + draw(text(min_size=1, max_size=10)) + draw(text(alphabet='"', min_size=1, max_size=1)) for _ in range(3))
     quo_str = re.sub(r'\s+', ' ', quo_str).strip()
-    text = text + quo_str
-    return text
+    return text_inp + quo_str
 
 strategy = quotation_string()
 if not isinstance(strategy, tuple):

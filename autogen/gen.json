@@ -170,7 +170,7 @@
     {
         "task_id": 70,
         "prompt": "def find_equal_tuple(Input):\n  \"\"\"Write a function to find whether all the given tuples have equal length or not.\n  \"\"\"",
-        "strategy": "Input = lists(tuples(integers(), min_size=1, max_size=10), min_size=1, max_size=10)\nstrategy = Input",
+        "strategy": "Input = lists(lists(integers(), min_size=1, max_size=10).map(tuples), min_size=1, max_size=10)\nstrategy = Input",
         "code": "def find_equal_tuple(Input):\n  k = 0 if not Input else len(Input[0])\n  flag = 1\n  for tuple in Input:\n    if len(tuple) != k:\n      flag = 0\n      break\n  return flag\ndef get_equal(Input):\n  return find_equal_tuple(Input) == 1"
     },
     {
@@ -224,13 +224,13 @@
     {
         "task_id": 83,
         "prompt": "def get_Char(strr):  \n  \"\"\"Write a python function to find the character made by adding the ASCII value of all the characters of the given string modulo 26.\n  \"\"\"",
-        "strategy": "strr = text(alphabet=string.ascii_letters, min_size=1, max_size=MAX_SEQUENCE_LEN)\nstrategy = strr",
+        "strategy": "import string\nstrr = text(alphabet=string.ascii_letters, min_size=1, max_size=MAX_SEQUENCE_LEN)\nstrategy = strr",
         "code": "def get_Char(strr):  \n    summ = 0\n    for i in range(len(strr)): \n        summ += (ord(strr[i]) - ord('a') + 1)  \n    if (summ % 26 == 0): \n        return ord('z') \n    else: \n        summ = summ % 26\n        return chr(ord('a') + summ - 1)"
     },
     {
         "task_id": 84,
         "prompt": "def sequence(n): \n  \"\"\"Write a function to find the nth number in the newman conway sequence.\n  \"\"\"",
-        "strategy": "n = integers(min_value=1, max_value=1000)\nstrategy = n",
+        "strategy": "n = integers(min_value=1, max_value=15)\nstrategy = n",
         "code": "def sequence(n): \n\tif n == 1 or n == 2: \n\t\treturn 1\n\telse: \n\t\treturn sequence(sequence(n-1)) + sequence(n-sequence(n-1))"
     },
     {
@@ -308,7 +308,7 @@
     {
         "task_id": 97,
         "prompt": "def frequency_lists(list1):\n  \"\"\"Write a function to find frequency of each element in a flattened list of lists, returned in a dictionary.\n  \"\"\"",
-        "strategy": "@composite\ndef frequency_list():\n    elements = lists(integers(), min_size=1, max_size=10)\n    return elements\n\nlist1 = frequency_list()\nstrategy = list1",
+        "strategy": "def frequency_list():\n    elements = lists(integers(), min_size=1, max_size=10)\n    return elements\n\nlist1 = frequency_list()\nstrategy = list1",
         "code": "def frequency_lists(list1):\n    list1 = [item for sublist in list1 for item in sublist]\n    dic_data = {}\n    for num in list1:\n        if num in dic_data.keys():\n            dic_data[num] += 1\n        else:\n            key = num\n            value = 1\n            dic_data[key] = value\n    return dic_data\n"
     },
     {
@@ -392,7 +392,7 @@
     {
         "task_id": 115,
         "prompt": "def empty_dit(list1):\n  \"\"\"Write a function to check whether all dictionaries in a list are empty or not.\n  \"\"\"",
-        "strategy": "@composite\ndef empty_dict():\n\n    empty_dict = {}\n\n    return empty_dict\n\nlist1 = lists(empty_dict(), min_size=1, max_size=MAX_SEQUENCE_LEN)\n\nstrategy = list1",
+        "strategy": "list1 = lists(dictionaries(integers() | text() | floats() | booleans(), integers() | text() | floats() | booleans()), min_size=1, max_size=MAX_SEQUENCE_LEN)\n\nstrategy = list1",
         "code": "def empty_dit(list1):\n empty_dit=all(not d for d in list1)\n return empty_dit"
     },
     {
@@ -404,13 +404,13 @@
     {
         "task_id": 117,
         "prompt": "def list_to_float(test_list):\n  \"\"\"Write a function to convert all possible convertible elements in a list of lists to floats.\n  \"\"\"",
-        "strategy": "@composite\ndef make_list(draw):\n    inner_list = lists(numbers(), min_size=1, max_size=10).map(lambda x: [str(n) for n in x])\n    return draw(inner_list)\n\ntest_list = make_list()\nstrategy = test_list",
+        "strategy": "test_list = lists(lists(integers() | floats() | text(), max_size=MAX_SEQUENCE_LEN), max_size=MAX_SEQUENCE_LEN)\nstrategy = test_list",
         "code": "def list_to_float(test_list):\n  res = []\n  for tup in test_list:\n    temp = []\n    for ele in tup:\n      if ele.isalpha():\n        temp.append(ele)\n      else:\n        temp.append(float(ele))\n    res.append((temp[0],temp[1])) \n  return res"
     },
     {
         "task_id": 118,
         "prompt": "def string_to_list(string): \n  \"\"\"Write a function to convert a string to a list of strings split on the space character.\n  \"\"\"",
-        "strategy": "string = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', min_size=1).filter(str.isspace)\nstrategy = string",
+        "strategy": "string = text(alphabet=\"ab \", min_size=1, max_size=MAX_SEQUENCE_LEN)\nstrategy = string",
         "code": "def string_to_list(string): \n    lst = list(string.split(\" \")) \n    return lst"
     },
     {
@@ -602,7 +602,7 @@
     {
         "task_id": 170,
         "prompt": "def sum_range_list(list1, m, n):                                                                                                                                                                                                \n  \"\"\"Write a function to find the sum of numbers in a list within a range specified by two indices.\n  \"\"\"",
-        "strategy": "list1 = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)\nm = integers(min_value=0, max_value=MAX_SEQUENCE_LEN - 1)\nn = integers(min_value=m, max_value=MAX_SEQUENCE_LEN - 1)\n\nstrategy = list1, m, n",
+        "strategy": "list1 = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)\nm = builds(lambda l: integers(min_value=0, max_value=len(l) - 1), list1)\nn = builds(lambda l, k: integers(min_value=k, max_value=len(l) - 1), list1, m)\n\nstrategy = list1, m, n",
         "code": "def sum_range_list(list1, m, n):                                                                                                                                                                                                \n    sum_range = 0                                                                                                                                                                                                         \n    for i in range(m, n+1, 1):                                                                                                                                                                                        \n        sum_range += list1[i]                                                                                                                                                                                                  \n    return sum_range   "
     },
     {
@@ -620,13 +620,13 @@
     {
         "task_id": 222,
         "prompt": "def check_type(test_tuple):\n  \"\"\"Write a function to check if all the elements in tuple have same data type or not.\n  \"\"\"",
-        "strategy": "test_tuple = tuples(\n    one_of(\n        integers(),\n        floats(),\n        booleans(),\n        text(),\n        characters(),\n        lists(integers()),\n        tuples(integers()),\n    ),\n    min_size=1,\n    max_size=10,\n)\n\nstrategy = test_tuple",
+        "strategy": "test_tuple = lists(\n    one_of(\n        integers(),\n        floats(),\n        booleans(),\n        text(),\n        characters(),\n        lists(integers()),\n        tuples(integers()),\n    ),\n    min_size=1,\n    max_size=10,\n).map(tuple)\n\nstrategy = test_tuple",
         "code": "def check_type(test_tuple):\n  res = True\n  for ele in test_tuple:\n    if not isinstance(ele, type(test_tuple[0])):\n      res = False\n      break\n  return (res) "
     },
     {
         "task_id": 223,
         "prompt": "def is_majority(arr, n, x):\n  \"\"\"Write a function that takes in a sorted array, its length (n), and an element and returns whether the element is the majority element in the given sorted array. (The majority element is the element that occurs more than n/2 times.)\n  \"\"\"",
-        "strategy": "from math import ceil\n\n@composite\ndef make_arr(draw):\n    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))\n    arr = draw(lists(integers(), min_size=n, max_size=n))\n    arr.sort()\n    return arr\n\narr = make_arr()\nn = len(arr)\nx = elements(arr)\n\nstrategy = arr, n, x",
+        "strategy": "from math import ceil\n\n@composite\ndef make_arr(draw):\n    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))\n    arr = draw(lists(integers(), min_size=n, max_size=n))\n    arr.sort()\n    x = draw(sampled_from(arr))\n    return arr, n, x\n\narr = shared(make_arr(), key=\"eval\").map(lambda x: x[0])\nn = shared(make_arr(), key=\"eval\").map(lambda x: x[1])\nx = shared(make_arr(), key=\"eval\").map(lambda x: x[2])\n\nstrategy = arr, n, x",
         "code": "def is_majority(arr, n, x):\n\ti = binary_search(arr, 0, n-1, x)\n\tif i == -1:\n\t\treturn False\n\tif ((i + n//2) <= (n -1)) and arr[i + n//2] == x:\n\t\treturn True\n\telse:\n\t\treturn False\ndef binary_search(arr, low, high, x):\n\tif high >= low:\n\t\tmid = (low + high)//2 \n\t\tif (mid == 0 or x > arr[mid-1]) and (arr[mid] == x):\n\t\t\treturn mid\n\t\telif x > arr[mid]:\n\t\t\treturn binary_search(arr, (mid + 1), high, x)\n\t\telse:\n\t\t\treturn binary_search(arr, low, (mid -1), x)\n\treturn -1"
     },
     {
@@ -638,7 +638,7 @@
     {
         "task_id": 226,
         "prompt": "def odd_values_string(str):\n  \"\"\"Write a python function to remove the characters which have odd index values of a given string.\n  \"\"\"",
-        "strategy": "string = text(alphabet=string.ascii_lowercase, min_size=0, max_size=MAX_SEQUENCE_LEN).filter(lambda x: len(x) % 2 == 0)\nstrategy = string",
+        "strategy": "import string\nstring_inp = text(alphabet=string.ascii_lowercase, min_size=0, max_size=MAX_SEQUENCE_LEN).filter(lambda x: len(x) % 2 == 0)\nstrategy = string_inp",
         "code": "def odd_values_string(str):\n  result = \"\" \n  for i in range(len(str)):\n    if i % 2 == 0:\n      result = result + str[i]\n  return result"
     },
     {
@@ -656,7 +656,7 @@
     {
         "task_id": 229,
         "prompt": "def re_arrange_array(arr, n):\n  \"\"\"Write a function that takes in an array and an integer n, and re-arranges the first n elements of the given array so that all negative elements appear before positive ones, and where the relative order among negative and positive elements is preserved.\n  \"\"\"",
-        "strategy": "arr = lists(integers(), min_size=n, max_size=n)\nn = integers(min_value=0, max_value=MAX_SEQUENCE_LEN)\n\nstrategy = arr, n",
+        "strategy": "def builder(n):\n  return lists(integers(), min_size=n, max_size=MAX_SEQUENCE_LEN)\n\nn = integers(min_value=0, max_value=MAX_SEQUENCE_LEN)\narr = builds(builder, n)\n\nstrategy = arr, n",
         "code": "def re_arrange_array(arr, n):\n  j=0\n  for i in range(0, n):\n    if (arr[i] < 0):\n      temp = arr[i]\n      arr[i] = arr[j]\n      arr[j] = temp\n      j = j + 1\n  return arr"
     },
     {
@@ -782,7 +782,7 @@
     {
         "task_id": 255,
         "prompt": "def combinations_colors(l, n):\n  \"\"\"Write a function that takes in a list and length n, and generates all combinations (with repetition) of the elements of the list and returns a list with a tuple for each combination.\n  \"\"\"",
-        "strategy": "from hypothesis import strategies as st\n\ndef combinations_colors(l, n):\n    return st.lists(elements=st.sampled_from(l), min_size=n, max_size=n).map(tuple)\n\nstrategy = st.lists(st.integers(), min_size=1, max_size=MAX_SEQUENCE_LEN), st.integers(min_value=1, max_value=MAX_SEQUENCE_LEN)",
+        "strategy": "from hypothesis import strategies as st\n\ndef combinations_colors(l, n):\n    return st.lists(elements=st.sampled_from(l), min_size=n, max_size=n).map(tuple)\n\nstrategy = st.lists(st.integers(), min_size=1, max_size=MAX_SEQUENCE_LEN), st.integers(min_value=1, max_value=5)",
         "code": "from itertools import combinations_with_replacement \ndef combinations_colors(l, n):\n    return list(combinations_with_replacement(l,n))\n"
     },
     {
@@ -800,13 +800,13 @@
     {
         "task_id": 259,
         "prompt": "def maximize_elements(test_tup1, test_tup2):\n  \"\"\"Write a function to maximize the given two tuples.\n  \"\"\"",
-        "strategy": "test_tup1 = tuples([integers(), floats(), text()], max_size=3)\ntest_tup2 = tuples([integers(), floats(), text()], max_size=3)\n\nstrategy = test_tup1, test_tup2",
+        "strategy": "test_tup1 = lists(tuples(integers() | floats(), integers() | floats()), min_size=1, max_size=MAX_SEQUENCE_LEN).map(tuple)\ntest_tup2 = lists(tuples(integers() | floats(), integers() | floats()), min_size=1, max_size=MAX_SEQUENCE_LEN).map(tuple)\n\nstrategy = test_tup1, test_tup2",
         "code": "def maximize_elements(test_tup1, test_tup2):\n  res = tuple(tuple(max(a, b) for a, b in zip(tup1, tup2))\n   for tup1, tup2 in zip(test_tup1, test_tup2))\n  return (res) "
     },
     {
         "task_id": 260,
         "prompt": "def newman_prime(n): \n  \"\"\"Write a function to find the nth newman\u2013shanks\u2013williams prime number.\n  \"\"\"",
-        "strategy": "n = integers(min_value=1, max_value=100)\nstrategy = n",
+        "strategy": "n = integers(min_value=1, max_value=25)\nstrategy = n",
         "code": "def newman_prime(n): \n\tif n == 0 or n == 1: \n\t\treturn 1\n\treturn 2 * newman_prime(n - 1) + newman_prime(n - 2)"
     },
     {
@@ -860,7 +860,7 @@
     {
         "task_id": 270,
         "prompt": "def sum_even_and_even_index(arr):  \n  \"\"\"Write a python function to find the sum of even numbers at even positions of a list.\n  \"\"\"",
-        "strategy": "arr = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=2, average_size=MAX_SEQUENCE_LEN)\nstrategy = arr",
+        "strategy": "arr = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=2, max_size=MAX_SEQUENCE_LEN)\nstrategy = arr",
         "code": "def sum_even_and_even_index(arr):  \n    i = 0\n    sum = 0\n    for i in range(0, len(arr),2): \n        if (arr[i] % 2 == 0) : \n            sum += arr[i]  \n    return sum"
     },
     {
@@ -872,13 +872,13 @@
     {
         "task_id": 272,
         "prompt": "def rear_extract(test_list):\n  \"\"\"Write a function that takes in a list of tuples and returns a list containing the rear element of each tuple.\n  \"\"\"",
-        "strategy": "test_list = lists(tuples(), max_size=MAX_SEQUENCE_LEN).map(lambda l: [t[-1] for t in l])\nstrategy = test_list",
+        "strategy": "test_list = lists(lists(integers() | floats() | booleans() | text(), max_size=MAX_SEQUENCE_LEN, min_size=1).map(tuple), max_size=MAX_SEQUENCE_LEN)\nstrategy = test_list",
         "code": "def rear_extract(test_list):\n  res = [lis[-1] for lis in test_list]\n  return (res) "
     },
     {
         "task_id": 273,
         "prompt": "def substract_elements(test_tup1, test_tup2):\n  \"\"\"Write a function that takes in two tuples and subtracts the elements of the first tuple by the elements of the second tuple with the same index.\n  \"\"\"",
-        "strategy": "@composite\ndef make_tuples(draw):\n    n = draw(integers(min_value=0, max_value=MAX_SEQUENCE_LEN))\n    tup1 = draw(tuples(integers(), min_size=n, max_size=n))\n    tup2 = draw(tuples(integers(), min_size=n, max_size=n))\n    return tup1, tup2\n\ntup1, tup2 = make_tuples()\n\nstrategy = tup1, tup2",
+        "strategy": "@composite\ndef make_tuples(draw):\n    n = draw(integers(min_value=0, max_value=MAX_SEQUENCE_LEN))\n    tup1 = draw(lists(integers(), min_size=n, max_size=n))\n    tup2 = draw(lists(integers(), min_size=n, max_size=n))\n    return tuple(tup1), tuple(tup2)\n\ntup1 = shared(make_tuples(), key=\"eval\").map(lambda x: x[0])\ntup2 = shared(make_tuples(), key=\"eval\").map(lambda x: x[1])\n\nstrategy = tup1, tup2",
         "code": "def substract_elements(test_tup1, test_tup2):\n  res = tuple(map(lambda i, j: i - j, test_tup1, test_tup2))\n  return (res) "
     },
     {
@@ -1004,7 +1004,7 @@
     {
         "task_id": 297,
         "prompt": "def flatten_list(list1):\n  \"\"\"Write a function to flatten a given nested list structure.\n  \"\"\"",
-        "strategy": "@composite\ndef create_nested_list(draw):\n    elements = draw(lists(integers(), min_size=1, max_size=5))\n    nested_list = draw(lists(one_of(just(elements), lists(elements))), min_size=1, max_size=5)\n    return nested_list\n\nlist1 = create_nested_list()\nstrategy = list1",
+        "strategy": "def create_nested_list():\n    base = integers()\n    return recursive(base, lists)\n\nlist1 = create_nested_list()\nstrategy = list1",
         "code": "def flatten_list(list1):\n    result_list = []\n    if not list1: return result_list\n    stack = [list(list1)]\n    while stack:\n        c_num = stack.pop()\n        next = c_num.pop()\n        if c_num: stack.append(c_num)\n        if isinstance(next, list):\n            if next: stack.append(list(next))\n        else: result_list.append(next)\n    result_list.reverse()\n    return result_list "
     },
     {
@@ -1022,7 +1022,7 @@
     {
         "task_id": 301,
         "prompt": "def dict_depth(d):\n  \"\"\"Write a function to find the depth of a dictionary.\n  \"\"\"",
-        "strategy": "from collections.abc import Mapping\n\n@st.composite\ndef dictionary_strategy(draw):\n    depth = draw(st.integers(min_value=1, max_value=5))\n    dictionary = {}\n    for _ in range(depth):\n        key = draw(st.text(alphabet=string.ascii_letters + string.digits, min_size=1, max_size=10))\n        value = draw(st.recursive(st.floats(allow_nan=False, allow_infinity=False),\n                                    lambda children: st.lists(children, min_size=1, max_size=5).map(tuple)))\n        dictionary[key] = value\n\n    return dictionary\n\nstrategy = dictionary_strategy()",
+        "strategy": "from collections.abc import Mapping\nfrom hypothesis import strategies as st\nimport string\n\n@st.composite\ndef dictionary_strategy(draw):\n    depth = draw(st.integers(min_value=1, max_value=5))\n    dictionary = {}\n    for _ in range(depth):\n        key = draw(st.text(alphabet=string.ascii_letters + string.digits, min_size=1, max_size=10))\n        value = draw(st.recursive(st.floats(allow_nan=False, allow_infinity=False),\n                                    lambda children: st.lists(children, min_size=1, max_size=5).map(tuple)))\n        dictionary[key] = value\n\n    return dictionary\n\nstrategy = dictionary_strategy()",
         "code": "def dict_depth(d):\n    if isinstance(d, dict):\n        return 1 + (max(map(dict_depth, d.values())) if d else 0)\n    return 0"
     },
     {
@@ -1040,7 +1040,7 @@
     {
         "task_id": 306,
         "prompt": "def max_sum_increasing_subseq(a, n, index, k):\n  \"\"\"Write a function to find the maximum sum of increasing subsequence from prefix until ith index and also including a given kth element which is after i, i.e., k > i .\n  \"\"\"",
-        "strategy": "from typing import List\n\n@composite\ndef input_data(draw):\n    n = draw(integers(min_value=1, max_value=100))\n    a = draw(lists(integers(min_value=1, max_value=100), min_size=n, max_size=n))\n    index = draw(integers(min_value=0, max_value=n-2))\n    k = draw(integers(min_value=1, max_value=n-1))\n    return a, n, index, k\n\nstrategy = input_data()",
+        "strategy": "from typing import List\n\n@composite\ndef input_data(draw):\n    n = draw(integers(min_value=2, max_value=100))\n    a = draw(lists(integers(min_value=1, max_value=100), min_size=n, max_size=n))\n    index = draw(integers(min_value=0, max_value=n-2))\n    k = draw(integers(min_value=1, max_value=n-1))\n    return a, n, index, k\n\nstrategy = input_data()",
         "code": "def max_sum_increasing_subseq(a, n, index, k):\n\tdp = [[0 for i in range(n)] \n\t\t\tfor i in range(n)]\n\tfor i in range(n):\n\t\tif a[i] > a[0]:\n\t\t\tdp[0][i] = a[i] + a[0]\n\t\telse:\n\t\t\tdp[0][i] = a[i]\n\tfor i in range(1, n):\n\t\tfor j in range(n):\n\t\t\tif a[j] > a[i] and j > i:\n\t\t\t\tif dp[i - 1][i] + a[j] > dp[i - 1][j]:\n\t\t\t\t\tdp[i][j] = dp[i - 1][i] + a[j]\n\t\t\t\telse:\n\t\t\t\t\tdp[i][j] = dp[i - 1][j]\n\t\t\telse:\n\t\t\t\tdp[i][j] = dp[i - 1][j]\n\treturn dp[index][k]"
     },
     {
@@ -1082,13 +1082,13 @@
     {
         "task_id": 388,
         "prompt": "def highest_Power_of_2(n): \n  \"\"\"Write a python function to find the highest power of 2 that is less than or equal to n.\n  \"\"\"",
-        "strategy": "n = integers(min_value=0, max_value=10**9)\nstrategy = n",
+        "strategy": "n = integers(min_value=0, max_value=MAX_INT)\nstrategy = n",
         "code": "def highest_Power_of_2(n): \n    res = 0 \n    for i in range(n, 0, -1): \n        if ((i & (i - 1)) == 0): \n            res = i \n            break \n    return res "
     },
     {
         "task_id": 389,
         "prompt": "def find_lucas(n): \n  \"\"\"Write a function to find the n'th lucas number.\n  \"\"\"",
-        "strategy": "n = integers(min_value=0, max_value=100)\nstrategy = n",
+        "strategy": "n = integers(min_value=0, max_value=15)\nstrategy = n",
         "code": "def find_lucas(n): \n\tif (n == 0): \n\t\treturn 2\n\tif (n == 1): \n\t\treturn 1\n\treturn find_lucas(n - 1) + find_lucas(n - 2) "
     },
     {
@@ -1292,7 +1292,7 @@
     {
         "task_id": 427,
         "prompt": "def change_date_format(dt):\n  \"\"\"Write a function to convert a date of yyyy-mm-dd format to dd-mm-yyyy format.\n  \"\"\"",
-        "strategy": "dt = dates(min_value=\"1000-01-01\", max_value=\"9999-12-31\")\nstrategy = dt",
+        "strategy": "import datetime\n\ndt = dates(min_value=datetime.date(1000, 1, 1), max_value=datetime.date(9999, 12, 31))\nstrategy = dt",
         "code": "import re\ndef change_date_format(dt):\n        return re.sub(r'(\\d{4})-(\\d{1,2})-(\\d{1,2})', '\\\\3-\\\\2-\\\\1', dt)"
     },
     {
@@ -1304,7 +1304,7 @@
     {
         "task_id": 429,
         "prompt": "def and_tuples(test_tup1, test_tup2):\n  \"\"\"Write a function to extract the elementwise and tuples from the given two tuples.\n  \"\"\"",
-        "strategy": "@composite\ndef elements():\n    return integers(min_value=0, max_value=1)\n\ntest_tup1 = tuples(elements(), elements())\ntest_tup2 = tuples(elements(), elements())\n\nstrategy = test_tup1, test_tup2",
+        "strategy": "def elements():\n    return integers(min_value=0, max_value=1)\n\ntest_tup1 = tuples(elements(), elements())\ntest_tup2 = tuples(elements(), elements())\n\nstrategy = test_tup1, test_tup2",
         "code": "def and_tuples(test_tup1, test_tup2):\n  res = tuple(ele1 & ele2 for ele1, ele2 in zip(test_tup1, test_tup2))\n  return (res) "
     },
     {
@@ -1400,7 +1400,7 @@
     {
         "task_id": 445,
         "prompt": "def index_multiplication(test_tup1, test_tup2):\n  \"\"\"Write a function to perform index wise multiplication of tuple elements in the given two tuples.\n  \"\"\"",
-        "strategy": "@composite\ndef create_tuples(draw):\n    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))\n    tup1 = draw(tuples(integers(), min_size=n, max_size=n))\n    tup2 = draw(tuples(integers(), min_size=n, max_size=n))\n    return tup1, tup2\n\ntest_tup1, test_tup2 = create_tuples()\n\nstrategy = test_tup1, test_tup2",
+        "strategy": "@composite\ndef create_tuples(draw):\n    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))\n    tup1 = draw(lists(integers(), min_size=n, max_size=n))\n    tup2 = draw(lists(integers(), min_size=n, max_size=n))\n    return tuple(tup1), tuple(tup2)\n\ntest_tup1 = shared(create_tuples(), key=\"eval\").map(lambda x: x[0])\ntest_tup2 = shared(create_tuples(), key=\"eval\").map(lambda x: x[1])\n\nstrategy = test_tup1, test_tup2",
         "code": "def index_multiplication(test_tup1, test_tup2):\n  res = tuple(tuple(a * b for a, b in zip(tup1, tup2))\n   for tup1, tup2 in zip(test_tup1, test_tup2))\n  return (res) "
     },
     {
@@ -1436,7 +1436,7 @@
     {
         "task_id": 452,
         "prompt": "def loss_amount(actual_cost,sale_amount): \n  \"\"\"Write a function that gives loss amount on a sale if the given amount has loss else return 0.\n  \"\"\"",
-        "strategy": "actual_cost = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)\nsale_amount = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)\n\n@given(actual_cost, sale_amount)\ndef loss_amount(actual_cost, sale_amount):\n    if actual_cost > sale_amount:\n        return actual_cost - sale_amount\n    return 0\n\nstrategy = loss_amount",
+        "strategy": "actual_cost = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)\nsale_amount = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)\n\nstrategy = actual_cost, sale_amount",
         "code": "def loss_amount(actual_cost,sale_amount): \n  if(sale_amount > actual_cost):\n    amount = sale_amount - actual_cost\n    return amount\n  else:\n    return 0"
     },
     {
@@ -1496,7 +1496,7 @@
     {
         "task_id": 462,
         "prompt": "def combinations_list(list1):\n  \"\"\"Write a function to find all possible combinations of the elements of a given list.\n  \"\"\"",
-        "strategy": "list1 = lists(booleans() | floats() | integers() | text(), min_size=0, max_size=MAX_SEQUENCE_LEN)\nstrategy = list1",
+        "strategy": "list1 = lists(booleans() | floats() | integers() | text(), min_size=0, max_size=10)\nstrategy = list1",
         "code": "def combinations_list(list1):\n    if len(list1) == 0:\n        return [[]]\n    result = []\n    for el in combinations_list(list1[1:]):\n        result += [el, el+[list1[0]]]\n    return result"
     },
     {
@@ -1526,7 +1526,7 @@
     {
         "task_id": 470,
         "prompt": "def add_pairwise(test_tup):\n  \"\"\"Write a function to find the pairwise addition of the neighboring elements of the given tuple.\n  \"\"\"",
-        "strategy": "test_tup = tuples(integers(), integers(), max_size=2)\nstrategy = test_tup",
+        "strategy": "test_tup = lists(integers(), min_size=2, max_size=2).map(tuple)\nstrategy = test_tup",
         "code": "def add_pairwise(test_tup):\n  res = tuple(i + j for i, j in zip(test_tup, test_tup[1:]))\n  return (res) "
     },
     {
@@ -1538,13 +1538,13 @@
     {
         "task_id": 472,
         "prompt": "def check_Consecutive(l): \n  \"\"\"Write a python function to check whether the given list contains consecutive numbers or not.\n  \"\"\"",
-        "strategy": "l = lists(integers(), max_size=MAX_SEQUENCE_LEN, unique=True)\nstrategy = l",
+        "strategy": "l = lists(integers(min_value=MIN_INT, max_value=MAX_INT), max_size=MAX_SEQUENCE_LEN, unique=True)\nstrategy = l",
         "code": "def check_Consecutive(l): \n    return sorted(l) == list(range(min(l),max(l)+1)) "
     },
     {
         "task_id": 473,
         "prompt": "def tuple_intersection(test_list1, test_list2):\n  \"\"\"Write a function to find the tuple intersection of elements in the given tuple list irrespective of their order.\n  \"\"\"",
-        "strategy": "@composite\ndef find_intersection(draw):\n    n = draw(integers(min_value=0, max_value=MAX_SEQUENCE_LEN))\n    common_elements = draw(lists(integers(), min_size=n, max_size=n))\n    list1 = draw(lists(integers(), min_size=n, max_size=n))\n    list2 = draw(lists(integers(), min_size=n, max_size=n))\n    \n    test_list1 = draw(lists(sampled_from(list1), min_size=n, max_size=n))\n    test_list2 = draw(lists(sampled_from(list2), min_size=n, max_size=n))\n    \n    return common_elements, test_list1, test_list2\n\nstrategy = find_intersection()",
+        "strategy": "test_list1 = lists(integers(), max_size=MAX_SEQUENCE_LEN).map(tuple)\ntest_list2 = lists(integers(), max_size=MAX_SEQUENCE_LEN).map(tuple)\n\nstrategy = test_list1, test_list2",
         "code": "def tuple_intersection(test_list1, test_list2):\n  res = set([tuple(sorted(ele)) for ele in test_list1]) & set([tuple(sorted(ele)) for ele in test_list2])\n  return (res)"
     },
     {
@@ -1568,7 +1568,7 @@
     {
         "task_id": 477,
         "prompt": "def is_lower(string):\n  \"\"\"Write a python function to convert the given string to lower case.\n  \"\"\"",
-        "strategy": "string = text(alphabet=string.ascii_letters + string.punctuation + string.digits, max_size=MAX_SEQUENCE_LEN)\nstrategy = string",
+        "strategy": "import string\nstring_inp = text(alphabet=string.ascii_letters + string.punctuation + string.digits, max_size=MAX_SEQUENCE_LEN)\nstrategy = string_inp",
         "code": "def is_lower(string):\n  return (string.lower())"
     },
     {
@@ -1640,7 +1640,7 @@
     {
         "task_id": 564,
         "prompt": "def count_Pairs(arr,n): \n  \"\"\"Write a python function which takes a list of integers and counts the number of possible unordered pairs where both elements are unequal.\n  \"\"\"",
-        "strategy": "arr = lists(integers(), min_size=2, max_size=MAX_SEQUENCE_LEN)\nn = len(arr)\n\nstrategy = arr, just(n)",
+        "strategy": "arr = lists(integers(), min_size=2, max_size=MAX_SEQUENCE_LEN)\nn = builds(lambda x: len(x), arr)\n\nstrategy = arr, n",
         "code": "def count_Pairs(arr,n): \n    cnt = 0; \n    for i in range(n): \n        for j in range(i + 1,n): \n            if (arr[i] != arr[j]): \n                cnt += 1; \n    return cnt; "
     },
     {
@@ -1658,7 +1658,7 @@
     {
         "task_id": 567,
         "prompt": "def issort_list(list1):\n  \"\"\"Write a function to check whether a specified list is sorted or not.\n  \"\"\"",
-        "strategy": "list1 = lists(booleans(), max_size=MAX_SEQUENCE_LEN).flatmap(lambda l: shuffles(l))\nstrategy = list1",
+        "strategy": "list1 = lists(integers() | floats() | booleans(), max_size=MAX_SEQUENCE_LEN)\nstrategy = list1",
         "code": "def issort_list(list1):\n    result = all(list1[i] <= list1[i+1] for i in range(len(list1)-1))\n    return result"
     },
     {
@@ -1712,7 +1712,7 @@
     {
         "task_id": 579,
         "prompt": "def find_dissimilar(test_tup1, test_tup2):\n  \"\"\"Write a function to find the dissimilar elements in the given two tuples.\n  \"\"\"",
-        "strategy": "@composite\ndef create_tuple(draw, min_size=0, max_size=MAX_SEQUENCE_LEN):\n    n = draw(integers(min_value=min_size, max_value=max_size))\n    return tuple(draw(integers()), min_size=n, max_size=n)\n\ntest_tup1 = create_tuple()\ntest_tup2 = create_tuple()\n\nstrategy = test_tup1, test_tup2",
+        "strategy": "@composite\ndef create_tuple(draw, min_size=0, max_size=MAX_SEQUENCE_LEN):\n    n = draw(integers(min_value=min_size, max_value=max_size))\n    return tuple(draw(lists(integers(), min_size=n, max_size=n)))\n\ntest_tup1 = create_tuple()\ntest_tup2 = create_tuple()\n\nstrategy = test_tup1, test_tup2",
         "code": "def find_dissimilar(test_tup1, test_tup2):\n  res = tuple(set(test_tup1) ^ set(test_tup2))\n  return (res) "
     },
     {
@@ -1736,7 +1736,7 @@
     {
         "task_id": 583,
         "prompt": "def catalan_number(num):\n  \"\"\"Write a function which returns nth catalan number.\n  \"\"\"",
-        "strategy": "num = integers(min_value=0, max_value=2147483647)\nstrategy = num",
+        "strategy": "num = integers(min_value=0, max_value=10)\nstrategy = num",
         "code": "def catalan_number(num):\n    if num <=1:\n         return 1   \n    res_num = 0\n    for i in range(num):\n        res_num += catalan_number(i) * catalan_number(num-i-1)\n    return res_num"
     },
     {
@@ -1754,7 +1754,7 @@
     {
         "task_id": 586,
         "prompt": "def split_Arr(l, n):\n  \"\"\"Write a python function to split a list at the nth eelment and add the first part to the end.\n  \"\"\"",
-        "strategy": "l = lists(min_size=1, max_size=MAX_SEQUENCE_LEN)\nn = integers(min_value=1)\n\nstrategy = l, n",
+        "strategy": "l = lists(integers() | floats() | booleans() | text(), max_size=MAX_SEQUENCE_LEN)\nn = integers(min_value=0, max_value=MAX_SEQUENCE_LEN)\n\nstrategy = l, n",
         "code": "def split_Arr(l, n):\n  return l[n:] + l[:n]"
     },
     {
@@ -1772,7 +1772,7 @@
     {
         "task_id": 589,
         "prompt": "def perfect_squares(a, b):\n  \"\"\"Write a function to find perfect squares between two given numbers.\n  \"\"\"",
-        "strategy": "a = integers(min_value=0, max_value=10**6)\nb = integers(min_value=0, max_value=10**6)\n\nstrategy = a, b",
+        "strategy": "a = integers(min_value=0, max_value=MAX_INT)\nb = integers(min_value=0, max_value=MAX_INT)\n\nstrategy = a, b",
         "code": "def perfect_squares(a, b):\n    lists=[]\n    for i in range (a,b+1):\n        j = 1;\n        while j*j <= i:\n            if j*j == i:\n                 lists.append(i)  \n            j = j+1\n        i = i+1\n    return lists"
     },
     {
@@ -1796,7 +1796,7 @@
     {
         "task_id": 593,
         "prompt": "def removezero_ip(ip):\n  \"\"\"Write a function to remove leading zeroes from an ip address.\n  \"\"\"",
-        "strategy": "ip = text(alphabet=characters(min_codepoint=48, max_codepoint=57), min_size=7, max_size=15).filter(lambda s: '.' in s and all(int(num) >= 0 and int(num) <= 255 for num in s.split('.')))\nstrategy = ip",
+        "strategy": "n = integers(min_value=0, max_value=255).map(lambda x: '0' * (3 - len(str(x))) + str(x))\nip = builds(lambda a, b, c, d: '.'.join([a, b, c, d]), n, n, n, n)\nstrategy = ip",
         "code": "import re\ndef removezero_ip(ip):\n string = re.sub('\\.[0]*', '.', ip)\n return string\n"
     },
     {
@@ -1850,13 +1850,13 @@
     {
         "task_id": 603,
         "prompt": "def get_ludic(n):\n  \"\"\"Write a function to get all lucid numbers smaller than or equal to a given integer.\n  \"\"\"",
-        "strategy": "n = integers(min_value=1)\nstrategy = n",
+        "strategy": "n = integers(min_value=1, max_value=MAX_INT)\nstrategy = n",
         "code": "def get_ludic(n):\n\tludics = []\n\tfor i in range(1, n + 1):\n\t\tludics.append(i)\n\tindex = 1\n\twhile(index != len(ludics)):\n\t\tfirst_ludic = ludics[index]\n\t\tremove_index = index + first_ludic\n\t\twhile(remove_index < len(ludics)):\n\t\t\tludics.remove(ludics[remove_index])\n\t\t\tremove_index = remove_index + first_ludic - 1\n\t\tindex += 1\n\treturn ludics"
     },
     {
         "task_id": 604,
         "prompt": "def reverse_words(s):\n  \"\"\"Write a function to reverse words seperated by spaces in a given string.\n  \"\"\"",
-        "strategy": "s = text(min_size=1, max_size=MAX_SEQUENCE_LEN).filter(lambda x: \" \" in x)\nstrategy = s",
+        "strategy": "s = s = text(alphabet=\"ab \", min_size=1, max_size=MAX_SEQUENCE_LEN)\nstrategy = s",
         "code": "def reverse_words(s):\n        return ' '.join(reversed(s.split()))"
     },
     {
@@ -1874,7 +1874,7 @@
     {
         "task_id": 607,
         "prompt": "def find_literals(text, pattern):\n  \"\"\"Write a function to search a string for a regex pattern. The function should return the matching subtring, a start index and an end index.\n  \"\"\"",
-        "strategy": "text = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', max_size=MAX_SEQUENCE_LEN)\npattern = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', max_size=MAX_SEQUENCE_LEN)\nstrategy = text, pattern",
+        "strategy": "text_inp = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', max_size=MAX_SEQUENCE_LEN)\npattern = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', max_size=MAX_SEQUENCE_LEN)\nstrategy = text_inp, pattern",
         "code": "import re\n\ndef find_literals(text, pattern):\n  match = re.search(pattern, text)\n  s = match.start()\n  e = match.end()\n  return (match.re.pattern, s, e)"
     },
     {
@@ -1916,7 +1916,7 @@
     {
         "task_id": 616,
         "prompt": "def tuple_modulo(test_tup1, test_tup2):\n  \"\"\"Write a function which takes two tuples of the same length and performs the element wise modulo.\n  \"\"\"",
-        "strategy": "@composite\ndef make_tuples(draw):\n    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))\n    t1 = draw(tuples(integers(), min_size=n, max_size=n))\n    t2 = draw(tuples(integers(min_value=1), min_size=n, max_size=n))\n    return t1, t2\n\ntest_tup1 = shared(make_tuples().map(lambda x: x[0]), key=\"eval\")\ntest_tup2 = shared(make_tuples().map(lambda x: x[1]), key=\"eval\")\n\nstrategy = test_tup1, test_tup2",
+        "strategy": "@composite\ndef make_tuples(draw):\n    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))\n    t1 = draw(lists(integers(), min_size=n, max_size=n).map(tuple))\n    t2 = draw(lists(integers(min_value=1), min_size=n, max_size=n).map(tuple))\n    return t1, t2\n\ntest_tup1 = shared(make_tuples().map(lambda x: x[0]), key=\"eval\")\ntest_tup2 = shared(make_tuples().map(lambda x: x[1]), key=\"eval\")\n\nstrategy = test_tup1, test_tup2",
         "code": "def tuple_modulo(test_tup1, test_tup2):\n  res = tuple(ele1 % ele2 for ele1, ele2 in zip(test_tup1, test_tup2)) \n  return (res) "
     },
     {
@@ -1946,7 +1946,7 @@
     {
         "task_id": 622,
         "prompt": "def get_median(arr1, arr2, n):\n  \"\"\"Write a function to find the median of two sorted lists of same size.\n  \"\"\"",
-        "strategy": "from typing import List\nfrom hypothesis import given\nfrom hypothesis.strategies import lists, integers\n\ndef get_median(arr1: List[int], arr2: List[int], n: int) -> float:\n    \"\"\"\n    Finds the median of two sorted lists of the same size.\n\n    Parameters:\n    arr1 (List[int]): The first sorted list.\n    arr2 (List[int]): The second sorted list.\n    n (int): The size of the lists.\n\n    Returns:\n    float: The median of the two lists.\n\n    \"\"\"\n    combined = arr1 + arr2\n    combined.sort()\n    mid = n - 1\n    return combined[mid] if n % 2 != 0 else (combined[mid] + combined[mid + 1]) / 2\n\n@given(arr1=lists(integers()), arr2=lists(integers()), n=integers(min_value=0))\ndef test_get_median(arr1, arr2, n):\n    get_median(arr1, arr2, n)\n\ntest_get_median()\n\nstrategy = integers(min_value=0)",
+        "strategy": "@composite\ndef create(draw):\n  n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))\n  arr1 = draw(lists(integers(), min_size=n, max_size=n))\n  arr2 = draw(lists(integers(), min_size=n, max_size=n))\n  return arr1, arr2, n\n\narr1 = shared(create(), key='eval').map(lambda x: x[0])\narr2 = shared(create(), key='eval').map(lambda x: x[1])\nn = shared(create(), key='eval').map(lambda x: x[2])\n\nstrategy = arr1, arr2, n",
         "code": "def get_median(arr1, arr2, n):\n  i = 0\n  j = 0\n  m1 = -1\n  m2 = -1\n  count = 0\n  while count < n + 1:\n    count += 1\n    if i == n:\n      m1 = m2\n      m2 = arr2[0]\n      break\n    elif j == n:\n      m1 = m2\n      m2 = arr1[0]\n      break\n    if arr1[i] <= arr2[j]:\n      m1 = m2\n      m2 = arr1[i]\n      i += 1\n    else:\n      m1 = m2\n      m2 = arr2[j]\n      j += 1\n  return (m1 + m2)/2"
     },
     {
@@ -1976,13 +1976,13 @@
     {
         "task_id": 627,
         "prompt": "def find_First_Missing(array,start=0,end=None):\n  \"\"\"Write a python function to find the smallest missing number from a sorted list of natural numbers.\n  \"\"\"",
-        "strategy": "array = lists(integers(min_value=1, max_value=sys.maxsize), unique=True, ordered=True)\nstart = integers(min_value=0, max_value=len(array)-1)\nend = integers(min_value=0, max_value=len(array)-1)\n\nstrategy = array, start, end",
+        "strategy": "array = lists(integers(min_value=1, max_value=MAX_INT), unique=True).map(lambda x: sorted(x))\n\nstrategy = array",
         "code": "def find_First_Missing(array,start=0,end=None):\n    if end is None:\n      end = len(array) - 1   \n    if (start > end): \n        return end + 1\n    if (start != array[start]): \n        return start; \n    mid = int((start + end) / 2) \n    if (array[mid] == mid): \n        return find_First_Missing(array,mid+1,end) \n    return find_First_Missing(array,start,mid) "
     },
     {
         "task_id": 628,
         "prompt": "def replace_spaces(string):\n  \"\"\"Write a function to replace all spaces in the given string with '%20'.\n  \"\"\"",
-        "strategy": "string = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ',\n               min_size=0, max_size=MAX_SEQUENCE_LEN).filter(lambda x: ' ' in x)\nstrategy = string",
+        "strategy": "string = text(alphabet=\"ab \", max_size=MAX_SEQUENCE_LEN)\nstrategy = string",
         "code": "def replace_spaces(string):\n  return string.replace(\" \", \"%20\")"
     },
     {
@@ -2012,7 +2012,7 @@
     {
         "task_id": 633,
         "prompt": "def pair_xor_Sum(arr,n) : \n  \"\"\"Write a python function to find the sum of xor of all pairs of numbers in the given list.\n  \"\"\"",
-        "strategy": "arr = lists(integers(), max_size=MAX_SEQUENCE_LEN)\nn = integers(min_value=0, exclude_min=True)\n\nstrategy = arr, n",
+        "strategy": "arr = lists(integers(), max_size=MAX_SEQUENCE_LEN)\nn = integers(min_value=0)\n\nstrategy = arr, n",
         "code": "def pair_xor_Sum(arr,n) : \n    ans = 0 \n    for i in range(0,n) :    \n        for j in range(i + 1,n) :   \n            ans = ans + (arr[i] ^ arr[j])          \n    return ans "
     },
     {
@@ -2036,7 +2036,7 @@
     {
         "task_id": 639,
         "prompt": "def sample_nam(sample_names):\n  \"\"\"Write a function to sum the length of the names of a given list of names after removing the names that start with a lowercase letter.\n  \"\"\"",
-        "strategy": "sample_names = lists(text(alphabet=string.ascii_letters, min_size=1), min_size=1)\nstrategy = sample_names",
+        "strategy": "import string\nsample_names = lists(text(alphabet=string.ascii_letters, min_size=1), min_size=1)\nstrategy = sample_names",
         "code": "def sample_nam(sample_names):\n  sample_names=list(filter(lambda el:el[0].isupper() and el[1:].islower(),sample_names))\n  return len(''.join(sample_names))"
     },
     {
@@ -2066,7 +2066,7 @@
     {
         "task_id": 720,
         "prompt": "def add_dict_to_tuple(test_tup, test_dict):\n  \"\"\"Write a function to add a dictionary to the tuple. The output should be a tuple.\n  \"\"\"",
-        "strategy": "test_tup = tuples(any_type(), any_type())\ntest_dict = dictionaries(any_type(), any_type())\n\nstrategy = test_tup, test_dict",
+        "strategy": "test_tup = lists(integers() | floats() | booleans() | text()).map(tuple)\ntest_dict = dictionaries(integers() | floats() | booleans() | text(), integers() | floats() | booleans() | text())\n\nstrategy = test_tup, test_dict",
         "code": "def add_dict_to_tuple(test_tup, test_dict):\n  test_tup = list(test_tup)\n  test_tup.append(test_dict)\n  test_tup = tuple(test_tup)\n  return (test_tup) "
     },
     {
@@ -2078,7 +2078,7 @@
     {
         "task_id": 722,
         "prompt": "def filter_data(students,h,w):\n  \"\"\"The input is given as - a dictionary with a student name as a key and a tuple of float (student_height, student_weight) as a value, - minimal height, - minimal weight. Write a function to filter students that have height and weight above the minimum.\n  \"\"\"",
-        "strategy": "@composite\ndef student():\n    name = text(alphabet=characters(min_codepoint=97, max_codepoint=122), min_size=1, max_size=10)\n    height = floats(min_value=0.0, allow_infinity=False, allow_nan=False)\n    weight = floats(min_value=0.0, allow_infinity=False, allow_nan=False)\n    return (name, (height, weight))\n\nstudents = dictionaries(keys=text(), values=student())\nh = floats(min_value=0.0, allow_infinity=False, allow_nan=False)\nw = floats(min_value=0.0, allow_infinity=False, allow_nan=False)\n\nstrategy = students, h, w",
+        "strategy": "students = dictionaries(keys=text(), values=tuples(floats(min_value=0.0, allow_infinity=False, allow_nan=False), floats(min_value=0.0, allow_infinity=False, allow_nan=False)))\nh = floats(min_value=0.0, allow_infinity=False, allow_nan=False)\nw = floats(min_value=0.0, allow_infinity=False, allow_nan=False)\n\nstrategy = students, h, w",
         "code": "def filter_data(students,h,w):\n    result = {k: s for k, s in students.items() if s[0] >=h and s[1] >=w}\n    return result    "
     },
     {
@@ -2096,13 +2096,13 @@
     {
         "task_id": 725,
         "prompt": "def extract_quotation(text1):\n  \"\"\"Write a function to extract values between quotation marks \" \" of the given string.\n  \"\"\"",
-        "strategy": "import re\n\ntext1 = text(alphabet=\"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ \", max_size=MAX_SEQUENCE_LEN)\n\n@composite\ndef quotation_string(draw):\n    text = draw(text1)\n    # Generating random strings with quotation marks\n    quo_str = ''.join(draw(text(alphabet='\"', min_size=1, max_size=1)) + draw(text(min_size=1, max_size=10)) + draw(text(alphabet='\"', min_size=1, max_size=1)) for _ in range(3))\n    quo_str = re.sub(r'\\s+', ' ', quo_str).strip()\n    text = text + quo_str\n    return text\n\nstrategy = quotation_string()",
+        "strategy": "import re\n\ntext1 = text(alphabet=\"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ \", max_size=MAX_SEQUENCE_LEN)\n\n@composite\ndef quotation_string(draw):\n    text_inp = draw(text1)\n    # Generating random strings with quotation marks\n    quo_str = ''.join(draw(text(alphabet='\"', min_size=1, max_size=1)) + draw(text(min_size=1, max_size=10)) + draw(text(alphabet='\"', min_size=1, max_size=1)) for _ in range(3))\n    quo_str = re.sub(r'\\s+', ' ', quo_str).strip()\n    return text_inp + quo_str\n\nstrategy = quotation_string()",
         "code": "import re\ndef extract_quotation(text1):\n  return (re.findall(r'\"(.*?)\"', text1))"
     },
     {
         "task_id": 726,
         "prompt": "def multiply_elements(test_tup):\n  \"\"\"Write a function that takes as input a tuple of numbers (t_1,...,t_{N+1}) and returns a tuple of length N where the i-th element of the tuple is equal to t_i * t_{i+1}.\n  \"\"\"",
-        "strategy": "test_tup = tuples(floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT), min_size=2, max_size=MAX_SEQUENCE_LEN)\nstrategy = test_tup",
+        "strategy": "test_tup = lists(floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT), min_size=2, max_size=MAX_SEQUENCE_LEN).map(tuple)\nstrategy = test_tup",
         "code": "def multiply_elements(test_tup):\n  res = tuple(i * j for i, j in zip(test_tup, test_tup[1:]))\n  return (res) "
     },
     {
@@ -2156,7 +2156,7 @@
     {
         "task_id": 737,
         "prompt": "def check_str(string): \n  \"\"\"Write a function to check whether the given string is starting with a vowel or not using regex.\n  \"\"\"",
-        "strategy": "import re\n\nstring = text(alphabet='aeiou', min_size=1, max_size=1) + text(min_size=1, max_size=MAX_SEQUENCE_LEN)\nvowel_regex = re.compile(r\"^[aeiou]\")\n\nstrategy = string.filter(lambda s: bool(vowel_regex.match(s)))",
+        "strategy": "import re\n\nstring = builds(lambda x, y: x + y, text(alphabet='aeiou', min_size=1, max_size=1), text(min_size=1, max_size=MAX_SEQUENCE_LEN))\nvowel_regex = re.compile(r\"^[aeiou]\")\n\nstrategy = string.filter(lambda s: bool(vowel_regex.match(s)))",
         "code": "import re \nregex = '^[aeiouAEIOU][A-Za-z0-9_]*'\ndef check_str(string): \n\treturn re.search(regex, string)"
     },
     {
@@ -2204,7 +2204,7 @@
     {
         "task_id": 745,
         "prompt": "def divisible_by_digits(startnum, endnum):\n  \"\"\"Write a function to find numbers within a given range from startnum ti endnum where every number is divisible by every digit it contains. https://www.w3resource.com/python-exercises/lambda/python-lambda-exercise-24.php\n  \"\"\"",
-        "strategy": "startnum = integers(min_value=0)\nendnum = integers(min_value=0)\n\nstrategy = startnum, endnum",
+        "strategy": "startnum = integers(min_value=0, max_value=MAX_INT)\nendnum = integers(min_value=0, max_value=MAX_INT)\n\nstrategy = startnum, endnum",
         "code": "def divisible_by_digits(startnum, endnum):\n    return [n for n in range(startnum, endnum+1) \\\n                if not any(map(lambda x: int(x) == 0 or n%int(x) != 0, str(n)))]"
     },
     {
@@ -2222,7 +2222,7 @@
     {
         "task_id": 748,
         "prompt": "def capital_words_spaces(str1):\n  \"\"\"Write a function to put spaces between words starting with capital letters in a given string.\n  \"\"\"",
-        "strategy": "str1 = text(alphabet=string.ascii_letters + ' ', min_size=1, max_size=MAX_SEQUENCE_LEN)\n\nstrategy = str1",
+        "strategy": "import string\nstr1 = text(alphabet=string.ascii_letters + ' ', min_size=1, max_size=MAX_SEQUENCE_LEN)\n\nstrategy = str1",
         "code": "import re\ndef capital_words_spaces(str1):\n  return re.sub(r\"(\\w)([A-Z])\", r\"\\1 \\2\", str1)"
     },
     {
@@ -2240,7 +2240,7 @@
     {
         "task_id": 751,
         "prompt": "def check_min_heap_helper(arr, i):\n  \"\"\"Write a function to check if the given array represents min heap or not. https://www.geeksforgeeks.org/how-to-check-if-a-given-array-represents-a-binary-heap/\n  \"\"\"",
-        "strategy": "arr = lists(integers(), max_size=MAX_SEQUENCE_LEN)\ni = integers(min_value=0, max_value=len(arr) - 1)\n\nstrategy = arr, i",
+        "strategy": "@composite\ndef create(draw):\n  n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))\n  arr = draw(lists(integers(), min_size=n, max_size=n))\n  i = draw(integers(min_value=0, max_value=n-1))\n  return arr, i\n\narr = shared(create(), key='eval').map(lambda x: x[0])\ni = shared(create(), key='eval').map(lambda x: x[1])\n\nstrategy = arr, i",
         "code": "def check_min_heap_helper(arr, i):\n    if 2 * i + 2 > len(arr):\n        return True\n    left_child = (arr[i] <= arr[2 * i + 1]) and check_min_heap_helper(arr, 2 * i + 1)\n    right_child = (2 * i + 2 == len(arr)) or (arr[i] <= arr[2 * i + 2] \n                                      and check_min_heap_helper(arr, 2 * i + 2))\n    return left_child and right_child\n\ndef check_min_heap(arr):\n  return check_min_heap_helper(arr, 0)"
     },
     {
@@ -2288,7 +2288,7 @@
     {
         "task_id": 759,
         "prompt": "def is_decimal(num):\n  \"\"\"Write a function to check whether a given string is a decimal number with a precision of 2.\n  \"\"\"",
-        "strategy": "num = decimals(min_value=0, allow_nan=False, allow_infinity=False, max_digits=4, decimal_digits=2)\nstrategy = num",
+        "strategy": "num = text() | integers().map(str) | floats(allow_nan=False, allow_infinity=False).map(str)\nstrategy = num",
         "code": "def is_decimal(num):\n    import re\n    dnumre = re.compile(r\"\"\"^[0-9]+(\\.[0-9]{1,2})?$\"\"\")\n    result = dnumre.search(num)\n    return bool(result)"
     },
     {
@@ -2306,7 +2306,7 @@
     {
         "task_id": 763,
         "prompt": "def find_min_diff(arr,n): \n  \"\"\"Write a python function to find the minimum difference between any two elements in a given array. https://www.geeksforgeeks.org/find-minimum-difference-pair/\n  \"\"\"",
-        "strategy": "arr = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)\nn = just(len(arr))\n\nstrategy = arr, n",
+        "strategy": "@composite\ndef create(draw):\n  n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))\n  arr = draw(lists(integers(), min_size=n, max_size=n))\n  return arr, n\n\narr = shared(create(), key=\"eval\").map(lambda x: x[0])\nn = shared(create(), key=\"eval\").map(lambda x: x[1])\n\nstrategy = arr, n",
         "code": "def find_min_diff(arr,n): \n    arr = sorted(arr) \n    diff = 10**20 \n    for i in range(n-1): \n        if arr[i+1] - arr[i] < diff: \n            diff = arr[i+1] - arr[i]  \n    return diff "
     },
     {
@@ -2360,7 +2360,7 @@
     {
         "task_id": 773,
         "prompt": "def occurance_substring(text,pattern):\n  \"\"\"Write a function to find the occurrence and position of the substrings within a string. Return None if there is no match.\n  \"\"\"",
-        "strategy": "text = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', min_size=1, max_size=MAX_SEQUENCE_LEN)\npattern = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', min_size=1, max_size=MAX_SEQUENCE_LEN)\n\nstrategy = text, pattern",
+        "strategy": "text_inp = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', min_size=1, max_size=MAX_SEQUENCE_LEN)\npattern = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', min_size=1, max_size=MAX_SEQUENCE_LEN)\n\nstrategy = text_inp, pattern",
         "code": "import re\ndef occurance_substring(text,pattern):\n for match in re.finditer(pattern, text):\n    s = match.start()\n    e = match.end()\n    return (text[s:e], s, e)"
     },
     {
@@ -2378,7 +2378,7 @@
     {
         "task_id": 777,
         "prompt": "def find_sum(arr): \n  \"\"\"Write a python function to find the sum of non-repeated elements in a given list.\n  \"\"\"",
-        "strategy": "arr = lists(integers(unique=True), min_size=1, max_size=MAX_SEQUENCE_LEN)\nstrategy = arr",
+        "strategy": "arr = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)\nstrategy = arr",
         "code": "def find_sum(arr): \n    arr.sort() \n    sum = arr[0] \n    for i in range(len(arr)-1): \n        if (arr[i] != arr[i+1]): \n            sum = sum + arr[i+1]   \n    return sum"
     },
     {
@@ -2396,7 +2396,7 @@
     {
         "task_id": 780,
         "prompt": "def find_combinations(test_list):\n  \"\"\"Write a function to find the combinations of sums with tuples in the given tuple list. https://www.geeksforgeeks.org/python-combinations-of-sum-with-tuples-in-tuple-list/\n  \"\"\"",
-        "strategy": "test_list = lists(any_tuple(), max_size=MAX_SEQUENCE_LEN)\nstrategy = test_list",
+        "strategy": "test_list = lists(lists(integers() | floats(), max_size=MAX_SEQUENCE_LEN).map(tuple), max_size=MAX_SEQUENCE_LEN)\nstrategy = test_list",
         "code": "from itertools import combinations \ndef find_combinations(test_list):\n  res = [(b1 + a1, b2 + a2) for (a1, a2), (b1, b2) in combinations(test_list, 2)]\n  return (res) "
     },
     {
@@ -2438,7 +2438,7 @@
     {
         "task_id": 787,
         "prompt": "def text_match_three(text):\n  \"\"\"Write a function that matches a string that has an a followed by three 'b'.\n  \"\"\"",
-        "strategy": "pattern = r'a{1}b{3}'\ntext = text(alphabet='abcdefghijklmnopqrstuvwxyz' + 'ab' * 100, max_size=MAX_SEQUENCE_LEN)\nstrategy = text, pattern",
+        "strategy": "text_inp = text(alphabet='abc')\nstrategy = text_inp",
         "code": "import re\ndef text_match_three(text):\n        patterns = 'ab{3}?'\n        return re.search(patterns,  text)"
     },
     {
@@ -2558,7 +2558,7 @@
     {
         "task_id": 809,
         "prompt": "def check_smaller(test_tup1, test_tup2):\n  \"\"\"Write a function to check if each element of second tuple is smaller than its corresponding element in the first tuple.\n  \"\"\"",
-        "strategy": "@composite\ndef make_tuples(draw):\n    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))\n    tup1 = draw(tuples(integers(), min_size=n, max_size=n))\n    tup2 = draw(tuples(integers(max_value=tup1[i]), min_size=n, max_size=n))\n    return tup1, tup2\n\ntup1, tup2 = make_tuples()\nstrategy = tup1, tup2",
+        "strategy": "tup1 = lists(integers(), max_size=MAX_SEQUENCE_LEN)\ntup2 = lists(integers(), max_size=MAX_SEQUENCE_LEN)\nstrategy = tup1, tup2",
         "code": "def check_smaller(test_tup1, test_tup2):\n  return all(x > y for x, y in zip(test_tup1, test_tup2))"
     }
 ]

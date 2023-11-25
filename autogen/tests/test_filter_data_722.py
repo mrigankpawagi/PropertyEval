@@ -8,14 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def student():
-    name = text(alphabet=characters(min_codepoint=97, max_codepoint=122), min_size=1, max_size=10)
-    height = floats(min_value=0.0, allow_infinity=False, allow_nan=False)
-    weight = floats(min_value=0.0, allow_infinity=False, allow_nan=False)
-    return (name, (height, weight))
-
-students = dictionaries(keys=text(), values=student())
+students = dictionaries(keys=text(), values=tuples(floats(min_value=0.0, allow_infinity=False, allow_nan=False), floats(min_value=0.0, allow_infinity=False, allow_nan=False)))
 h = floats(min_value=0.0, allow_infinity=False, allow_nan=False)
 w = floats(min_value=0.0, allow_infinity=False, allow_nan=False)
 

@@ -11,8 +11,8 @@ from typing import *
 @composite
 def make_tuples(draw):
     n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
-    t1 = draw(tuples(integers(), min_size=n, max_size=n))
-    t2 = draw(tuples(integers(min_value=1), min_size=n, max_size=n))
+    t1 = draw(lists(integers(), min_size=n, max_size=n).map(tuple))
+    t2 = draw(lists(integers(min_value=1), min_size=n, max_size=n).map(tuple))
     return t1, t2
 
 test_tup1 = shared(make_tuples().map(lambda x: x[0]), key="eval")

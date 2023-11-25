@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-test_tuple = tuples(
+test_tuple = lists(
     one_of(
         integers(),
         floats(),
@@ -20,7 +20,7 @@ test_tuple = tuples(
     ),
     min_size=1,
     max_size=10,
-)
+).map(tuple)
 
 strategy = test_tuple
 if not isinstance(strategy, tuple):

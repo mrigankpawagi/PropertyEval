@@ -8,7 +8,6 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
 def elements():
     return integers(min_value=0, max_value=1)
 

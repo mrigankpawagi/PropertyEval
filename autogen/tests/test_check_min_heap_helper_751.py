@@ -8,8 +8,15 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-arr = lists(integers(), max_size=MAX_SEQUENCE_LEN)
-i = integers(min_value=0, max_value=len(arr) - 1)
+@composite
+def create(draw):
+  n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
+  arr = draw(lists(integers(), min_size=n, max_size=n))
+  i = draw(integers(min_value=0, max_value=n-1))
+  return arr, i
+
+arr = shared(create(), key='eval').map(lambda x: x[0])
+i = shared(create(), key='eval').map(lambda x: x[1])
 
 strategy = arr, i
 if not isinstance(strategy, tuple):

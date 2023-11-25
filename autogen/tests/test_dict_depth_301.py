@@ -9,6 +9,8 @@ from timeout import run_with_timeout
 from typing import *
                 
 from collections.abc import Mapping
+from hypothesis import strategies as st
+import string
 
 @st.composite
 def dictionary_strategy(draw):

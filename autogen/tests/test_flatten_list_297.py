@@ -8,11 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def create_nested_list(draw):
-    elements = draw(lists(integers(), min_size=1, max_size=5))
-    nested_list = draw(lists(one_of(just(elements), lists(elements))), min_size=1, max_size=5)
-    return nested_list
+def create_nested_list():
+    base = integers()
+    return recursive(base, lists)
 
 list1 = create_nested_list()
 strategy = list1

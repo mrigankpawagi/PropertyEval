@@ -10,7 +10,7 @@ from typing import *
                 
 import re
 
-string = text(alphabet='aeiou', min_size=1, max_size=1) + text(min_size=1, max_size=MAX_SEQUENCE_LEN)
+string = builds(lambda x, y: x + y, text(alphabet='aeiou', min_size=1, max_size=1), text(min_size=1, max_size=MAX_SEQUENCE_LEN))
 vowel_regex = re.compile(r"^[aeiou]")
 
 strategy = string.filter(lambda s: bool(vowel_regex.match(s)))

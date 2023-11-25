@@ -8,8 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-string = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ',
-               min_size=0, max_size=MAX_SEQUENCE_LEN).filter(lambda x: ' ' in x)
+string = text(alphabet="ab ", max_size=MAX_SEQUENCE_LEN)
 strategy = string
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

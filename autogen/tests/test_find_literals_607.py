@@ -8,9 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-text = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', max_size=MAX_SEQUENCE_LEN)
+text_inp = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', max_size=MAX_SEQUENCE_LEN)
 pattern = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', max_size=MAX_SEQUENCE_LEN)
-strategy = text, pattern
+strategy = text_inp, pattern
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

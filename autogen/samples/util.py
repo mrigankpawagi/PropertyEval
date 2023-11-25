@@ -8,6 +8,7 @@ from limits.limits import *
 from hypothesis.strategies import *
 from hypothesis import given
 import importlib
+import string
 
 tasks_list = set()
 
@@ -47,17 +48,14 @@ def test_base():
     except Exception as e:
         return False    
 
-def properteval_test(completion: str, strategy: str, code: str, entry_point: str, task_id: int) -> bool:
+def properteval_test(completion: str, strategy: str, entry_point: str, task_id: int) -> bool:
     completion_with_timeout = completion.replace(f"def {entry_point}", f"@timeout()\ndef {entry_point}", 1)    
     test_properteval = lambda: None
 
     try:
         gt_module = importlib.import_module(f"groundtruth.{task_id}")
         gt_func = getattr(gt_module, entry_point)
-    
         exec(f"""{completion_with_timeout}
-
-{code}
 
 {strategy}
 if not isinstance(strategy, tuple):

@@ -8,6 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
+import string
 str1 = text(alphabet=string.ascii_letters + ' ', min_size=1, max_size=MAX_SEQUENCE_LEN)
 
 strategy = str1

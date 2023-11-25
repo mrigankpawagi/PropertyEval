@@ -8,35 +8,18 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from typing import List
-from hypothesis import given
-from hypothesis.strategies import lists, integers
+@composite
+def create(draw):
+  n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
+  arr1 = draw(lists(integers(), min_size=n, max_size=n))
+  arr2 = draw(lists(integers(), min_size=n, max_size=n))
+  return arr1, arr2, n
 
-def get_median(arr1: List[int], arr2: List[int], n: int) -> float:
-    """
-    Finds the median of two sorted lists of the same size.
+arr1 = shared(create(), key='eval').map(lambda x: x[0])
+arr2 = shared(create(), key='eval').map(lambda x: x[1])
+n = shared(create(), key='eval').map(lambda x: x[2])
 
-    Parameters:
-    arr1 (List[int]): The first sorted list.
-    arr2 (List[int]): The second sorted list.
-    n (int): The size of the lists.
-
-    Returns:
-    float: The median of the two lists.
-
-    """
-    combined = arr1 + arr2
-    combined.sort()
-    mid = n - 1
-    return combined[mid] if n % 2 != 0 else (combined[mid] + combined[mid + 1]) / 2
-
-@given(arr1=lists(integers()), arr2=lists(integers()), n=integers(min_value=0))
-def test_get_median(arr1, arr2, n):
-    get_median(arr1, arr2, n)
-
-test_get_median()
-
-strategy = integers(min_value=0)
+strategy = arr1, arr2, n
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

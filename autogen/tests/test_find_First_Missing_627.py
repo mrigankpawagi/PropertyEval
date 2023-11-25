@@ -8,11 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-array = lists(integers(min_value=1, max_value=sys.maxsize), unique=True, ordered=True)
-start = integers(min_value=0, max_value=len(array)-1)
-end = integers(min_value=0, max_value=len(array)-1)
+array = lists(integers(min_value=1, max_value=MAX_INT), unique=True).map(lambda x: sorted(x))
 
-strategy = array, start, end
+strategy = array
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

@@ -15,11 +15,12 @@ def make_arr(draw):
     n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
     arr = draw(lists(integers(), min_size=n, max_size=n))
     arr.sort()
-    return arr
+    x = draw(sampled_from(arr))
+    return arr, n, x
 
-arr = make_arr()
-n = len(arr)
-x = elements(arr)
+arr = shared(make_arr(), key="eval").map(lambda x: x[0])
+n = shared(make_arr(), key="eval").map(lambda x: x[1])
+x = shared(make_arr(), key="eval").map(lambda x: x[2])
 
 strategy = arr, n, x
 if not isinstance(strategy, tuple):

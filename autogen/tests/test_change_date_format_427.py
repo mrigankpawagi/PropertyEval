@@ -8,7 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-dt = dates(min_value="1000-01-01", max_value="9999-12-31")
+import datetime
+
+dt = dates(min_value=datetime.date(1000, 1, 1), max_value=datetime.date(9999, 12, 31))
 strategy = dt
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

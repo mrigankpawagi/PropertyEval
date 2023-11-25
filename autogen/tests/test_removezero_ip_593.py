@@ -8,7 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-ip = text(alphabet=characters(min_codepoint=48, max_codepoint=57), min_size=7, max_size=15).filter(lambda s: '.' in s and all(int(num) >= 0 and int(num) <= 255 for num in s.split('.')))
+n = integers(min_value=0, max_value=255).map(lambda x: '0' * (3 - len(str(x))) + str(x))
+ip = builds(lambda a, b, c, d: '.'.join([a, b, c, d]), n, n, n, n)
 strategy = ip
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

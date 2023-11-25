@@ -12,7 +12,7 @@ from typing import List
 
 @composite
 def input_data(draw):
-    n = draw(integers(min_value=1, max_value=100))
+    n = draw(integers(min_value=2, max_value=100))
     a = draw(lists(integers(min_value=1, max_value=100), min_size=n, max_size=n))
     index = draw(integers(min_value=0, max_value=n-2))
     k = draw(integers(min_value=1, max_value=n-1))

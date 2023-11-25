@@ -9,7 +9,7 @@ from timeout import run_with_timeout
 from typing import *
                 
 arr = lists(integers(), max_size=MAX_SEQUENCE_LEN)
-n = integers(min_value=0, exclude_min=True)
+n = integers(min_value=0)
 
 strategy = arr, n
 if not isinstance(strategy, tuple):
