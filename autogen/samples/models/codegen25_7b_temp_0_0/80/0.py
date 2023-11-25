@@ -1,14 +1,13 @@
 def tetrahedral_number(n): 
   """
   Write a function to find the nth tetrahedral number.
-  >>> tetrahedral_number(5) == 35
   """
   return int(n * (n + 1) * (n + 2) / 6)
 
-def fibonacci_number(n):
+def is_tetrahedral_number(n):
   """
-  Write a function to find the nth Fibonacci number.
-  >>> fibonacci_number(5) == 5
+  Write a function to determine if a number is a tetrahedral number.
   """
-  if n == 0:
-    return
+  return n == tetrahedral_number(n)
+
+def is_

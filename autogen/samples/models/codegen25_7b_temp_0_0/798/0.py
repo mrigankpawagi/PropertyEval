@@ -1,17 +1,17 @@
 def _sum(arr):  
   """
   Write a python function to find the sum of an array.
-  >>> _sum([1, 2, 3]) == 6
   """
-  return sum(arr)
+  sum = 0
+  for i in arr:
+    sum += i
+  return sum
 
 def _max(arr):  
   """
-  Write a python function to find the maximum value in an array.
-  >>> _max([1, 2, 3]) == 3
+  Write a python function to find the maximum element in an array.
   """
-  return max(arr)
-
-def _min(arr):  
-  """
-  Write a python function
+  max = arr[0]
+  for i in arr:
+    if i > max:
+      max

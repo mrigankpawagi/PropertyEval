@@ -1,11 +1,10 @@
 def is_Sum_Of_Powers_Of_Two(n): 
   """
   Write a python function to check whether the given number can be represented as sum of non-zero powers of 2 or not.
-  >>> is_Sum_Of_Powers_Of_Two(10) == True
   """
   if n == 0:
     return False
-  while n > 0:
+  while n != 0:
     if n % 2 == 0:
       n = n // 2
     else:

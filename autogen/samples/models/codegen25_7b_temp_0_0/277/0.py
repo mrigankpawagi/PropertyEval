@@ -1,11 +1,13 @@
 def dict_filter(dict,n):
   """
   Write a function that takes in a dictionary and integer n and filters the dictionary to only include entries with values greater than or equal to n.
-  >>> dict_filter({'Cierra Vega': 175, 'Alden Cantrell': 180, 'Kierra Gentry': 165, 'Pierre Cox': 190},170)=={'Cierra Vega': 175, 'Alden Cantrell': 180, 'Pierre Cox': 190}
   """
-  return {k:v for k,v in dict.items() if v>=n}
+  new_dict = {}
+  for key, value in dict.items():
+    if value >= n:
+      new_dict[key] = value
+  return new_dict
 
-def dict_reduce(dict,n):
-  """
-  Write a function that takes in a dictionary and integer n and filters the dictionary to only include entries with values less than n.
-  >>> dict_reduce({'Cierra Vega
+print(dict_filter({1:2, 2:3, 3:4, 4:5}, 3))
+
+def dict_filter_2(

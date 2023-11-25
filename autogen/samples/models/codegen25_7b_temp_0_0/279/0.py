@@ -1,15 +1,13 @@
 def is_num_decagonal(n): 
   """
   Write a function to find the nth decagonal number.
-  >>> is_num_decagonal(3) == 27
   """
-  return n * (3 * n - 2) // 2
+  return n * (n + 1) * (n + 2) / 6
 
-def is_num_hexagonal(n): 
+def is_num_decagonal_2(n):
   """
-  Write a function to find the nth hexagonal number.
-  >>> is_num_hexagonal(3) == 27
+  Write a function to find the nth decagonal number.
   """
-  return n * (2 * n - 1)
+  return n * (3 * n - 2) / 2
 
-def
+def is_num_decagonal_

@@ -1,13 +1,16 @@
 def number_ctr(str):
   """
   Write a python function to count number of digits in a given string.
-  >>> number_ctr('program2bedone') == 1
   """
-  return len(re.findall(r'\d', str))
+  count = 0
+  for i in str:
+    if i.isdigit():
+      count += 1
+  return count
 
-def number_ctr(str):
+def number_ctr_2(str):
   """
   Write a python function to count number of digits in a given string.
-  >>> number_ctr('program2bedone') == 1
   """
-  return len(re.findall(r'\d
+  count = 0
+  for i in str:

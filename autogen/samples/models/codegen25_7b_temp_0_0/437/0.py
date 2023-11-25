@@ -1,15 +1,13 @@
 def remove_odd(str1):
   """
   Write a function to remove odd characters in a string.
-  >>> remove_odd("python")==("yhn")
   """
-  str2 = ""
-  for i in str1:
-    if i.isdigit() == False:
-      str2 += i
-  return str2
+  return ''.join(filter(lambda x: x % 2 == 0, str1))
+
+print(remove_odd('abcdefg'))
 
 def remove_odd2(str1):
   """
   Write a function to remove odd characters in a string.
-  >>> remove_odd2("python")==("
+  """
+  return ''.join(filter(lambda x:

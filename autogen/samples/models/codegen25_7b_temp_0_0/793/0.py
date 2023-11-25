@@ -1,16 +1,13 @@
 def last(arr,x):
   """
   Write a python function to find the last position of an element in a sorted array.
-  >>> last([1,2,3],1) == 0
   """
-  if x in arr:
-    return arr.index(x)
-  else:
-    return -1
-
-def first(arr,x):
-  """
-  Write a python function to find the first position of an element in a sorted array.
-  >>> first([1,2,3],1) == 1
-  """
- 
+  low = 0
+  high = len(arr) - 1
+  while low <= high:
+    mid = (low + high) // 2
+    if arr[mid] == x:
+      if mid == len(arr) - 1 or arr[mid + 1] != x:
+        return mid
+      else:
+        low =

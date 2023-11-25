@@ -1,7 +1,6 @@
 def find_First_Missing(array,start=0,end=None):
   """
   Write a python function to find the smallest missing number from a sorted list of natural numbers.
-  >>> find_First_Missing([0,1,2,3]) == 4
   """
   if end is None:
     end = len(array) - 1

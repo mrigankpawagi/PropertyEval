@@ -2,11 +2,13 @@ import cmath
 def polar_rect(x,y):
   """
   Write a function to convert polar coordinates to rectangular coordinates.
-  >>> polar_rect(3,4)==((5.0, 0.9272952180016122), (-2+2.4492935982947064e-16j))
   """
-  return (x,y)
+  r = math.sqrt(x**2 + y**2)
+  theta = math.atan(y/x)
+  return r, theta
 
-def polar_rect_2(x,y):
+def rect_polar(r,theta):
   """
-  Write a function to convert polar coordinates to rectangular coordinates.
-  >>> polar_rect_2(3,4)==((5.0, 0.9272952180016122), (-2+2.449293598294
+  Write a function to convert rectangular coordinates to polar coordinates.
+  """
+  x = r * math

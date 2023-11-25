@@ -2,17 +2,15 @@ import math
 def perimeter_pentagon(a):
   """
   Write a function to find the perimeter of a regular pentagon from the length of its sides.
-  >>> perimeter_pentagon(5) == 25
   """
-  return 5 * a
+  return 5*a
 
-def perimeter_square(a):
+def area_pentagon(a):
   """
-  Write a function to find the perimeter of a square from the length of its sides.
-  >>> perimeter_square(5) == 25
+  Write a function to find the area of a regular pentagon from the length of its sides.
   """
-  return 4 * a
+  return (5*(a**2))/4
 
-def perimeter_triangle(a):
+def perimeter_hexagon(a):
   """
-  Write a function to
+  Write a function to find

@@ -1,15 +1,18 @@
 def bell_number(n):   
   """
   Write a function to find the number of ways to partition a set of Bell numbers.
-  >>> bell_number(2)==2
   """
-  if n==0:
+  if n == 0:
     return 1
-  else:
-    return bell_number(n-1)*(n+1)
-
-def fibonacci(n):
-  """
-  Write a function to find the nth Fibonacci number.
-  >>> fibonacci(0)==0
-  >>> fibonacci(
+  if n == 1:
+    return 1
+  if n == 2:
+    return 2
+  if n == 3:
+    return 5
+  if n == 4:
+    return 15
+  if n == 5:
+    return 52
+  if n == 6:
+    return

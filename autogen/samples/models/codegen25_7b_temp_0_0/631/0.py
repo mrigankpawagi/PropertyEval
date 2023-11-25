@@ -1,12 +1,15 @@
 def replace_spaces(text):
   """
   Write a function to replace whitespaces with an underscore and vice versa in a given string.
-  >>> replace_spaces('Jumanji The Jungle') == 'Jumanji_The_Jungle'
   """
-  return text.replace(' ', '_')
+  return text.replace(' ', '_').replace('_', ' ')
 
-def replace_spaces_2(text):
+def reverse_string(text):
   """
-  Write a function to replace whitespaces with an underscore and vice versa in a given string.
-  >>> replace_spaces_2('Jumanji The Jungle') == 'Jumanji_The_Jungle'
+  Write a function to reverse a given string.
   """
+  return text[::-1]
+
+def reverse_words(text):
+  """
+  Write a function to reverse a given string.

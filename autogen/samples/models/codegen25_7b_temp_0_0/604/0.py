@@ -1,13 +1,14 @@
 def reverse_words(s):
   """
   Write a function to reverse words seperated by spaces in a given string.
-  >>> reverse_words("python program")==("program python")
   """
-  return ' '.join(reversed(s.split()))
+  # split the string into words
+  words = s.split(" ")
+  # reverse the words
+  words = words[::-1]
+  # join the words back together
+  return " ".join(words)
 
-def reverse_words_in_string(s):
-  """
-  Write a function to reverse words seperated by spaces in a given string.
-  >>> reverse_words("python program")==("program python")
-  """
-  return ' '.join(re
+print(reverse_words("The quick brown fox jumps over the lazy dog"))
+
+# Write a function to

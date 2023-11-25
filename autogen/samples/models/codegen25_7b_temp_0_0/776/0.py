@@ -1,7 +1,6 @@
 def count_vowels(test_str):
   """
   Write a function to count those characters which have vowels as their neighbors in the given string.
-  >>> count_vowels('bestinstareels') == 7
   """
   vowels = ['a', 'e', 'i', 'o', 'u']
   count = 0

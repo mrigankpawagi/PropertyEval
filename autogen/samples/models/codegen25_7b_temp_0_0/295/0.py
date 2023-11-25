@@ -1,7 +1,6 @@
 def sum_div(number):
   """
   Write a function to return the sum of all divisors of a number.
-  >>> sum_div(8)==7
   """
   sum = 0
   for i in range(1, number):
@@ -9,7 +8,10 @@ def sum_div(number):
       sum += i
   return sum
 
-def sum_div_2(number):
+def is_prime(number):
   """
-  Write a function to return the sum of all divisors of a number.
-  >>> sum_div_2(8
+  Write a function to determine if a number is prime.
+  """
+  if number == 1:
+    return False
+  for

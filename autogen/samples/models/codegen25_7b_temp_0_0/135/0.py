@@ -1,13 +1,15 @@
 def hexagonal_num(n): 
   """
   Write a function to find the nth hexagonal number.
-  >>> hexagonal_num(10) == 190
   """
-  return (n * (n + 1)) * (3 * n - 1) // 2
+  return n * (2 * n - 1)
 
 def hexagonal_num_2(n):
   """
   Write a function to find the nth hexagonal number.
-  >>> hexagonal_num_2(10) == 190
   """
-  return n * (2 * n
+  return n * (2 * n - 1)
+
+def hexagonal_num_3(n):
+  """
+  Write a function

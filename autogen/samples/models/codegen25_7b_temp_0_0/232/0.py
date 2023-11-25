@@ -2,11 +2,13 @@ import heapq
 def larg_nnum(list1,n):
   """
   Write a function that takes in a list and an integer n and returns a list containing the n largest items from the list.
-  >>> set(larg_nnum([10, 20, 50, 70, 90, 20, 50, 40, 60, 80, 100],2))==set([100,90])
   """
-  return heapq.nlargest(n,list1)
+  largest_nums = []
+  for i in range(n):
+    largest_nums.append(max(list1))
+    list1.remove(max(list1))
+  return largest_nums
 
-def larg_nnum_2(list1,n):
+def smallest_nnum(list1,n):
   """
-  Write a function that takes in a list and an integer n and returns a list containing the n largest items from the list.
-  >>> set(larg_nnum_2([10, 20, 50
+  Write a function that takes in a list

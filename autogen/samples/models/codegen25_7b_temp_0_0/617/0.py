@@ -1,7 +1,6 @@
 def min_Jumps(steps, d): 
   """
   Write a function to check for the number of jumps required of given length to reach a point of form (d, 0) from origin in a 2d plane.
-  >>> min_Jumps((3,4),11)==3.5
   """
   if d == 0:
     return 0

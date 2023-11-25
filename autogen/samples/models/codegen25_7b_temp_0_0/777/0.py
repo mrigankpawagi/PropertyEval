@@ -1,15 +1,14 @@
 def find_sum(arr): 
   """
   Write a python function to find the sum of non-repeated elements in a given list.
-  >>> find_sum([1,2,3,1,1,4,5,6]) == 21
   """
-  return sum(set(arr))
+  sum = 0
+  for i in arr:
+    if arr.count(i) == 1:
+      sum += i
+  return sum
 
-def find_max(arr):
-  """
-  Write a python function to find the maximum element in a given list.
-  >>> find_max([1,2,3,1,1,4,5,6]) == 6
-  """
-  return max(arr)
+print(find_sum([1,2,3,4,5,6,7,8,9,10]))
 
-def find
+def find_sum_2(arr):
+  """

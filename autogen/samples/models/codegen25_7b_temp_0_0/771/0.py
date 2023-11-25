@@ -2,13 +2,15 @@ from collections import deque
 def check_expression(exp):
   """
   Write a function to check if the given expression is balanced or not. https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/
-  >>> check_expression("{()}[{}]") == True
   """
   stack = deque()
-  for char in exp:
-    if char == '{' or char == '(' or char == '[':
-      stack.append(char)
-    elif char == '}' or char == ')' or char == ']':
-      if not stack:
+  for i in exp:
+    if i == '(':
+      stack.append(i)
+    elif i == ')':
+      if len(stack) == 0:
         return False
-      last_char =
+      stack.pop()
+  if len(stack) == 0:
+    return True
+  return False

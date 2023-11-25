@@ -1,10 +1,12 @@
 def find_tuples(test_list, K):
   """
   Write a function to find tuples which have all elements divisible by k from the given list of tuples.
-  >>> find_tuples([(6, 24, 12), (7, 9, 6), (12, 18, 21)], 6) == [(6, 24, 12)]
   """
-  return [t for t in test_list if all(t[i] % K == 0 for i in range(len(t)))]
+  result = []
+  for i in test_list:
+    if all(j % K == 0 for j in i):
+      result.append(i)
+  return result
 
-def find_tuples_2(test_list, K):
-  """
-  Write a function to find tuples which have all elements divisible by k from the given list of tuples.
+print(find_tuples([(1, 2, 3), (2, 4, 6), (3, 6, 9)], 6))
+

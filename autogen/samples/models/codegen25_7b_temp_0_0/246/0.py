@@ -1,13 +1,17 @@
 def babylonian_squareroot(number):
   """
   Write a function for computing square roots using the babylonian method.
-  >>> math.isclose(babylonian_squareroot(10), 3.162277660168379, rel_tol=0.001)
   """
-  return number ** 0.5
+  # Initialize the guess and the counter
+  guess = number / 2
+  counter = 0
 
-def squareroot_newton(number):
-  """
-  Write a function for computing square roots using the Newton method.
-  >>> math.isclose(squareroot_newton(10), 3.162277660168379, rel_tol=0.001)
-  """
- 
+  # Loop until the guess is accurate enough
+  while guess * guess != number:
+    guess = (guess + number / guess) / 2
+    counter += 1
+
+  return guess, counter
+
+def main():
+  print(b

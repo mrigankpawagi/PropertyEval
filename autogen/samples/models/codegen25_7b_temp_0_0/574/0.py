@@ -1,13 +1,15 @@
 def surfacearea_cylinder(r,h):
   """
   Write a function to find the surface area of a cylinder.
-  >>> surfacearea_cylinder(10,5)==942.45
   """
-  return 2*3.14*r*(r+h)
+  return 2*pi*r*(r+h)
 
-def surfacearea_sphere(r):
+def volume_cylinder(r,h):
   """
-  Write a function to find the surface area of a sphere.
-  >>> surfacearea_sphere(10)==5062.72
+  Write a function to find the volume of a cylinder.
   """
-  return 4*3.14*r*r
+  return pi*r**2*h
+
+def surfacearea_cone(r,h):
+  """
+  Write a function to

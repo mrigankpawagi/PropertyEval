@@ -14,12 +14,12 @@ def get_char_count_array(string):
 def remove_dirty_chars(string, second_string): 
   """
   Write a function to remove characters from the first string which are present in the second string.
-  >>> remove_dirty_chars("probasscurve", "pros") == 'bacuve'
   """
-  for i in second_string:
-    string = string.replace(i, '')
-  return string
+  for i in second_string: 
+    string = string.replace(i, "") 
+  return string 
 def remove_duplicate_chars(string): 
 	"""
 	Write a function to remove duplicate characters from the given string.
-	>>> remove_duplicate_chars("probasscurve") == 'abc
+	"""
+	for i in range(len(string)): 

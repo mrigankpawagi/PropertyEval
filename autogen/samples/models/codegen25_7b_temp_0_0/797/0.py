@@ -5,11 +5,14 @@ def sum_odd(n):
 def sum_in_range(l,r): 
   """
   Write a python function to find the sum of all odd natural numbers within the range l and r.
-  >>> sum_in_range(2,5) == 8
   """
-  return sum_odd(r) - sum_odd(l - 1)
-
-def sum_in_range_2(l,r):
-  """
-  Write a python function to find the sum of all odd natural numbers within the range l and r.
-  >>> sum_in_range_2(2,5) == 8
+  sum = 0
+  for i in range(l,r+1):
+    if i%2 != 0:
+      sum += i
+  return sum
+def sum_even(n): 
+    terms = n//2
+    sum1 = terms * (terms + 1) 
+    return sum1  
+def sum_in

@@ -1,13 +1,14 @@
 def len_log(list1):
   """
   Write a python function to find the length of the longest word.
-  >>> len_log(["python","PHP","bigdata"]) == 7
   """
-  return max(len(word) for word in list1)
+  return len(max(list1, key=len))
 
-def len_log_2(list1):
+def count_vowels(string):
   """
-  Write a python function to find the length of the longest word.
-  >>> len_log_2(["python","PHP","bigdata"]) == 7
+  Write a python function to count the number of vowels in a given string.
   """
-  return max(map(
+  vowels = 0
+  for i in string:
+    if i in 'aeiou':
+      vowels

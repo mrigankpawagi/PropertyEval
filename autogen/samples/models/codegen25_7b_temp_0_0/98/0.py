@@ -1,13 +1,14 @@
 def multiply_num(numbers):  
   """
   Write a function to multiply all the numbers in a list and divide with the length of the list.
-  >>> math.isclose(multiply_num((8, 2, 3, -1, 7)), -67.2, rel_tol=0.001)
   """
-  return sum(numbers) / len(numbers)
+  total = 1
+  for number in numbers:
+    total *= number
+  return total / len(numbers)
 
-def is_palindrome(word):
+print(multiply_num([1,2,3,4,5]))
+
+# Write a function to find the smallest number in a list.
+def smallest_num(numbers):
   """
-  Write a function to check if a word is a palindrome.
-  >>> is_palindrome("madam")
-  True
-  >>> is_palindrome("madam, i'm mad!")

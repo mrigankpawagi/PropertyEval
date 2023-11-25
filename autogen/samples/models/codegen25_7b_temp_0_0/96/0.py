@@ -1,7 +1,6 @@
 def divisor(n):
   """
   Write a python function to find the number of divisors of a given integer.
-  >>> divisor(15) == 4
   """
   count = 0
   for i in range(1, n+1):
@@ -12,4 +11,5 @@ def divisor(n):
 def divisor_sum(n):
   """
   Write a python function to find the sum of divisors of a given integer.
-  >>> divisor_
+  """
+  sum =

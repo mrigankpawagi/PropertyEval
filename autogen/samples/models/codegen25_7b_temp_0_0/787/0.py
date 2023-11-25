@@ -2,15 +2,10 @@ import re
 def text_match_three(text):
   """
   Write a function that matches a string that has an a followed by three 'b'.
-  >>> not text_match_three("ac")
   """
-  pattern = "ab{3}"
-  if re.search(pattern,  text):
-    return True
-  return False
+  pattern = re.compile(r'ab{3}')
+  result = re.findall(pattern, text)
+  return result
 
-def text_match_two(text):
-  """
-  Write a function that matches a string that has an a followed by two 'b'.
-  >>> not text_match_two("ac")
- 
+print(text_match_three("ababababab"))
+print(text_match_three("abababababababababababababababababab

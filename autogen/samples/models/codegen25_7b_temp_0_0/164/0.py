@@ -13,13 +13,11 @@ def div_sum(n):
 def are_equivalent(num1, num2): 
   """
   Write a function to determine if the sum of the divisors of two integers are the same.
-  >>> are_equivalent(36, 57) == False
   """
   return div_sum(num1) == div_sum(num2)
 
-def is_prime(num):
+def are_equivalent_2(num1, num2): 
   """
-  Write a function to determine if a number is prime.
-  >>> is_prime(2) == True
-  >>> is_prime(3) == True
-  >>> is_prime(4) == False
+  Write a function to determine if the sum of the divisors of two integers are the same.
+  """
+  return sum(divisor_sum(num1

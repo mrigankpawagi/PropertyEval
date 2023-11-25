@@ -1,11 +1,14 @@
 def is_Monotonic(A): 
   """
   Write a python function to check whether the given array is monotonic or not.
-  >>> is_Monotonic([6, 5, 4, 4]) == True
   """
-  return (all(A[i] <= A[i+1] for i in range(len(A)-1)) or
-          all(A[i] >= A[i+1] for i in range(len(A)-1)))
+  increasing = True
+  decreasing = True
+  for i in range(1, len(A)):
+    if A[i] < A[i-1]:
+      increasing = False
+    if A[i] > A[i-1]:
+      decreasing = False
+  return increasing or decreasing
 
-def is_Monotonic_2(A):
-  """
-  Write a python
+def is_Monotonic

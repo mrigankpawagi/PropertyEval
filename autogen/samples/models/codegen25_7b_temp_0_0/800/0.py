@@ -2,13 +2,11 @@ import re
 def remove_all_spaces(text):
   """
   Write a function to remove all whitespaces from a string.
-  >>> remove_all_spaces('python  program')==('pythonprogram')
   """
   return re.sub(r'\s+', '', text)
 
-def remove_all_spaces_v2(text):
+def remove_all_special_characters(text):
   """
-  Write a function to remove all whitespaces from a string.
-  >>> remove_all_spaces_v2('python  program')==('pythonprogram')
+  Write a function to remove all special characters from a string.
   """
- 
+  return re.sub(r'[^a-zA-Z0-9\s]', '

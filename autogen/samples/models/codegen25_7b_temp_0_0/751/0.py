@@ -9,7 +9,6 @@ def check_min_heap_helper(arr, i):
 def check_min_heap(arr):
   """
   Write a function to check if the given array represents min heap or not. https://www.geeksforgeeks.org/how-to-check-if-a-given-array-represents-a-binary-heap/
-  >>> check_min_heap([1, 2, 3, 4, 5, 6]) == True
   """
   return check_min_heap_helper(arr, 0)
 

@@ -1,15 +1,15 @@
 def surfacearea_cube(l):
   """
   Write a function to find the surface area of a cube of a given size.
-  >>> surfacearea_cube(5)==150
   """
-  return 6*l*l
+  return 6 * l * l
 
-def surfacearea_sphere(r):
+def surfacearea_rectangle(l, w):
   """
-  Write a function to find the surface area of a sphere of a given radius.
-  >>> surfacearea_sphere(5)==314.16
+  Write a function to find the surface area of a rectangle of a given size.
   """
-  return 4*math.pi*r*r
+  return 2 * (l * w)
 
-def surfacearea_
+def surfacearea_triangle(l, w):
+  """
+  Write a function

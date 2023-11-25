@@ -2,12 +2,14 @@ import re
 def removezero_ip(ip):
   """
   Write a function to remove leading zeroes from an ip address.
-  >>> removezero_ip("216.08.094.196")==('216.8.94.196')
   """
-  return re.sub(r'^0+', '', ip)
+  ip = ip.split('.')
+  ip = [str(int(i)) for i in ip]
+  ip = '.'.join(ip)
+  return ip
 
-def removezero_ip(ip):
+def removezero_ip2(ip):
   """
   Write a function to remove leading zeroes from an ip address.
-  >>> removezero_ip("216.08.094.196")==('216.8.94.196')
   """
+ 

@@ -1,7 +1,6 @@
 def prime_num(num):
   """
   Write a function to check if the given integer is a prime number.
-  >>> prime_num(13)==True
   """
   if num == 1:
     return False
@@ -13,4 +12,5 @@ def prime_num(num):
 def prime_num_2(num):
   """
   Write a function to check if the given integer is a prime number.
-  >>> prime_num_
+  """
+  if num

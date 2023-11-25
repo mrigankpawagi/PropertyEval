@@ -1,7 +1,6 @@
 def jacobsthal_num(n): 
   """
   Write a function to find the nth jacobsthal number. https://www.geeksforgeeks.org/jacobsthal-and-jacobsthal-lucas-numbers/ 0, 1, 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, ...
-  >>> jacobsthal_num(5) == 11
   """
   if n == 0:
     return 0

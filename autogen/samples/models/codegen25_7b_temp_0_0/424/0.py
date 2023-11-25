@@ -1,11 +1,12 @@
 def extract_rear(test_tuple):
   """
   Write a function to extract only the rear index element of each string in the given tuple.
-  >>> extract_rear(('Mers', 'for', 'Vers') ) == ['s', 'r', 's']
   """
-  return [test_tuple[-1][-1]]
+  return tuple(map(lambda x: x[-1], test_tuple))
 
-def extract_rear_2(test_tuple):
+print(extract_rear(("hello", "world", "!")))
+
+# Write a function to extract only the first index element of each string in the given tuple.
+def extract_front(test_tuple):
   """
-  Write a function to extract only the rear index element of each string in the given tuple.
-  >>> extract_rear_2(('Mers', 'for', 'Vers') ) == ['
+ 

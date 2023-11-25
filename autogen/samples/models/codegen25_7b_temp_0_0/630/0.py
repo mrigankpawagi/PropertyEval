@@ -7,11 +7,15 @@ def adjac(ele, sub = []):
 def get_coordinates(test_tup):
   """
   Write a function to extract all the adjacent coordinates of the given coordinate tuple.
-  >>> get_coordinates((3, 4)) == [[2, 3], [2, 4], [2, 5], [3, 3], [3, 4], [3, 5], [4, 3], [4, 4], [4, 5]]
   """
   return list(adjac(test_tup))
 
-def get_neighbors(test_tup):
+print(get_coordinates((1,2)))
+
+#%%
+"""
+Write a function to find the minimum number of steps required to reach the end of the maze from the start.
+"""
+def find_path(maze):
   """
-  Write a function to extract all the neighbors of the given coordinate tuple.
-  >>> get_neighbors((3, 4)) == [[2, 3], [2, 4], [2, 5], [
+  Write a function to find

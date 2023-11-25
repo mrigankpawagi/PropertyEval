@@ -1,16 +1,15 @@
 def is_Even(n) : 
   """
   Write a python function to check whether the given number is even or not.
-  >>> is_Even(1) == False
   """
-  if n % 2 == 0 :
+  if n % 2 == 0 : 
     return True
-  else :
+  else : 
     return False
 
-def is_Odd(n) :
+def is_Prime(n) : 
   """
-  Write a python function to check whether the given number is odd or not.
-  >>> is_Odd(1) == True
+  Write a python function to check whether the given number is prime or not.
   """
-  if n % 2 == 1 :
+  if n > 1 : 
+    for i in range(2, n)

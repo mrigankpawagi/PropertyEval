@@ -1,7 +1,6 @@
 def armstrong_number(number):
   """
   Write a function to check whether the given number is armstrong or not.
-  >>> armstrong_number(153)==True
   """
   sum = 0
   temp = number
@@ -11,6 +10,7 @@ def armstrong_number(number):
     temp //= 10
   return sum == number
 
-def armstrong_number_2(number):
-  """
-  Write a function to check whether the given number is armstrong or not.
+print(armstrong_number(153))
+print(armstrong_number(370))
+print(armstrong_number(371))
+

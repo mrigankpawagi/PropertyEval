@@ -1,11 +1,13 @@
 def check_value(dict, n):
   """
   Write a function to check if all values are same in a dictionary.
-  >>> check_value({'Cierra Vega': 12, 'Alden Cantrell': 12, 'Kierra Gentry': 12, 'Pierre Cox': 12},10)==False
   """
-  return all(dict[key] == n for key in dict)
+  return len(set(dict.values())) == 1 and dict.values()[0] == n
 
 def check_value_2(dict, n):
   """
   Write a function to check if all values are same in a dictionary.
-  >>> check_value_2({'Cierra Vega': 12, 'Alden Cantrell': 12, 'Kierra
+  """
+  return all(dict.values()) == n
+
+def check_value

@@ -7,14 +7,16 @@ def rev(num):
 def check(n):    
   """
   Write a python function to check if a given number is one less than twice its reverse.
-  >>> check(70) == False
   """
-  return n == rev(rev(n)) - 1
-print(check(70))
+  if n == rev(rev(n)):
+    return True
+  else:
+    return False
 
-def check(n):
-    """
-    Write a python function to check if a given number is one less than twice its reverse.
-    >>> check(70) == False
-    """
-    return n == rev(rev(n)) - 1
+def check_prime(n):
+  """
+  Write a python function to check if a given number is prime or not.
+  """
+  if n > 1:
+    for i in range(2,n):
+     

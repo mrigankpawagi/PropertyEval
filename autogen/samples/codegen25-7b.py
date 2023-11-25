@@ -13,6 +13,7 @@ pipe = pipeline(
 if not os.path.exists("models/codegen25_7b_temp_0_0"):
     os.mkdir("models/codegen25_7b_temp_0_0")
 
+k = 0
 for problem in dataset:
     task_id = problem["task_id"]
     if task_id not in tasks_list:
@@ -34,11 +35,12 @@ for problem in dataset:
     # shot2 = '"""\nWrite a function to count the element frequency in the mixed nested tuple.\nassert count_element_freq((5, 6, (5, 6), 7, (8, 9), 9) ) == {5: 2, 6: 2, 7: 1, 8: 1, 9: 2}\n"""\n' + code2 + '\n[\END\]\n\n'
     
     # Completion-style prompt
-    prompt = f'{signature}\n  """\n  {description}\n  {test_list[0].replace("assert", ">>>")}\n  """\n'
+    prompt = f'{signature}\n  """\n  {description}\n  """\n'
 
     if not os.path.exists(f"models/codegen25_7b_temp_0_0/{task_id}"):
         os.mkdir(f"models/codegen25_7b_temp_0_0/{task_id}")
     
+    k += 1
     for i in range(1):
         response = pipe(
             prompt,
@@ -47,6 +49,6 @@ for problem in dataset:
         )
         
         program = response[0]["generated_text"]
-        print(f"---------\n{task_id}.{i}---------\n", program)
+        print(f"Done {k} of {len(tasks_list)}: {task_id}")
         with open(f"models/codegen25_7b_temp_0_0/{task_id}/{i}.py", "w") as f:
             f.write(program)

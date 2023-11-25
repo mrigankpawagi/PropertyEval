@@ -1,11 +1,13 @@
 def square_nums(nums):
   """
   Write a function to find squares of individual elements in a list.
-  >>> square_nums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
   """
-  return [num**2 for num in nums]
+  return [x**2 for x in nums]
 
-def remove_duplicates(nums):
+print(square_nums([1, 2, 3, 4, 5]))
+
+def remove_vowels(string):
   """
-  Write a function to remove duplicates from a list.
-  >>> remove_duplicates([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])==[1, 2,
+  Write a function to remove all vowels from a string.
+  """
+  vowels = ['a', 'e', '

@@ -1,7 +1,6 @@
 def sequence(n): 
   """
   Write a function to find the nth number in the newman conway sequence.
-  >>> sequence(10) == 6
   """
   if n == 1:
     return 1
@@ -10,7 +9,6 @@ def sequence(n):
   else:
     return sequence(n-1) + sequence(n-2)
 
-def fib(n):
+def sequence_recursive(n):
   """
-  Write a function to find the nth number in the fibonacci sequence.
-  >>> fib(
+  Write a function to find the nth number in the newman conway sequence.
