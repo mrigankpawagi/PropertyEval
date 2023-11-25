@@ -8,15 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def create_min_heap(draw):
-    n = draw(integers(min_value=1, max_value=100))
-    arr = draw(lists(integers(min_value=1, max_value=100), min_size=n, max_size=n))
-    return arr
+arr = lists(integers(), max_size=MAX_SEQUENCE_LEN)
+i = integers(min_value=0, max_value=len(arr) - 1)
 
-arr = create_min_heap()
-
-strategy = arr
+strategy = arr, i
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

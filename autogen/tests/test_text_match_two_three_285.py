@@ -8,10 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from hypothesis import strategies as st
-
-text = st.text()
-
+text = text(alphabet='ab', min_size=4, max_size=7).filter(lambda x: 'abb' in x or 'abbb' in x)
 strategy = text
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

@@ -8,14 +8,20 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
+import re
+
+text1 = text(alphabet="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ", max_size=MAX_SEQUENCE_LEN)
+
 @composite
-def extract_quotation_text(draw):
-    text = draw(text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 "', min_size=1, max_size=100))
+def quotation_string(draw):
+    text = draw(text1)
+    # Generating random strings with quotation marks
+    quo_str = ''.join(draw(text(alphabet='"', min_size=1, max_size=1)) + draw(text(min_size=1, max_size=10)) + draw(text(alphabet='"', min_size=1, max_size=1)) for _ in range(3))
+    quo_str = re.sub(r'\s+', ' ', quo_str).strip()
+    text = text + quo_str
     return text
 
-text1 = extract_quotation_text()
-
-strategy = text1
+strategy = quotation_string()
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

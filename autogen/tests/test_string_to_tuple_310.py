@@ -8,9 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-str1 = text()
-
-strategy = str1,
+str1 = text(alphabet="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", min_size=1, max_size=1)
+strategy = str1.map(lambda s: (s,))
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

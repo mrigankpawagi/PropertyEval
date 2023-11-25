@@ -8,14 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def create_tuple(draw):
-    n = draw(integers(min_value=0, max_value=10))
-    tup = draw(lists(elements=characters(), min_size=n, max_size=n))
-    return tuple(tup)
-
-tup = create_tuple()
-lst = lists(elements=characters())
+tup = lists(integers(min_value=MIN_INT, max_value=MAX_INT))
+lst = lists(integers(min_value=MIN_INT, max_value=MAX_INT))
 
 strategy = tup, lst
 if not isinstance(strategy, tuple):

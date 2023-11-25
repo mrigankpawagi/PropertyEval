@@ -9,8 +9,8 @@ from timeout import run_with_timeout
 from typing import *
                 
 list1 = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
-m = integers(min_value=0, max_value=MAX_SEQUENCE_LEN)
-n = integers(min_value=0, max_value=MAX_SEQUENCE_LEN)
+m = integers(min_value=0, max_value=MAX_SEQUENCE_LEN - 1)
+n = integers(min_value=m, max_value=MAX_SEQUENCE_LEN - 1)
 
 strategy = list1, m, n
 if not isinstance(strategy, tuple):

@@ -9,11 +9,12 @@ from timeout import run_with_timeout
 from typing import *
                 
 @composite
-def nested_list():
-    return lists(one_of(integers(), integers().flatmap(nested_list())), min_size=1)
+def create_nested_list(draw):
+    elements = draw(lists(integers(), min_size=1, max_size=5))
+    nested_list = draw(lists(one_of(just(elements), lists(elements))), min_size=1, max_size=5)
+    return nested_list
 
-list1 = nested_list()
-
+list1 = create_nested_list()
 strategy = list1
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

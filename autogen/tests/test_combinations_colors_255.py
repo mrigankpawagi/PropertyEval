@@ -8,20 +8,12 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from hypothesis.strategies import lists, tuples
-from hypothesis import given
+from hypothesis import strategies as st
 
 def combinations_colors(l, n):
-    return list(map(tuple, tuples(l, min_size=n, max_size=n)))
+    return st.lists(elements=st.sampled_from(l), min_size=n, max_size=n).map(tuple)
 
-strategy = tuples(
-    lists(
-        elements=one_of("Red", "Green", "Blue"),
-        min_size=1,
-        max_size=3
-    ),
-    integers(min_value=1, max_value=2)
-)
+strategy = st.lists(st.integers(), min_size=1, max_size=MAX_SEQUENCE_LEN), st.integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

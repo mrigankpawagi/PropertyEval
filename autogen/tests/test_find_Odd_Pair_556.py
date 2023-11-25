@@ -8,7 +8,13 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-A = lists(integers(min_value=0, max_value=MAX_INT), min_size=1, max_size=MAX_SEQUENCE_LEN)
+@composite
+def arrays_with_odd_xor(draw):
+    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
+    a = draw(lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=n, max_size=n))
+    return a
+
+A = arrays_with_odd_xor()
 N = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
 
 strategy = A, N

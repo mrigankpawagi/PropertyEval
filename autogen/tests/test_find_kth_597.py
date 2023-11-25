@@ -8,9 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-arr1 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=SMALL_SEQUENCE_LEN, max_size=SMALL_SEQUENCE_LEN).map(sorted)
-arr2 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=SMALL_SEQUENCE_LEN, max_size=SMALL_SEQUENCE_LEN).map(sorted)
-k = integers(min_value=1, max_value=SMALL_SEQUENCE_LEN*2)
+arr1 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), unique=True, max_size=MAX_SEQUENCE_LEN).map(sorted)
+arr2 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), unique=True, max_size=MAX_SEQUENCE_LEN).map(sorted)
+k = integers(min_value=1, max_value=MAX_INT)
 
 strategy = arr1, arr2, k
 if not isinstance(strategy, tuple):

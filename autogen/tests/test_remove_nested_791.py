@@ -9,13 +9,11 @@ from timeout import run_with_timeout
 from typing import *
                 
 @composite
-def nested_tuple(draw):
-    inner_tuple = draw(tuples(integers(), integers()))
-    outer_tuple = draw(tuples(integers(), integers()))
-    return outer_tuple + (inner_tuple,)
+def tuple_with_nested(draw):
+    nested = draw(lists(one_of(tuples(integers(), integers()), lists(integers()))))
+    return tuple(nested)
 
-test_tup = nested_tuple()
-
+test_tup = tuple_with_nested()
 strategy = test_tup
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

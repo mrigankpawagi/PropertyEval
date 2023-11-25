@@ -9,13 +9,13 @@ from timeout import run_with_timeout
 from typing import *
                 
 @composite
-def create_tuple_list(draw):
-    n = draw(integers(min_value=1, max_value=100))
-    return draw(lists(tuples(text(), integers(min_value=0, max_value=100)), min_size=n, max_size=n))
+def tuple_list(draw):
+    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
+    lst = draw(lists(tuples(integers(), integers()), min_size=n, max_size=n))
+    return lst
 
-tuples_list = create_tuple_list()
-
-strategy = tuples_list
+lst = tuple_list()
+strategy = lst
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

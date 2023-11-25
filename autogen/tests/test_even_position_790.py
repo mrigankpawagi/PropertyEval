@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-nums = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
+nums = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN).map(lambda lst: [x if i % 2 == 0 else x+1 for i, x in enumerate(lst)])
 
 strategy = nums
 if not isinstance(strategy, tuple):

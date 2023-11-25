@@ -16,7 +16,6 @@ def create_matrix(draw):
     return matrix
 
 M = create_matrix()
-
 strategy = M
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

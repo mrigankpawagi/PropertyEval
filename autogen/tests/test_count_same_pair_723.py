@@ -8,8 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-nums1 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=1, max_size=MAX_SEQUENCE_LEN)
-nums2 = shared(nums1)
+from hypothesis import given, strategies as st
+
+nums1 = st.lists(st.integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
+nums2 = st.lists(st.integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
 
 strategy = nums1, nums2
 if not isinstance(strategy, tuple):

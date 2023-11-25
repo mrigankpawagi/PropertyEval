@@ -8,10 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-l = lists(elements=characters(), min_size=1, max_size=10)
-e = characters()
+lst = lists(integers(), max_size=MAX_SEQUENCE_LEN)
+element = integers()
 
-strategy = l, e
+strategy = lst, element
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

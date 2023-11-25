@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-test_tup1 = lists(tuples(integers(), integers()), min_size=1, max_size=10)
-test_tup2 = lists(tuples(integers(), integers()), min_size=1, max_size=10)
+test_tup1 = tuples([integers(), floats(), text()], max_size=3)
+test_tup2 = tuples([integers(), floats(), text()], max_size=3)
 
 strategy = test_tup1, test_tup2
 if not isinstance(strategy, tuple):

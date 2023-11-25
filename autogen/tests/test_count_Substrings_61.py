@@ -8,30 +8,15 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from collections import defaultdict
-
 @composite
-def create_string(draw):
-    size = draw(integers(min_value=1, max_value=100))
-    string = draw(text(alphabet='123456789', min_size=size, max_size=size))
-    return string
+def generate_string(draw):
+    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
+    s = draw(text(alphabet='0123456789', min_size=n, max_size=n))
+    return s
 
-def count_Substrings(string: str) -> int:
-    count = 0
-    prefix_sum = defaultdict(int)
-    prefix_sum[0] = 1
-    current_sum = 0
-    
-    for digit in string:
-        current_sum += int(digit)
-        count += prefix_sum[current_sum - len(string)]
-        prefix_sum[current_sum] += 1
-    
-    return count
+s = generate_string()
 
-string = create_string()
-
-strategy = string
+strategy = s
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

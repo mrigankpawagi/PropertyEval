@@ -8,8 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-text = text()
-
+text = text(max_size=MAX_SEQUENCE_LEN)
 strategy = text
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

@@ -8,9 +8,13 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-nestedlist = lists(lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=1, max_size=MAX_SEQUENCE_LEN),
-                   min_size=1, max_size=MAX_SEQUENCE_LEN)
+@composite
+def create_nested_list(draw):
+    n = draw(integers(min_value=1, max_value=10))
+    nested_list = draw(lists(lists(integers(), min_size=n, max_size=n), min_size=n, max_size=n))
+    return nested_list
 
+nestedlist = create_nested_list()
 strategy = nestedlist
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

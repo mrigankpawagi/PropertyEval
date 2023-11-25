@@ -9,7 +9,6 @@ from timeout import run_with_timeout
 from typing import *
                 
 stringlist = lists(text(), min_size=1)
-
 strategy = stringlist
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

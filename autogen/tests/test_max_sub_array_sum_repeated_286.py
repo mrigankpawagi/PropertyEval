@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-a = lists(integers(min_value=MIN_INT, max_value=MAX_INT))
-n = integers(min_value=1, max_value=100)
+a = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
+n = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
 k = integers(min_value=1, max_value=10)
 
 strategy = a, n, k

@@ -8,10 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-def create_listval():
-    return lists(one_of(integers(), floats(), text()), min_size=1)
-
-strategy = create_listval()
+listval = lists(elements=one_of(integers(), floats(), text()), unique=True, min_size=1)
+strategy = listval
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

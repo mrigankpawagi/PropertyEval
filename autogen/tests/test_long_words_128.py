@@ -9,9 +9,9 @@ from timeout import run_with_timeout
 from typing import *
                 
 n = integers(min_value=0, max_value=MAX_SEQUENCE_LEN)
-string = text(min_size=SMALL_SEQUENCE_LEN, max_size=MAX_SEQUENCE_LEN, alphabet=string.ascii_letters)
+words = lists(text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', min_size=1), max_size=MAX_SEQUENCE_LEN)
 
-strategy = n, string
+strategy = n, words
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

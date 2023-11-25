@@ -8,8 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-nums = tuples(integers())
-
+nums = tuples(integers(), integers(), integers())
 strategy = nums
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

@@ -8,8 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-subjectmarks = lists(tuples(text(), integers()), min_size=1, max_size=MAX_SEQUENCE_LEN)
-
+subjectmarks = lists(tuples(integers(), integers()), max_size=MAX_SEQUENCE_LEN)
 strategy = subjectmarks
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

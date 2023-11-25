@@ -9,15 +9,18 @@ from timeout import run_with_timeout
 from typing import *
                 
 @composite
-def create_tuple_list(draw):
-    n = draw(integers(min_value=1, max_value=10))
-    tuple_list = draw(lists(tuples(integers(), integers()), min_size=n, max_size=n))
-    return tuple_list
+def find_intersection(draw):
+    n = draw(integers(min_value=0, max_value=MAX_SEQUENCE_LEN))
+    common_elements = draw(lists(integers(), min_size=n, max_size=n))
+    list1 = draw(lists(integers(), min_size=n, max_size=n))
+    list2 = draw(lists(integers(), min_size=n, max_size=n))
+    
+    test_list1 = draw(lists(sampled_from(list1), min_size=n, max_size=n))
+    test_list2 = draw(lists(sampled_from(list2), min_size=n, max_size=n))
+    
+    return common_elements, test_list1, test_list2
 
-test_list1 = create_tuple_list()
-test_list2 = create_tuple_list()
-
-strategy = test_list1, test_list2
+strategy = find_intersection()
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

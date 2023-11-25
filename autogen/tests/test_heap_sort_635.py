@@ -9,7 +9,6 @@ from timeout import run_with_timeout
 from typing import *
                 
 iterable = lists(integers(), max_size=MAX_SEQUENCE_LEN)
-
 strategy = iterable
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

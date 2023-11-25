@@ -9,7 +9,6 @@ from timeout import run_with_timeout
 from typing import *
                 
 monthnum3 = integers(min_value=1, max_value=12)
-
 strategy = monthnum3
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

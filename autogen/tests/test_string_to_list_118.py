@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-string = text(alphabet=string.ascii_letters + string.digits, min_size=1)
-strategy = string,
+string = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', min_size=1).filter(str.isspace)
+strategy = string
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

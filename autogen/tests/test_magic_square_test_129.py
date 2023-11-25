@@ -8,7 +8,13 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-my_matrix = lists(lists(integers(), min_size=3, max_size=3), min_size=3, max_size=3)
+@composite
+def create_matrix(draw):
+    n = draw(integers(min_value=2, max_value=5))
+    matrix = draw(lists(lists(integers(), min_size=n, max_size=n), min_size=n, max_size=n))
+    return matrix
+
+my_matrix = create_matrix()
 
 strategy = my_matrix
 if not isinstance(strategy, tuple):

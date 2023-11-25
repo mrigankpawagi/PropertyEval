@@ -8,9 +8,18 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-arr = lists(integers(), min_size=n, max_size=n)
-n = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
-x = integers()
+from math import ceil
+
+@composite
+def make_arr(draw):
+    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
+    arr = draw(lists(integers(), min_size=n, max_size=n))
+    arr.sort()
+    return arr
+
+arr = make_arr()
+n = len(arr)
+x = elements(arr)
 
 strategy = arr, n, x
 if not isinstance(strategy, tuple):

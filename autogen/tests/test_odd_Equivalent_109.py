@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-s = text(alphabet='01', min_size=1, max_size=MAX_SEQUENCE_LEN)
+s = text(alphabet='01', min_size=1, max_size=MAX_SEQUENCE_LEN).filter(lambda x: x == "" or all(digit.isdigit() for digit in x))
 n = integers(min_value=0, max_value=MAX_INT)
 
 strategy = s, n

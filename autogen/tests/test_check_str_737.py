@@ -10,13 +10,10 @@ from typing import *
                 
 import re
 
-vowels = ['a', 'e', 'i', 'o', 'u']
-start_with_vowel = sampled_from(vowels)
+string = text(alphabet='aeiou', min_size=1, max_size=1) + text(min_size=1, max_size=MAX_SEQUENCE_LEN)
+vowel_regex = re.compile(r"^[aeiou]")
 
-def check_str():
-    return strings().filter(lambda s: re.match(start_with_vowel, s[0]))
-
-strategy = check_str()
+strategy = string.filter(lambda s: bool(vowel_regex.match(s)))
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

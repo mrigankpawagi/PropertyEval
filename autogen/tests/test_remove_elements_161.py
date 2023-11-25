@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-list1 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), max_size=MAX_SEQUENCE_LEN)
-list2 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), max_size=MAX_SEQUENCE_LEN)
+list1 = lists(elements=sampled_from(['a', 'b', 'c', 'd', 'e']), max_size=MAX_SEQUENCE_LEN)
+list2 = lists(elements=sampled_from(['a', 'b', 'c', 'd', 'e']), max_size=MAX_SEQUENCE_LEN)
 
 strategy = list1, list2
 if not isinstance(strategy, tuple):

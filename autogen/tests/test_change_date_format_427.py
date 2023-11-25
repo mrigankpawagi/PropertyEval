@@ -8,10 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-dt = dates()
-date_format = "%d-%m-%Y"
-
-strategy = dt.map(lambda dt: dt.strftime(date_format))
+dt = dates(min_value="1000-01-01", max_value="9999-12-31")
+strategy = dt
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

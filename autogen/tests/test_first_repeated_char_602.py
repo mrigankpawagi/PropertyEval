@@ -8,12 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from hypothesis.strategies import text
-
-def repeated_char_string():
-    return text().filter(lambda s: len(s) > 0 and len(set(s)) != len(s))
-
-strategy = repeated_char_string()
+str1 = text(alphabet="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", min_size=2, max_size=MAX_SEQUENCE_LEN)
+strategy = str1
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

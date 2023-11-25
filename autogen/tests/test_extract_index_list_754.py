@@ -8,9 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-l1 = lists(integers())
-l2 = lists(integers())
-l3 = lists(integers())
+l1 = lists(elements=integers(), max_size=MAX_SEQUENCE_LEN)
+l2 = lists(elements=integers(), max_size=MAX_SEQUENCE_LEN)
+l3 = lists(elements=integers(), max_size=MAX_SEQUENCE_LEN)
 
 strategy = l1, l2, l3
 if not isinstance(strategy, tuple):

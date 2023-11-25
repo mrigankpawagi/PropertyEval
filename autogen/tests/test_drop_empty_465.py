@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-dict1 = dictionaries(keys=text(alphabet=string.ascii_lowercase), values=one_of(text(), none()))
-
+dict1 = dictionaries(keys=text(alphabet='abcdefghijklmnopqrstuvwxyz', max_size=10),
+                        values=text(alphabet='abcdefghijklmnopqrstuvwxyz', max_size=MAX_SEQUENCE_LEN))
 strategy = dict1
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

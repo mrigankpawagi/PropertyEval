@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-num = text(alphabet='0123456789.', min_size=3, max_size=10)
-strategy = num.filter(lambda x: x.count('.') == 1 and len(x.split('.')[1]) == 2)
+num = decimals(min_value=0, allow_nan=False, allow_infinity=False, max_digits=4, decimal_digits=2)
+strategy = num
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

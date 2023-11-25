@@ -10,12 +10,11 @@ from typing import *
                 
 @composite
 def create_cost_matrix(draw):
-    n = draw(integers(min_value=1, max_value=100))
-    cost = draw(lists(lists(integers(min_value=1, max_value=100), min_size=n, max_size=n), min_size=n, max_size=n))
-    return cost
+    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
+    matrix = draw(lists(lists(integers(), min_size=n, max_size=n), min_size=n, max_size=n))
+    return matrix
 
 cost = create_cost_matrix()
-
 strategy = cost
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

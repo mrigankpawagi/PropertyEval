@@ -9,22 +9,15 @@ from timeout import run_with_timeout
 from typing import *
                 
 @composite
-def create_nested_tuple(draw):
-    elements = draw(lists(integers(), min_size=1, max_size=10))
-    nested_tuples = draw(nested_tuples(elements))
-    return nested_tuples
+def create_mixed_tuple(draw):
+    even_sublists = lists(integers(min_value=0, max_value=1000), min_size=1, max_size=10).filter(lambda lst: len(lst) % 2 == 0)
+    odd_sublists = lists(integers(min_value=0, max_value=1000), min_size=1, max_size=10).filter(lambda lst: len(lst) % 2 != 0)
+    sublist = one_of(even_sublists, odd_sublists)
+    test_tuple = draw(tuples(sublist, sublist, sublist, sublist, sublist, sublist))
+    return test_tuple
 
-def nested_tuples(elements):
-    return recursive_base(elements) | recursive_tuples(elements)
-
-def recursive_base(elements):
-    return tuples(just(element) for element in elements)
-
-def recursive_tuples(elements):
-    return tuples(nested_tuples(elements))
-
-test_tuple = create_nested_tuple()
-even_fnc = just(lambda x: x % 2 == 0)
+test_tuple = create_mixed_tuple()
+even_fnc = integers(min_value=0, max_value=1000)
 
 strategy = test_tuple, even_fnc
 if not isinstance(strategy, tuple):

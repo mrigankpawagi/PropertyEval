@@ -8,15 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from typing import List, Tuple
+ele = tuples(floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT), floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT))
+sub = lists(ele)
 
-def get_coordinates(coord: Tuple[int, int]) -> List[List[int]]:
-    x, y = coord
-    adjacent = [(x-1, y-1), (x-1, y), (x-1, y+1), (x, y-1), (x, y+1), (x+1, y-1), (x+1, y), (x+1, y+1)]
-    return [[c[0], c[1]] for c in adjacent]
-
-coord = tuples(integers(), integers())
-strategy = coord
+strategy = ele, sub
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

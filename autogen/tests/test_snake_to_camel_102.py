@@ -8,14 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from string import ascii_lowercase, ascii_uppercase
-
-def word():
-    letters = list(ascii_lowercase) + list(ascii_uppercase)
-    n = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
-    return lists(sampled_from(letters), min_size=n, max_size=n).map(''.join)
-
-strategy = word()
+word = text(alphabet='abcdefghijklmnopqrstuvwxyz_', min_size=1, max_size=MAX_SEQUENCE_LEN).filter(lambda x: "_" in x)
+strategy = word
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

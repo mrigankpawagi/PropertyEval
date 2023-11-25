@@ -8,13 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-import ast
-
-def remove_paren(test_str):
-    test_str = test_str.replace('(', '').replace(')', '')
-    return test_str
-
-strategy = text(min_size=1).filter(lambda x: '(' in x and ')' in x).map(remove_paren).map(lambda x: ast.literal_eval(x))
+test_str = tuples(text(alphabet='123456789', min_size=1, max_size=1), text(alphabet='1234567890', min_size=1, max_size=1)).map(lambda t: f'({t[0]}, {t[1]})')
+strategy = test_str
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

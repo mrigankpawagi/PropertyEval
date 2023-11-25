@@ -8,13 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def binary_string(draw, size=None):
-    size = size or draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
-    return draw(text(alphabet='01', min_size=size, max_size=size))
-
-str1 = binary_string()
-str2 = binary_string()
+str1 = text(alphabet='01', max_size=MAX_SEQUENCE_LEN)
+str2 = text(alphabet='01', max_size=MAX_SEQUENCE_LEN)
 
 strategy = str1, str2
 if not isinstance(strategy, tuple):

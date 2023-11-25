@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-base = integers(min_value=1, max_value=9)
-power = integers(min_value=0, max_value=100)
+base = integers(min_value=0, max_value=9)
+power = integers(min_value=0, max_value=9)
 
 strategy = base, power
 if not isinstance(strategy, tuple):

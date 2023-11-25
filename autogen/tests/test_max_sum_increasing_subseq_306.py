@@ -8,12 +8,17 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-a = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
-n = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
-index = integers(min_value=0, max_value=MAX_SEQUENCE_LEN - 2)
-k = integers(min_value=2, max_value=MAX_SEQUENCE_LEN - 1)
+from typing import List
 
-strategy = a, n, index, k
+@composite
+def input_data(draw):
+    n = draw(integers(min_value=1, max_value=100))
+    a = draw(lists(integers(min_value=1, max_value=100), min_size=n, max_size=n))
+    index = draw(integers(min_value=0, max_value=n-2))
+    k = draw(integers(min_value=1, max_value=n-1))
+    return a, n, index, k
+
+strategy = input_data()
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

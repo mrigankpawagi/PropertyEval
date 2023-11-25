@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-test_tup = tuples(integers(), min_size=1, max_size=5)
+test_tup = tuples(integers(), integers(), integers())
 K = integers()
 
 strategy = test_tup, K

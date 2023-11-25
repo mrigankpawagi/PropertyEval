@@ -9,8 +9,8 @@ from timeout import run_with_timeout
 from typing import *
                 
 n = integers(min_value=0, max_value=MAX_INT)
-l = integers(min_value=0, max_value=MAX_INT)
-r = integers(min_value=0, max_value=MAX_INT)
+l = integers(min_value=0, max_value=63)
+r = integers(min_value=0, max_value=63)
 
 strategy = n, l, r
 if not isinstance(strategy, tuple):

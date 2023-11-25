@@ -7,9 +7,9 @@ def generate_input(prompt, code, tests):
         raise Exception("No function definition found in code.")
     
     # Synthesise docstring
-    doctests = [test.split("assert ")[1] for test in tests[:2]]
-    doctests_string = "".join([f"  >>> {doctest}\n  True\n" for doctest in doctests])
-    docstring = f'''  """{prompt}\n{doctests_string}  """'''
+    # doctests = [test.split("assert ")[1] for test in tests[:1]]
+    # doctests_string = "".join([f"  >>> {doctest}\n  True\n" for doctest in doctests])
+    docstring = f'''  """{prompt}\n  """'''
     
     # extract function signature
     def_position = code.find("def")
@@ -47,6 +47,7 @@ for problem in problems:
             "strategy": strategy,
             "code": code
         })
+        print(f"Generated strategy for task {task_id}")
     except:
         continue
     

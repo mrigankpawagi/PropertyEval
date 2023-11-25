@@ -8,8 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-text = text(alphabet='abcd')
-
+text = from_regex(r'a+b+', fullmatch=True)
 strategy = text
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

@@ -8,28 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def vowels():
-    return one_of(just('a'), just('e'), just('i'), just('o'), just('u'), just('A'), just('E'), just('I'), just('O'), just('U'))
+str1 = text(alphabet='abcdefghijklmnopqrstuvwxyz', max_size=MAX_SEQUENCE_LEN).filter(lambda x: x == "" or x.islower())
 
-@composite
-def consonants():
-    return characters(blacklist_characters='aeiouAEIOUyY')
-
-@composite
-def build_strings_with_vowels():
-    s = draw(text(alphabet=consonants(), min_size=1))
-    v = draw(lists(vowels(), min_size=1))
-    return s + ''.join(v)
-
-@composite
-def build_strings_without_vowels():
-    s = draw(text(alphabet=consonants(), min_size=1))
-    return s
-
-str1 = st.one_of(build_strings_with_vowels(), build_strings_without_vowels())
-
-strategy = strings
+strategy = str1
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

@@ -8,8 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-lst = lists(elements=booleans(), max_size=MAX_SEQUENCE_LEN)
-
+lst = lists(booleans())
 strategy = lst
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

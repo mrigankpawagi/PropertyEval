@@ -8,9 +8,13 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-text = text(alphabet='abcd', min_size=0, max_size=MAX_SEQUENCE_LEN)
+import re
 
-strategy = text
+text = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', max_size=MAX_SEQUENCE_LEN)
+pattern = r'a+b+'
+matches = from_regex(pattern).filter(lambda x: re.match(pattern, x) is not None)
+
+strategy = text, matches
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

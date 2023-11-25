@@ -8,8 +8,12 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-list1 = lists(lists(integers(), max_size=MAX_SEQUENCE_LEN), max_size=MAX_SEQUENCE_LEN)
+@composite
+def frequency_list():
+    elements = lists(integers(), min_size=1, max_size=10)
+    return elements
 
+list1 = frequency_list()
 strategy = list1
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

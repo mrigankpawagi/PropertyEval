@@ -8,14 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def create_text(draw):
-    prefix = draw(text(alphabet='abcdefghijklmnopqrstuvwxyz', min_size=0, max_size=10))
-    suffix = draw(text(alphabet='abcdefghijklmnopqrstuvwxyz', min_size=1, max_size=10))
-    return prefix + 'a' + suffix + 'b'
+from hypothesis import strategies as st
 
-text = create_text()
-
+text = st.from_regex(r'a.*b$')
 strategy = text
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

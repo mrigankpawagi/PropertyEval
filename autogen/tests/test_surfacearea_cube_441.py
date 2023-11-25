@@ -8,8 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-l = integers(min_value=1, max_value=100)
-
+l = floats(min_value=0.0, max_value=10.0)
 strategy = l
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

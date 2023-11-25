@@ -8,10 +8,15 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-test_tup1 = tuples(integers())
-test_tup2 = tuples(integers()).filter(lambda t: all(x < y for x, y in zip(t, test_tup1)))
+@composite
+def make_tuples(draw):
+    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
+    tup1 = draw(tuples(integers(), min_size=n, max_size=n))
+    tup2 = draw(tuples(integers(max_value=tup1[i]), min_size=n, max_size=n))
+    return tup1, tup2
 
-strategy = test_tup1, test_tup2
+tup1, tup2 = make_tuples()
+strategy = tup1, tup2
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

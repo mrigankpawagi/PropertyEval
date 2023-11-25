@@ -8,14 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def create_colors_and_patterns(draw):
-    n = draw(integers(min_value=1, max_value=100))
-    colors = draw(lists(text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', min_size=n, max_size=n), min_size=n, max_size=n))
-    patterns = draw(lists(text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', min_size=n, max_size=n), min_size=n, max_size=n))
-    return colors, patterns
-
-colors, patterns = create_colors_and_patterns()
+colors = lists(text(alphabet='abcdefghijklmnopqrstuvwxyz', min_size=1, max_size=1), min_size=1, max_size=MAX_SEQUENCE_LEN)
+patterns = lists(text(alphabet='abcdefghijklmnopqrstuvwxyz', min_size=1, max_size=1), min_size=1, max_size=MAX_SEQUENCE_LEN)
 
 strategy = colors, patterns
 if not isinstance(strategy, tuple):

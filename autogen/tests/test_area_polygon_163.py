@@ -8,12 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-import math
+s = floats(min_value=0.0, exclude_min=True)
+l = integers(min_value=3, max_value=10)
 
-sides = integers(min_value=3, max_value=10)
-length = floats(min_value=0)
-
-strategy = sides, length
+strategy = s, l
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

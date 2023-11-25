@@ -8,11 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-import sys
-from hypothesis import strategies as st
-
-tuple_list = st.tuples(elements=st.one_of(st.integers(), st.text(), st.floats()), min_size=0, max_size=10)
-
+tuple_list = lists(integers(), min_size=1)
 strategy = tuple_list
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

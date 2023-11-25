@@ -8,9 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-l1 = lists(text(min_size=1, alphabet=string.ascii_uppercase + string.digits), min_size=1)
-l2 = lists(text(min_size=1), min_size=1)
-l3 = lists(integers(min_value=0, max_value=100), min_size=1)
+l1 = lists(text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', min_size=1, max_size=10), max_size=MAX_SEQUENCE_LEN)
+l2 = lists(text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', min_size=1, max_size=10), max_size=MAX_SEQUENCE_LEN)
+l3 = lists(text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', min_size=1, max_size=10), max_size=MAX_SEQUENCE_LEN)
 
 strategy = l1, l2, l3
 if not isinstance(strategy, tuple):

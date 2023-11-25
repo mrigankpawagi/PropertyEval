@@ -8,8 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-dict1 = dictionaries(integers(), min_size=0, max_size=0)
-
+dict1 = dictionaries(booleans(), booleans())
 strategy = dict1
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

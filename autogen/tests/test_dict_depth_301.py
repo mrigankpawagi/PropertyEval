@@ -8,17 +8,21 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def create_dict(draw):
-    keys = draw(lists(text(alphabet=string.ascii_letters, min_size=1, max_size=10), min_size=1, max_size=5))
-    def recur_dict():
-        values = draw(lists(one_of(integers(), text()), min_size=1, max_size=5))
-        return dict(zip(keys, values))
-    return draw(recursive(none() | recur_dict, dict))
+from collections.abc import Mapping
 
-d = create_dict()
+@st.composite
+def dictionary_strategy(draw):
+    depth = draw(st.integers(min_value=1, max_value=5))
+    dictionary = {}
+    for _ in range(depth):
+        key = draw(st.text(alphabet=string.ascii_letters + string.digits, min_size=1, max_size=10))
+        value = draw(st.recursive(st.floats(allow_nan=False, allow_infinity=False),
+                                    lambda children: st.lists(children, min_size=1, max_size=5).map(tuple)))
+        dictionary[key] = value
 
-strategy = d
+    return dictionary
+
+strategy = dictionary_strategy()
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

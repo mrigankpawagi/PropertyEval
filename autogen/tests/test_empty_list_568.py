@@ -8,7 +8,11 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-strategy = integers(min_value=0, max_value=MAX_SEQUENCE_LEN)
+from hypothesis import strategies as st
+
+length = st.integers(min_value=0, max_value=100)
+
+strategy = length.map(lambda n: [{}] * n)
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

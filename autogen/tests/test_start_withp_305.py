@@ -8,12 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-words = lists(text(alphabet=string.ascii_letters + string.digits + string.punctuation, min_size=1), min_size=2)
-
-def start_with_p(words):
-    return [w for w in words if w.lower().startswith('p')]
-
-strategy = words.map(start_with_p)
+words = lists(text(min_size=1, alphabet='p', max_size=MAX_SEQUENCE_LEN))
+strategy = words
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

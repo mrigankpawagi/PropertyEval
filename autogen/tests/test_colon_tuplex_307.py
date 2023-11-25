@@ -8,15 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-tuplex = tuples(
-    text(),  # string
-    integers(),  # integer
-    lists(),  # list
-    booleans()  # boolean
-)
-
-m = integers(min_value=0, max_value=100)
-n = integers(min_value=0, max_value=100)
+tuplex = tuples(integers(), integers(), integers(), integers(), integers(), integers()).map(lambda t: t[:6])
+m = integers(min_value=0, max_value=5)
+n = integers(min_value=0, max_value=5)
 
 strategy = tuplex, m, n
 if not isinstance(strategy, tuple):

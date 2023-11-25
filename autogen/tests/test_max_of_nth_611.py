@@ -8,8 +8,19 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-test_list = lists(lists(integers(), max_size=MAX_SEQUENCE_LEN), max_size=MAX_SEQUENCE_LEN)
-N = integers(min_value=0, max_value=MAX_SEQUENCE_LEN-1)
+@composite
+def create_matrix(draw):
+    n = draw(integers(min_value=1, max_value=10))
+    matrix = draw(lists(lists(integers(), min_size=n, max_size=n), min_size=n, max_size=n))
+    return matrix
+
+@composite
+def create_positive_integer(draw):
+    n = draw(integers(min_value=1, max_value=10))
+    return n
+
+test_list = create_matrix()
+N = create_positive_integer()
 
 strategy = test_list, N
 if not isinstance(strategy, tuple):

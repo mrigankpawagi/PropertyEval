@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-dlist = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
-item = integers()
+dlist = lists(elements=booleans() | integers() | floats() | text(), max_size=MAX_SEQUENCE_LEN)
+item = booleans() | integers() | floats() | text()
 
 strategy = dlist, item
 if not isinstance(strategy, tuple):

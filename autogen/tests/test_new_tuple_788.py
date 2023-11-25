@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-test_list = lists(text(), min_size=1, max_size=2)
-test_str = text(min_size=1, max_size=10)
+test_list = lists(integers(), max_size=MAX_SEQUENCE_LEN)
+test_str = text(alphabet='abcdefghijklmnopqrstuvwxyz', max_size=MAX_SEQUENCE_LEN)
 
 strategy = test_list, test_str
 if not isinstance(strategy, tuple):

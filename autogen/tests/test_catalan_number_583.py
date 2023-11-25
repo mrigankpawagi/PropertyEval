@@ -8,10 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from math import factorial
-
-num = integers(min_value=0, max_value=15)
-
+num = integers(min_value=0, max_value=2147483647)
 strategy = num
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

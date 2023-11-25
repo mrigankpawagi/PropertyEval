@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-items = lists(dictionaries(keys='name', values=floats(min_value=0.0, allow_nan=False)), min_size=1, max_size=10)
-n = integers(min_value=1)
+items = lists(integers(min_value=1, max_value=100), unique=True)
+n = integers(min_value=1, max_value=10)
 
 strategy = items, n
 if not isinstance(strategy, tuple):

@@ -8,8 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-degree = floats(min_value=0, max_value=360)
-
+degree = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
 strategy = degree
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

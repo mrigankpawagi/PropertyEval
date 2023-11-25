@@ -8,8 +8,8 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-str1 = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()', min_size=1, max_size=MAX_SEQUENCE_LEN)
-char = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()', min_size=1, max_size=1)
+str1 = text(alphabet=' ', max_size=MAX_SEQUENCE_LEN)
+char = characters()
 
 strategy = str1, char
 if not isinstance(strategy, tuple):

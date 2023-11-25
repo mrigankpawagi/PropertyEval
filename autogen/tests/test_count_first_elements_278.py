@@ -8,15 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-@composite
-def nested_tuples(draw):
-    n = draw(integers(min_value=1, max_value=10))
-    if n == 1:
-        return draw(integers())
-    else:
-        return draw(tuples(nested_tuples(), min_size=n, max_size=n))
-
-test_tup = nested_tuples()
+test_tup = tuples(integers(), lists(integers()), integers())
 
 strategy = test_tup
 if not isinstance(strategy, tuple):

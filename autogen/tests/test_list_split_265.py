@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-S = lists(elements=anything())
+S = lists(integers(), max_size=MAX_SEQUENCE_LEN)
 step = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
 
 strategy = S, step

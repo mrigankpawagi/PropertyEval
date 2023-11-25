@@ -8,18 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-import string
-
-@composite
-def create_text(draw):
-    chars = string.ascii_lowercase
-    n = draw(integers(min_value=0, max_value=MAX_SEQUENCE_LEN))
-    text = ''.join(draw(sampled_from(chars)) for _ in range(n))
-    return text
-
-text = create_text().filter(lambda x: 'aaa' not in x)
-
-strategy = text
+pattern = r'a{1}b{3}'
+text = text(alphabet='abcdefghijklmnopqrstuvwxyz' + 'ab' * 100, max_size=MAX_SEQUENCE_LEN)
+strategy = text, pattern
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

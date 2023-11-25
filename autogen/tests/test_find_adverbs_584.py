@@ -8,9 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from hypothesis import strategies as st
-
-text = st.text(alphabet=st.characters(whitelist_categories=('Lu', 'Ll', 'Nd', 'Zs')));
+text = text(alphabet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 !@#$%^&*()_-+=[]{};:\'",.<>/?`~', min_size=1, max_size=MAX_SEQUENCE_LEN)
 
 strategy = text
 if not isinstance(strategy, tuple):

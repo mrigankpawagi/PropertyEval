@@ -8,14 +8,16 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-students = dictionaries(
-    keys=text(alphabet=characters(min_codepoint=32, max_codepoint=126)),
-    values=tuples(floats(min_value=0, max_value=10), integers(min_value=0, max_value=100)),
-    min_size=1,
-    max_size=10
-)
-h = floats(min_value=0, max_value=10)
-w = floats(min_value=0, max_value=100)
+@composite
+def student():
+    name = text(alphabet=characters(min_codepoint=97, max_codepoint=122), min_size=1, max_size=10)
+    height = floats(min_value=0.0, allow_infinity=False, allow_nan=False)
+    weight = floats(min_value=0.0, allow_infinity=False, allow_nan=False)
+    return (name, (height, weight))
+
+students = dictionaries(keys=text(), values=student())
+h = floats(min_value=0.0, allow_infinity=False, allow_nan=False)
+w = floats(min_value=0.0, allow_infinity=False, allow_nan=False)
 
 strategy = students, h, w
 if not isinstance(strategy, tuple):

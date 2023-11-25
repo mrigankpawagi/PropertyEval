@@ -8,10 +8,16 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-actual_cost = integers(min_value=1, max_value=MAX_INT)
-sale_amount = integers(min_value=1, max_value=MAX_INT)
+actual_cost = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
+sale_amount = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
 
-strategy = actual_cost, sale_amount
+@given(actual_cost, sale_amount)
+def loss_amount(actual_cost, sale_amount):
+    if actual_cost > sale_amount:
+        return actual_cost - sale_amount
+    return 0
+
+strategy = loss_amount
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

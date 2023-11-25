@@ -13,7 +13,7 @@ def generate_strategy(prompt):
     messages=[
       {
         "role": "system",
-        "content": "You are an experienced python program with expertise in writing property-based tests using Hypothesis, a python library for this. To use hypothesis, we need to write a strategy using the strategies module in hypothesis, and then provide these in the @given decorator on the test function. You will be provided a function signature and docstring and you will be asked to provide a strategy for testing with Hypothesis. You MUST end by creating a variable called 'strategy' which contains the strategies you create. Do NOT include any tests in your responses. Available limits for use are ONLY MAX_INT, MIN_INT,VERY_SMALL_INT_NEGATIVE, VERY_SMALL_INT, SMALL_INT, VERY_LARGE_INT, MAX_FLOAT, MIN_FLOAT, SMALL_SEQUENCE_LEN, MAX_SEQUENCE_LEN. You can use these in your strategy. If you are using `alphabet` inside `text()`, explicitly provide the string of characters."
+        "content": "You are an experienced python program with expertise in writing property-based tests using Hypothesis, a python library for this. To use hypothesis, we need to write a strategy using the strategies module in hypothesis, and then provide these in the @given decorator on the test function. You will be provided a function signature and docstring and you will be asked to provide a strategy for testing with Hypothesis. You MUST end by creating a variable called 'strategy' which contains the strategies you create. Do NOT include any tests in your responses. You may use ONLY MAX_INT, MIN_INT, MAX_FLOAT, MIN_FLOAT, and MAX_SEQUENCE_LEN wherever suitable. You can use these in your strategy. If you are using `alphabet` inside `text()`, explicitly provide the string of characters. If you want to create a tuple, just create a list instead."
       },
       {
         "role": "user",
@@ -41,19 +41,27 @@ def generate_strategy(prompt):
       },
       {
         "role": "user",
-        "content": "def remove_duplicates(numbers: List[int]) -> List[int]:\n    \"\"\" From a list of integers, remove all elements that occur more than once.\n    Keep order of elements left the same as in the input.\n    >>> remove_duplicates([1, 2, 3, 2, 4])\n    [1, 3, 4]\n    \"\"\""
-      },
-      {
-        "role": "assistant",
-        "content": "numbers = lists(integers(min_value=MIN_INT, max_value=MAX_INT), max_size=MAX_SEQUENCE_LEN)\n\nstrategy = numbers"
-      },
-      {
-        "role": "user",
         "content": "def max_fill(grid, capacity):\n    \"\"\"\n    You are given a rectangular grid of wells. Each row represents a single well,\n    and each 1 in a row represents a single unit of water.\n    Each well has a corresponding bucket that can be used to extract water from it, \n    and all buckets have the same capacity.\n    Your task is to use the buckets to empty the wells.\n    Output the number of times you need to lower the buckets.\n\n    Example 1:\n        Input: \n            grid : [[0,0,1,0], [0,1,0,0], [1,1,1,1]]\n            bucket_capacity : 1\n        Output: 6\n\n    Example 2:\n        Input: \n            grid : [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]\n            bucket_capacity : 2\n        Output: 5\n    \n    Example 3:\n        Input: \n            grid : [[0,0,0], [0,0,0]]\n            bucket_capacity : 5\n        Output: 0\n\n    Constraints:\n        * all wells have the same length\n        * 1 <= grid.length <= 10^2\n        * 1 <= grid[:,1].length <= 10^2\n        * grid[i][j] -> 0 | 1\n        * 1 <= capacity <= 10\n    \"\"\""
       },
       {
         "role": "assistant",
         "content": "@composite\ndef create_grid(draw):\n    n = draw(integers(min_value=1, max_value=100))\n    grid = draw(lists(lists(integers(min_value=0, max_value=1), min_size=n, max_size=n), min_size=n, max_size=n))\n    return grid\n\ngrid = create_grid()\ncapacity = integers(min_value=1, max_value=10)\n\nstrategy = grid, capacity"
+      },
+      {
+        "role": "user",
+        "content": "def parse_music(music_string: str) -> List[int]:\n    \"\"\" Input to this function is a string representing musical notes in a special ASCII format.\n    Your task is to parse this string and return list of integers corresponding to how many beats does each\n    not last.\n\n    Here is a legend:\n    'o' - whole note, lasts four beats\n    'o|' - half note, lasts two beats\n    '.|' - quater note, lasts one beat\n\n    >>> parse_music('o o| .| o| o| .| .| .| .| o o')\n    [4, 2, 1, 2, 2, 1, 1, 1, 1, 4, 4]\n    \"\"\""
+      },
+      {
+        "role": "assistant",
+        "content": "music_string = lists(sampled_from([\"o\", \"o|\", \".|\"]), max_size=MAX_SEQUENCE_LEN).map(lambda s: \" \".join(s))\nstrategy = music_string"
+      },
+      {
+        "role": "user",
+        "content": "def decode_shift(s: str):\n    \"\"\"\n    takes as input string encoded with encode_shift function. Returns decoded string.\n    \"\"\""
+      },
+      {
+        "role": "assistant",
+        "content": "s = text(alphabet='abcde', max_size=MAX_SEQUENCE_LEN).filter(lambda x: x == \"\" or x.islower())\nstrategy = s"
       },
       {
         "role": "user",

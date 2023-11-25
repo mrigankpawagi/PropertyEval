@@ -8,9 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-list1 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=1, max_size=MAX_SEQUENCE_LEN)
-list2 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=1, max_size=MAX_SEQUENCE_LEN)
-list3 = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=1, max_size=MAX_SEQUENCE_LEN)
+list1 = lists(booleans(), min_size=1)
+list2 = lists(booleans(), min_size=1)
+list3 = lists(booleans(), min_size=1)
 
 strategy = list1, list2, list3
 if not isinstance(strategy, tuple):

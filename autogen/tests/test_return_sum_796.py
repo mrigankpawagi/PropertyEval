@@ -8,10 +8,21 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-keys = lists(text(alphabet=string.ascii_lowercase, min_size=1, max_size=1), unique=True, min_size=1, max_size=5)
-values = lists(integers(min_value=0, max_value=100), min_size=1, max_size=5)
+import string
 
-strategy = dictionaries(keys, values)
+def dict_with_strings():
+    return dictionaries(
+        keys=text(
+            alphabet=string.ascii_letters + string.digits,
+            min_size=1,
+            max_size=MAX_SEQUENCE_LEN,
+        ),
+        values=one_of(integers(), floats()),
+        min_size=1,
+        max_size=MAX_SEQUENCE_LEN,
+    )
+
+strategy = dict_with_strings()
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

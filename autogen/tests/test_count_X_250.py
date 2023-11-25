@@ -8,7 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-tup = lists(integers(), min_size=1)
+tup = lists(integers(), max_size=MAX_SEQUENCE_LEN).map(tuple)
 x = integers()
 
 strategy = tup, x

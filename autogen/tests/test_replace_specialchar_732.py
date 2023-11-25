@@ -8,8 +8,7 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-text = text(min_size=1, max_size=MAX_SEQUENCE_LEN, alphabet=' ,.')
-
+text = text(min_size=1, max_size=MAX_SEQUENCE_LEN).filter(lambda x: x == '' or not x.isspace() and not x.isalpha() and not x.isdigit())
 strategy = text
 if not isinstance(strategy, tuple):
     strategy = (strategy,)

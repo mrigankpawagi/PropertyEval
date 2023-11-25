@@ -8,15 +8,10 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-from hypothesis import strategies as st
+dict_strategy = dictionaries(keys=text(), values=integers())
+n_strategy = integers()
 
-@st.composite
-def dictionary_and_integer(draw):
-    keys = st.text(min_size=1)
-    values = st.integers()
-    return draw(st.dictionaries(keys, values)), draw(st.integers(min_value=0))
-
-strategy = dictionary_and_integer()
+strategy = dict_strategy, n_strategy
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 

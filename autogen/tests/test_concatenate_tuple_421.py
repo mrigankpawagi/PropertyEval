@@ -8,15 +8,9 @@ from hypothesis import given
 from timeout import run_with_timeout
 from typing import *
                 
-test_tup = tuples(
-    one_of(
-        integers(), 
-        text(alphabet=string.ascii_letters), 
-        text(alphabet=string.digits)
-    ),
-    min_size=1,
-    max_size=MAX_SEQUENCE_LEN
-).map(lambda x: tuple(map(str, x)))
+from hypothesis import strategies as st
+
+test_tup = st.tuples(st.text(), st.text(), st.text())
 
 strategy = test_tup
 if not isinstance(strategy, tuple):
