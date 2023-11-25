@@ -12,9 +12,9 @@ for model in os.listdir("results"):
         data = json.load(f)
         statistics = data["statistics"]
         
-        base = 100 * statistics["base"] / statistics["total"]
-        properteval = 100 * statistics["properteval"] / statistics["total"]
-        both = 100 * statistics["both"] / statistics["total"]
+        base = 100 * statistics["Base"] / statistics["Total"]
+        properteval = 100 * statistics["PropertyEval"] / statistics["Total"]
+        both = 100 * statistics["Base + PropertyEval"] / statistics["Total"]
         
         resultsdata.append({
             "name": name,
