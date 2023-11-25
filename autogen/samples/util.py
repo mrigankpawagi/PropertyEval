@@ -2,7 +2,7 @@ import sys
 sys.path.extend(["../../..", "../..", ".."])
 
 import json
-from timeout import timeout
+from timeout import timeout, run_with_timeout
 from typing import *
 from limits.limits import *
 from hypothesis.strategies import *
@@ -51,7 +51,7 @@ def test_base():
   global {entry_point}
 {tests}
 
-test_base()""")
+run_with_timeout(1, test_base)""")
         return True
     except Exception as e:
         # print(f"BASE ERR {entry_point}:", e)
@@ -75,7 +75,7 @@ def test_properteval(args):
     global {entry_point}, gt_func
     assert {entry_point}(*args) == gt_func(*args)
     
-test_properteval()""")
+run_with_timeout(60, test_properteval)""")
 
         return True
     except Exception as e:
@@ -96,7 +96,7 @@ def test_mbppplus(args):
     assert {entry_point}(*args) == gt_func(*args)
 
 for inp in mbppplus_tests[task_id]:
-    test_mbppplus(inp)""")  
+    run_with_timeout(0.3, test_mbppplus(inp))""")  
 
         return True
     except Exception as e:

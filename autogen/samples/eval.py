@@ -37,7 +37,7 @@ def evaluate(model):
             continue # skip if this task is not in the model
         
         k += 1
-        print(f"Doing {k}/399")
+        print(f"Doing {k}/399: {entry_point}/{task_id}")
         
         entry_point_index = raw_completion.find(f"def {entry_point}")
         
