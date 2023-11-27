@@ -1,4 +1,4 @@
-from limits.limits import MAX_INT, MIN_INT, MAX_FLOAT, MIN_FLOAT, MAX_SEQUENCE_LEN
+from limits.limits import *
 # Error in CONTRACTs: Does not check that cnt == 0 at end!
 
 from hypothesis.strategies import just, lists, recursive

@@ -1,4 +1,4 @@
-from limits.limits import MAX_INT, MIN_INT, MAX_FLOAT, MIN_FLOAT, MAX_SEQUENCE_LEN
+from limits.limits import *
 # CONTRACT must check for inf and nan!
 
 from hypothesis.strategies import builds, floats

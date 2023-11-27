@@ -1,4 +1,4 @@
-from limits.limits import MAX_INT, MIN_INT, MAX_FLOAT, MIN_FLOAT, MAX_SEQUENCE_LEN
+from limits.limits import *
 # Groundtruth is wrong because CONTRACT does not handle empty lists!
 
 from hypothesis.strategies import lists, integers, floats, one_of

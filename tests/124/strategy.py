@@ -1,4 +1,4 @@
-from limits.limits import MAX_INT, MIN_INT, MAX_FLOAT, MIN_FLOAT, MAX_SEQUENCE_LEN
+from limits.limits import *
 from hypothesis.strategies import builds, text, integers
 
 def generate(d, m, y, sep):
