@@ -1,1606 +1,2007 @@
 {
     "statistics": {
         "Total": 399,
-        "Base": 193,
-        "PropertyEval": 122,
-        "Base + PropertyEval": 112
+        "Base": 204,
+        "PropertyEval": 124,
+        "MBPP+": 158,
+        "Base + PropertyEval": 117,
+        "Base + MBPP+": 146
     },
     "results": {
         "2": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "3": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "4": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "6": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "7": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "8": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "9": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "11": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "12": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "14": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "16": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "17": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "18": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "19": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "20": {
             "base": false,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "56": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "57": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "58": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "59": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "61": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "62": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "63": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "64": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "65": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "66": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "67": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "68": {
-            "base": false,
-            "properteval": false
+            "base": true,
+            "properteval": true,
+            "mbppplus": true
         },
         "69": {
             "base": false,
-            "properteval": true
+            "properteval": false,
+            "mbppplus": true
         },
         "70": {
-            "base": false,
-            "properteval": false
+            "base": true,
+            "properteval": false,
+            "mbppplus": false
         },
         "71": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "72": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "74": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "75": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "77": {
-            "base": false,
-            "properteval": false
+            "base": true,
+            "properteval": false,
+            "mbppplus": false
         },
         "79": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "80": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "82": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "83": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "84": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "85": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "86": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "87": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "88": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "89": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "90": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "91": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "92": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "93": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "94": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "95": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "96": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "97": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "98": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "99": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "100": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "101": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "102": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "103": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "104": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "105": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "106": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "108": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "109": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "111": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "113": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "115": {
-            "base": false,
-            "properteval": false
+            "base": true,
+            "properteval": true,
+            "mbppplus": false
         },
         "116": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "117": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "118": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "119": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "120": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "123": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "124": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "125": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "126": {
-            "base": false,
-            "properteval": false
+            "base": true,
+            "properteval": false,
+            "mbppplus": false
         },
         "127": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "128": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "129": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "130": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "131": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "132": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "133": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "135": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "137": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "138": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "139": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "140": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "141": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "142": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "143": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "145": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "160": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "161": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "162": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "164": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "165": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "166": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "167": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "168": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "170": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "171": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "172": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "222": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "223": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "224": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "226": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "227": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "229": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "230": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "232": {
-            "base": false,
-            "properteval": false
+            "base": true,
+            "properteval": true,
+            "mbppplus": true
         },
         "233": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "234": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "235": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "237": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "238": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "239": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "240": {
             "base": false,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "242": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "244": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "245": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "247": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "249": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "250": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "251": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "252": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "253": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "255": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "256": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "257": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "259": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "260": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "261": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "262": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "264": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "265": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "266": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "267": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "268": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "269": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "270": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "271": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "272": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "273": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "274": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "276": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "277": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "278": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "279": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "280": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "281": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "282": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "283": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "284": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "285": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "286": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "287": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "290": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "292": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "293": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "294": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "295": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "296": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "297": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "299": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "300": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "301": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "305": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "306": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "308": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "309": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "310": {
             "base": false,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "311": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "312": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "388": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "389": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "390": {
             "base": true,
-            "properteval": true
+            "properteval": false,
+            "mbppplus": true
         },
         "391": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "392": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "394": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "395": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "396": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "397": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "398": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "400": {
             "base": false,
-            "properteval": true
+            "properteval": false,
+            "mbppplus": false
         },
         "404": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "405": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "406": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "407": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "409": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "410": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "412": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "413": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "414": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "415": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "418": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "419": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "420": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "421": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "422": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "424": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "425": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "426": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "427": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "428": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "429": {
             "base": false,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "430": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "431": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "432": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "433": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "435": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "436": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "437": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "438": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "439": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "440": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "441": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "442": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "445": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "446": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "447": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "448": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "450": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "451": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "453": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "454": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "455": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "456": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "457": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "458": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "459": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "460": {
-            "base": false,
-            "properteval": false
+            "base": true,
+            "properteval": true,
+            "mbppplus": true
         },
         "461": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "462": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "463": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "465": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "468": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "470": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "471": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "472": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "473": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "474": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "475": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "476": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "477": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "478": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "479": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "554": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "555": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "556": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "557": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "558": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "559": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "560": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "562": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "563": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "564": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "565": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "566": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "567": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "568": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "569": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "572": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "573": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "574": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "576": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "577": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "578": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "579": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "580": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "581": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "582": {
-            "base": false,
-            "properteval": false
+            "base": true,
+            "properteval": true,
+            "mbppplus": true
         },
         "583": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "585": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "586": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "587": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "588": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "589": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "590": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "591": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "592": {
             "base": false,
-            "properteval": false
+            "properteval": true,
+            "mbppplus": false
         },
         "593": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "594": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "595": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "596": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "597": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "598": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "599": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "600": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "602": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "603": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "604": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "605": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "606": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "607": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "608": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "610": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "611": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "612": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "614": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "615": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "616": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "618": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "619": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "620": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "622": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "623": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "624": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "626": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "628": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "629": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "630": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "631": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "632": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "633": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "635": {
-            "base": false,
-            "properteval": false
+            "base": true,
+            "properteval": true,
+            "mbppplus": true
         },
         "637": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "638": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "639": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "640": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "641": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "643": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "644": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "720": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "721": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "722": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "723": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "724": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "725": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "726": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "728": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "730": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "731": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "732": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "733": {
             "base": false,
-            "properteval": true
+            "properteval": false,
+            "mbppplus": false
         },
         "734": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "735": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "736": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "737": {
-            "base": false,
-            "properteval": false
+            "base": true,
+            "properteval": false,
+            "mbppplus": true
         },
         "739": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "740": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "741": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "742": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "743": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "744": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "745": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "746": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "748": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "749": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "750": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "751": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "752": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "753": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "754": {
             "base": false,
-            "properteval": true
+            "properteval": false,
+            "mbppplus": false
         },
         "755": {
             "base": false,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "757": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "758": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "759": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "760": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "762": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "763": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "764": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "765": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "766": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "767": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "769": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "770": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "771": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "772": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "773": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "775": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "777": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "778": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "780": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "781": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "782": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "783": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "784": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "785": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "786": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "787": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "788": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "790": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "791": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "792": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": false
         },
         "793": {
             "base": false,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "794": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "796": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "797": {
-            "base": false,
-            "properteval": false
+            "base": true,
+            "properteval": false,
+            "mbppplus": false
         },
         "798": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "799": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "800": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "801": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "803": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "804": {
             "base": true,
-            "properteval": true
+            "properteval": true,
+            "mbppplus": true
         },
         "805": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "806": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "807": {
             "base": true,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": true
         },
         "808": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         },
         "809": {
             "base": false,
-            "properteval": false
+            "properteval": false,
+            "mbppplus": false
         }
     }
 }
