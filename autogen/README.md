@@ -4,27 +4,27 @@ We use some of the hand-crafted strategies created for HumanEval to provide a fe
 We then utilize the code samples for 22 (model, size, temperature) combinations provided with [EvalPlus v0.2.0](https://github.com/evalplus/evalplus/releases/tag/v0.2.0) to evaluate the samples using these strategies. There are 338 problems in the intersection of our strategies and the code samples provided by EvalPlus. This is the set of problems we use for our evaluation.
 
 
-| Model | Base | PropertEval | Base + PropertyEval |
-| --- | --- | --- | --- |
-| gpt-3 | 76.44 | 51.38 | 50.63 |
-| deepseek-coder-33b-instruct_temp_0 | 70.68 | 47.12 | 45.86 |
-| gpt-4-1106-preview_temp_0_0 | 64.66 | 43.61 | 42.61 |
-| deepseek-coder-6_7b-instruct_temp_0_0 | 64.41 | 41.10 | 40.10 |
-| deepseek-coder-6_7b-base_temp_0 | 65.91 | 41.10 | 39.85 |
-| wizardcoder-34b_temp_0 | 61.65 | 40.60 | 39.85 |
-| code-llama-34b_temp_0 | 61.40 | 38.35 | 37.34 |
-| deepseek-coder-1_3b-instruct_temp_0_0 | 58.40 | 38.10 | 36.09 |
-| code-llama-13b_temp_0 | 56.39 | 37.59 | 36.09 |
-| wizardcoder-15b_temp_0_0 | 57.14 | 35.84 | 34.09 |
-| starcoder_temp_0_0 | 51.38 | 35.84 | 33.08 |
-| deepseek-coder-1_3b-base_temp_0_0 | 54.64 | 35.09 | 33.08 |
-| wizardcoder-7b_temp_0_0 | 52.13 | 33.58 | 31.83 |
-| code-llama-7b_temp_0_0 | 54.64 | 33.33 | 31.58 |
-| codet5p-16b_temp_0_0 | 51.13 | 32.08 | 30.33 |
-| mistral-7b_temp_0_0 | 49.37 | 32.08 | 29.32 |
-| codegen-6b_temp_0_0 | 48.12 | 30.83 | 28.82 |
-| codet5p-6b_temp_0_0 | 48.12 | 30.58 | 28.57 |
-| codegen-16b_temp_0_0 | 46.87 | 30.08 | 28.57 |
-| zephyr-7b_temp_0 | 40.35 | 28.07 | 27.32 |
-| codet5p-2b_temp_0_0 | 43.61 | 29.82 | 26.32 |
-| codegen-2b_temp_0 | 43.11 | 28.57 | 25.31 |
+| Model | Base | PropertEval | MBPP+ | Base + PropertyEval | Base + MBPP+ |
+| --- | --- | --- | --- | --- | --- |
+| gpt-3 | 79.20 | 51.63 | 63.91 | 51.13 | 61.65 |
+| gpt-4-1106-preview_temp_0_0 | 76.69 | 49.87 | 61.40 | 48.87 | 59.40 |
+| deepseek-coder-33b-instruct_temp_0 | 74.94 | 48.37 | 61.40 | 47.12 | 58.65 |
+| deepseek-coder-6_7b-instruct_temp_0_0 | 67.92 | 43.11 | 56.64 | 41.10 | 53.88 |
+| deepseek-coder-6_7b-base_temp_0 | 67.92 | 41.85 | 51.63 | 40.35 | 48.87 |
+| wizardcoder-34b_temp_0 | 63.16 | 40.10 | 50.88 | 39.35 | 48.62 |
+| code-llama-13b_temp_0 | 62.16 | 39.35 | 49.12 | 37.84 | 46.12 |
+| code-llama-34b_temp_0 | 63.66 | 37.34 | 48.37 | 36.59 | 46.12 |
+| deepseek-coder-1_3b-instruct_temp_0_0 | 60.40 | 37.34 | 48.37 | 35.59 | 44.61 |
+| wizardcoder-15b_temp_0_0 | 58.15 | 34.84 | 46.12 | 33.58 | 43.36 |
+| starcoder_temp_0_0 | 52.88 | 34.84 | 41.85 | 33.33 | 39.35 |
+| deepseek-coder-1_3b-base_temp_0_0 | 54.14 | 33.58 | 44.11 | 32.08 | 40.85 |
+| wizardcoder-7b_temp_0_0 | 53.63 | 33.33 | 44.36 | 31.58 | 41.60 |
+| code-llama-7b_temp_0_0 | 56.14 | 33.08 | 42.86 | 31.33 | 40.60 |
+| codegen-16b_temp_0_0 | 51.88 | 32.58 | 41.85 | 31.08 | 38.60 |
+| codet5p-16b_temp_0_0 | 52.38 | 30.83 | 40.85 | 29.57 | 38.10 |
+| mistral-7b_temp_0_0 | 51.13 | 31.08 | 39.60 | 29.32 | 36.59 |
+| codegen-6b_temp_0_0 | 49.12 | 30.58 | 41.60 | 28.57 | 38.35 |
+| codet5p-6b_temp_0_0 | 48.87 | 30.08 | 38.10 | 28.32 | 35.59 |
+| zephyr-7b_temp_0 | 41.60 | 27.57 | 34.59 | 26.32 | 31.08 |
+| codet5p-2b_temp_0_0 | 44.36 | 28.57 | 33.83 | 25.56 | 31.33 |
+| codegen-2b_temp_0 | 43.61 | 28.57 | 33.83 | 24.81 | 31.08 |
