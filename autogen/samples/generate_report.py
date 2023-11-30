@@ -6,7 +6,10 @@ print("| --- | --- | --- | --- |")
 
 resultsdata = []
 
-for model in os.listdir("results"):
+with open("models/list.txt") as f:
+    models = f.read().splitlines()
+
+for model in models:
     name = model.split(".")[0]
     with open(f"results/{model}") as f:
         data = json.load(f)

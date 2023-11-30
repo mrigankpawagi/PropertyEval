@@ -74,9 +74,8 @@ def run_with_timeout(timeout, function, *args, **kwargs):
     process.start()
     process.join(timeout=timeout)
     if process.exception:
-        raise process.exception
+        raise Exception(process.exception)
     if process.is_alive():
         process.terminate()
-    if process.exitcode is None:      
-        print("Timeout!") 
+    if process.exitcode is None:
         raise TimeoutError("Timeout")

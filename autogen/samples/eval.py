@@ -39,29 +39,8 @@ def evaluate(model):
         k += 1
         print(f"Doing {k}/399: {entry_point}/{task_id}")
         
-        entry_point_index = raw_completion.find(f"def {entry_point}")
-        
-        # remove any statements after the entry point definition
-        new_line_positions = [i for i, c in enumerate(raw_completion) if c == "\n" and i > entry_point_index]
-        if len(new_line_positions) > 0:
-            function_end_index = new_line_positions[-1]
-            for i in new_line_positions:
-                # check if this line starts with indentation
-                if i + 1 < len(raw_completion) and raw_completion[i + 1] != " ":
-                    function_end_index = i
-                    break
-            completion = raw_completion[:function_end_index]
-
-        # remove anything before the entry point definition that is not an import or another function definition
-        # this is to remove stray text or comments
-        new_line_positions = [i for i, c in enumerate(completion) if c == "\n" and i < entry_point_index]
-        if len(new_line_positions) > 0:
-            code_start_index = new_line_positions[-1]
-            for i in new_line_positions:
-                if completion[i: i + 4] == "def " or completion[i: i + 7] == "import " or completion[i: i + 5] == "from ":
-                    code_start_index = i
-                    break
-            completion = completion[code_start_index:]
+        # Completions were sanitized using evalplus/tools/sanitize.py
+        completion = raw_completion
             
         # save groundtruth if not exists
         if not os.path.exists(f"groundtruth/{task_id}.py"):
@@ -70,21 +49,21 @@ def evaluate(model):
             
         base = base_test(completion, test_list, entry_point)
         properteval = properteval_test(completion, strategy, entry_point, task_id)
-        # mbppplus = mbppplus_test(completion, entry_point, task_id)
+        mbppplus = mbppplus_test(completion, entry_point, task_id)
         
         results[task_id] = {
             "base": base,
             "properteval": properteval,
-            # "mbppplus": mbppplus
+            "mbppplus": mbppplus
         }
 
     statistics = {
         "Total": len(results),
         "Base": len([1 for task_id in results if results[task_id]["base"]]),
         "PropertyEval": len([1 for task_id in results if results[task_id]["properteval"]]),
-        # "MBPP+": len([1 for task_id in results if results[task_id]["mbppplus"]]),
+        "MBPP+": len([1 for task_id in results if results[task_id]["mbppplus"]]),
         "Base + PropertyEval": len([1 for task_id in results if results[task_id]["base"] and results[task_id]["properteval"]]),
-        # "Base + MBPP+": len([1 for task_id in results if results[task_id]["base"] and results[task_id]["mbppplus"]])
+        "Base + MBPP+": len([1 for task_id in results if results[task_id]["base"] and results[task_id]["mbppplus"]])
     }
 
     with open(f"results/{model}.json", "w") as f:
@@ -94,6 +73,8 @@ def evaluate(model):
         }, f, indent=4)
 
 if __name__ == "__main__":
-    for model in os.listdir("models"):
+    with open ("models/list.txt") as f:
+        models = f.read().splitlines()    
+    for model in models:
         print(f"Evaluating {model}...")
         evaluate(model)
