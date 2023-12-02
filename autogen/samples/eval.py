@@ -78,3 +78,4 @@ if __name__ == "__main__":
     for model in models:
         print(f"Evaluating {model}...")
         evaluate(model)
+        quit()

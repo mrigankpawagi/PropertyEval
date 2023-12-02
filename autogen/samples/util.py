@@ -55,7 +55,7 @@ def test_base():
 run_with_timeout(10, test_base)""", globals()) # Very high timeout to ensure that all tests are run
         return True
     except Exception as e:
-        # print(f"BASE ERR {entry_point}:", e)
+        print(f"BASE ERR {entry_point}:", e)
         return False    
 
 def properteval_test(completion: str, strategy: str, entry_point: str, task_id: int) -> bool:
@@ -79,7 +79,7 @@ run_with_timeout(600, test_properteval)""", globals(), locals()) # 1000 * 0.3 * 
 
         return True
     except Exception as e:
-        # print(f"PROP ERR {entry_point}:", e)
+        print(f"PROP ERR {entry_point}:", e)
         return False    
 
 def mbppplus_test(completion: str, entry_point: str, task_id: int) -> bool:    
@@ -98,5 +98,5 @@ for inp, time_limit, expected_answer in zip(mbppplus_tests[task_id], expected[f"
 
         return True
     except Exception as e:
-        # print("MBBP ERR:", e)
+        print("MBBP ERR:", e)
         return False    

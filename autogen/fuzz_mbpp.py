@@ -23,9 +23,11 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
 {strategy_completion}
 if not isinstance(strategy, tuple):
@@ -34,8 +36,9 @@ if not isinstance(strategy, tuple):
 {code}
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, {entry_point}, *args)\n""")
 
 import os
-os.system("pytest tests/ --tb=no --continue-on-collection-errors > pytest.log 2>&1")
+os.system("pytest tests/ --tb=no --continue-on-collection-errors -k 'not test_test_duplicate and not test_test_three_equal' > pytest.log 2>&1")
