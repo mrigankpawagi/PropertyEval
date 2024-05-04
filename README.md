@@ -78,8 +78,9 @@ strategy = words
 
 ### Automation
 For the [MBPP](https://github.com/google-research/google-research/tree/master/mbpp) dataset, we demonstrate that these tests can be generated largely automatically using GPT-3.5 by providing few-shot prompts based on some of our manually constructed tests. This demonstrates that our approach can be easily scaled to other datasets.
-> [!NOTE]  
-> This is work in progress.
+
+> [!WARNING]  
+> This is a work in progress, but some preliminary results are available [here](https://github.com/mrigankpawagi/PropertyEval/tree/main/autogen).
 
 ![image](https://github.com/mrigankpawagi/PropertyEval/assets/25179158/f10b9adf-36a9-45e0-a00b-1e89aa0aa077)
 
