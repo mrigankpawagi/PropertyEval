@@ -76,6 +76,9 @@ words = lists(text(alphabet='abc', max_size=MAX_SEQUENCE_LEN), min_size=1, max_s
 strategy = words
 ```
 
+> [!TIP]
+> The [ghAIstwriter](https://github.com/mrigankpawagi/ghAIstwriter) project uses these strategies to create a dataset for finetuning LLMs to generate such strategies automatically.
+
 ### Automation
 For the [MBPP](https://github.com/google-research/google-research/tree/master/mbpp) dataset, we demonstrate that these tests can be generated largely automatically using GPT-3.5 by providing few-shot prompts based on some of our manually constructed tests. This demonstrates that our approach can be easily scaled to other datasets.
 
