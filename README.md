@@ -87,6 +87,15 @@ For the [MBPP](https://github.com/google-research/google-research/tree/master/mb
 
 ![image](https://github.com/mrigankpawagi/PropertyEval/assets/25179158/f10b9adf-36a9-45e0-a00b-1e89aa0aa077)
 
+### Contributing back to EvalPlus
+Work on PropertyEval has led to several contributions to EvalPlus as suggestions for improving contracts in many problems. These have been acknowledged by the authors of EvalPlus and incorporated in their subsequent releases.
+
+- [Incomplete contracts in problems involving balanced parantheses (1, 6)](https://github.com/evalplus/evalplus/issues/27)
+- [Contract misses infinities and nan (2, 99)](https://github.com/evalplus/evalplus/issues/28)
+- [Contract misses empty list in problem 35](https://github.com/evalplus/evalplus/issues/29)
+- [Incomplete contract in HumanEval #32 (`find_zero`)](https://github.com/evalplus/evalplus/issues/34)
+- [Incomplete contract in HumanEval #160 (`do_algebra`)](https://github.com/evalplus/evalplus/issues/35)
+
 ## Evaluation
 The `/humaneval_groundtruth` directory contains canonical solutions to HumanEval problems, adapted from the ground truth solutions provided with [EvalPlus v0.1.0](https://github.com/evalplus/evalplus/releases/tag/v0.1.0). The results from the equivalence tests on code samples for 84 _(model, size, temperature)_ combinations provided with EvalPlus v0.1.0 are available in `evaldata.csv`. The script for executing this benchmark is a modified fork[^1] of the EvalPlus script. 
 
