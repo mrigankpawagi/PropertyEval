@@ -83,7 +83,7 @@ run_with_timeout(600, test_properteval)""", globals(), locals()) # 1000 * 0.3 * 
         return False    
 
 def mbppplus_test(completion: str, entry_point: str, task_id: int) -> bool:    
-    with open("/home/mrigankp/.cache/evalplus/ebe95df0d5220f00cedd6f4bddea35e4.pkl", "rb") as f:
+    with open("~/.cache/evalplus/ebe95df0d5220f00cedd6f4bddea35e4.pkl", "rb") as f:
         expected = pickle.load(f)
 
     try:
