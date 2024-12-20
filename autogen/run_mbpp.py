@@ -20,12 +20,12 @@ def generate_input(prompt, code, tests, entry_point):
 
 with open("../sanitized-mbpp.json") as f:
     problems = json.load(f)
-    
+   
 with open("samples/mbppplus.json") as f:
     mbppplus_dataset_array = json.load(f)
     mbppplus_dataset = {}
     for entry in mbppplus_dataset_array:
-        mbppplus_dataset[entry["task_id"]] = entry
+        mbppplus_dataset[entry["task_id"]] = entry 
 
 k = 0
 
