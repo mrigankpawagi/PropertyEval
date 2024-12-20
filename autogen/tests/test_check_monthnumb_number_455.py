@@ -4,9 +4,11 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
 monthnum2 = integers(min_value=1, max_value=12)
 strategy = monthnum2
@@ -20,5 +22,6 @@ def check_monthnumb_number(monthnum2):
     return False
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, check_monthnumb_number, *args)

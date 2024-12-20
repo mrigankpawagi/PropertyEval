@@ -4,11 +4,13 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-list1 = lists(integers(), min_size=0, max_size=MAX_SEQUENCE_LEN)
+list1 = lists(elements=one_of(integers(), characters()), min_size=1, max_size=MAX_SEQUENCE_LEN)
 L = integers(min_value=0, max_value=MAX_SEQUENCE_LEN)
 
 strategy = list1, L
@@ -19,5 +21,6 @@ def split_two_parts(list1, L):
     return list1[:L], list1[L:]
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, split_two_parts, *args)

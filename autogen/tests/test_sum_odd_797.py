@@ -4,12 +4,16 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-n = integers(min_value=0, max_value=MAX_INT)
-strategy = n
+l = integers(min_value=0, max_value=100)
+r = integers(min_value=0, max_value=100)
+
+strategy = l, r
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 
@@ -21,5 +25,6 @@ def sum_in_range(l,r):
     return sum_odd(r) - sum_odd(l - 1)
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, sum_odd, *args)

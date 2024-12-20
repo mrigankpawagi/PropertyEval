@@ -4,15 +4,14 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-def builder(n):
-  return lists(integers(), min_size=n, max_size=MAX_SEQUENCE_LEN)
-
-n = integers(min_value=0, max_value=MAX_SEQUENCE_LEN)
-arr = builds(builder, n)
+arr = lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=n, max_size=n)
+n = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
 
 strategy = arr, n
 if not isinstance(strategy, tuple):
@@ -29,5 +28,6 @@ def re_arrange_array(arr, n):
   return arr
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, re_arrange_array, *args)

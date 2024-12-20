@@ -4,13 +4,15 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-a = integers(min_value=MIN_INT, max_value=MAX_INT)
-b = integers(min_value=MIN_INT, max_value=MAX_INT)
-c = integers(min_value=MIN_INT, max_value=MAX_INT)
+a = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
+b = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
+c = floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT)
 
 strategy = a, b, c
 if not isinstance(strategy, tuple):
@@ -34,5 +36,6 @@ def median_numbers(a,b,c):
  return median
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, median_numbers, *args)

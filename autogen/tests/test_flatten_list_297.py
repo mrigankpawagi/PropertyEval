@@ -4,13 +4,19 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-def create_nested_list():
-    base = integers()
-    return recursive(base, lists)
+@composite
+def create_nested_list(draw):
+    elements = draw(integers(min_value=0, max_value=MAX_SEQUENCE_LEN))
+    nested_list = draw(lists(elements, min_size=1, max_size=elements))
+    for _ in range(draw(integers(min_value=1, max_value=5))):
+        nested_list = [nested_list]
+    return nested_list
 
 list1 = create_nested_list()
 strategy = list1
@@ -32,5 +38,6 @@ def flatten_list(list1):
     return result_list 
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, flatten_list, *args)

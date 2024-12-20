@@ -4,20 +4,15 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-@composite
-def create(draw):
-  n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
-  arr1 = draw(lists(integers(), min_size=n, max_size=n))
-  arr2 = draw(lists(integers(), min_size=n, max_size=n))
-  return arr1, arr2, n
-
-arr1 = shared(create(), key='eval').map(lambda x: x[0])
-arr2 = shared(create(), key='eval').map(lambda x: x[1])
-n = shared(create(), key='eval').map(lambda x: x[2])
+arr1 = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN).map(sorted)
+arr2 = arr1
+n = len(arr1)
 
 strategy = arr1, arr2, n
 if not isinstance(strategy, tuple):
@@ -50,5 +45,6 @@ def get_median(arr1, arr2, n):
   return (m1 + m2)/2
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, get_median, *args)

@@ -4,21 +4,18 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-from typing import List
+a = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
+n = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
+index = integers(min_value=0, max_value=n-1)
+k = integers(min_value=index+1, max_value=n-1)
 
-@composite
-def input_data(draw):
-    n = draw(integers(min_value=2, max_value=100))
-    a = draw(lists(integers(min_value=1, max_value=100), min_size=n, max_size=n))
-    index = draw(integers(min_value=0, max_value=n-2))
-    k = draw(integers(min_value=1, max_value=n-1))
-    return a, n, index, k
-
-strategy = input_data()
+strategy = a, n, index, k
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 
@@ -42,5 +39,6 @@ def max_sum_increasing_subseq(a, n, index, k):
 	return dp[index][k]
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, max_sum_increasing_subseq, *args)

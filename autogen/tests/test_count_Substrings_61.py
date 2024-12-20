@@ -4,18 +4,13 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-@composite
-def generate_string(draw):
-    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
-    s = draw(text(alphabet='0123456789', min_size=n, max_size=n))
-    return s
-
-s = generate_string()
-
+s = text(alphabet='0123456789', min_size=1, max_size=MAX_SEQUENCE_LEN)
 strategy = s
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
@@ -33,5 +28,6 @@ def count_Substrings(s):
     return count
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, count_Substrings, *args)

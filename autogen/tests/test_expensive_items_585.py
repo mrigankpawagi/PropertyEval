@@ -4,18 +4,14 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-@composite
-def create(draw):
-  n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
-  item = builds(lambda name, price: {'name': name, 'price': price}, text(), floats(min_value=0.0, max_value=MAX_FLOAT))
-  items = draw(lists(item, min_size=n, max_size=n))
-  return items, n
-items = shared(create(), key='eval').map(lambda x: x[0])
-n = shared(create(), key='eval').map(lambda x: x[1])
+items = lists(dictionaries(keys=text(alphabet='abcdefghijklmnopqrstuvwxyz', min_size=1, max_size=7), values=floats(min_value=0.0, exclude_min=True)), min_size=1, max_size=MAX_SEQUENCE_LEN)
+n = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
 
 strategy = items, n
 if not isinstance(strategy, tuple):
@@ -27,5 +23,6 @@ def expensive_items(items,n):
   return expensive_items
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, expensive_items, *args)

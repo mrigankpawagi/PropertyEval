@@ -4,23 +4,15 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-from math import ceil
-
-@composite
-def make_arr(draw):
-    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
-    arr = draw(lists(integers(), min_size=n, max_size=n))
-    arr.sort()
-    x = draw(sampled_from(arr))
-    return arr, n, x
-
-arr = shared(make_arr(), key="eval").map(lambda x: x[0])
-n = shared(make_arr(), key="eval").map(lambda x: x[1])
-x = shared(make_arr(), key="eval").map(lambda x: x[2])
+arr = lists(integers(), unique=True, min_size=1, max_size=MAX_SEQUENCE_LEN).map(sorted)
+n = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
+x = integers()
 
 strategy = arr, n, x
 if not isinstance(strategy, tuple):
@@ -46,5 +38,6 @@ def binary_search(arr, low, high, x):
 	return -1
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, is_majority, *args)

@@ -4,14 +4,14 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
-                
+import math
 import string
-
-s = text(alphabet=string.ascii_letters + string.punctuation, max_size=MAX_SEQUENCE_LEN)
-strategy = s
+                
+str = text(alphabet="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", min_size=0, max_size=MAX_SEQUENCE_LEN)
+strategy = str
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 
@@ -22,5 +22,6 @@ def number_ctr(str):
       return  number_ctr
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, number_ctr, *args)

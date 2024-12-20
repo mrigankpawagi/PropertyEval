@@ -4,11 +4,14 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-arr = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
+arr = lists(integers(), max_size=MAX_SEQUENCE_LEN)
+
 strategy = arr
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
@@ -30,5 +33,6 @@ def max_sum(arr):
 	return max_sum
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, max_sum, *args)

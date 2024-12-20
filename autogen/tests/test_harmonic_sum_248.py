@@ -4,7 +4,7 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
                 
@@ -20,5 +20,6 @@ def harmonic_sum(n):
     return 1 / n + (harmonic_sum(n - 1)) 
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, harmonic_sum, *args)

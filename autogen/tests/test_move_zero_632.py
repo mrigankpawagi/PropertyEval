@@ -4,9 +4,11 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
 num_list = lists(integers(), max_size=MAX_SEQUENCE_LEN)
 strategy = num_list
@@ -19,5 +21,6 @@ def move_zero(num_list):
     return x + a
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, move_zero, *args)

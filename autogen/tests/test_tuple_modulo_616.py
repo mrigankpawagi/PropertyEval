@@ -4,19 +4,14 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-@composite
-def make_tuples(draw):
-    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
-    t1 = draw(lists(integers(), min_size=n, max_size=n).map(tuple))
-    t2 = draw(lists(integers(min_value=1), min_size=n, max_size=n).map(tuple))
-    return t1, t2
-
-test_tup1 = shared(make_tuples().map(lambda x: x[0]), key="eval")
-test_tup2 = shared(make_tuples().map(lambda x: x[1]), key="eval")
+test_tup1 = tuples(integers(), max_size=MAX_SEQUENCE_LEN)
+test_tup2 = test_tup1
 
 strategy = test_tup1, test_tup2
 if not isinstance(strategy, tuple):
@@ -27,5 +22,6 @@ def tuple_modulo(test_tup1, test_tup2):
   return (res) 
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, tuple_modulo, *args)

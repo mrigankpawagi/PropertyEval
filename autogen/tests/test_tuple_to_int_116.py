@@ -4,12 +4,13 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-nums = lists(integers(min_value=1, max_value=MAX_INT), min_size=1, max_size=10)
-
+nums = tuples(integers(min_value=1))
 strategy = nums
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
@@ -19,5 +20,6 @@ def tuple_to_int(nums):
     return result
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, tuple_to_int, *args)

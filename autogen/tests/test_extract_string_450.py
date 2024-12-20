@@ -4,12 +4,14 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-str_list = lists(text(alphabet='abcdefghijklmnopqrstuvwxyz', min_size=1, max_size=10))
-l = integers(min_value=0, max_value=MAX_SEQUENCE_LEN)
+str_list = lists(text(), min_size=1, max_size=MAX_SEQUENCE_LEN)
+l = integers(min_value=1)
 
 strategy = str_list, l
 if not isinstance(strategy, tuple):
@@ -20,5 +22,6 @@ def extract_string(str, l):
     return result
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, extract_string, *args)

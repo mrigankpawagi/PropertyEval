@@ -4,12 +4,16 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-string = text().filter(lambda x: isinstance(x, str))
-strategy = string, string
+string = text(alphabet="abcdefghijklmnopqrstuvwxyz", max_size=MAX_SEQUENCE_LEN).filter(lambda x: x == "" or x.islower())
+second_string = text(alphabet="abcdefghijklmnopqrstuvwxyz", max_size=MAX_SEQUENCE_LEN).filter(lambda x: x == "" or x.islower())
+
+strategy = string, second_string
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 
@@ -41,5 +45,6 @@ def remove_dirty_chars(string, second_string):
 	return lst_to_string(str_list[0:res_ind]) 
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, str_to_list, *args)

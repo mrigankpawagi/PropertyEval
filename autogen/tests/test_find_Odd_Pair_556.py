@@ -4,17 +4,13 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-@composite
-def arrays_with_odd_xor(draw):
-    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
-    a = draw(lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=n, max_size=n))
-    return a
-
-A = arrays_with_odd_xor()
+A = lists(integers(min_value=0, max_value=MAX_INT), min_size=1, max_size=MAX_SEQUENCE_LEN)
 N = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
 
 strategy = A, N
@@ -30,5 +26,6 @@ def find_Odd_Pair(A,N) :
     return oddPair  
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, find_Odd_Pair, *args)

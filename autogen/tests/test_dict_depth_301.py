@@ -4,27 +4,14 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
-                
-from collections.abc import Mapping
-from hypothesis import strategies as st
+import math
 import string
-
-@st.composite
-def dictionary_strategy(draw):
-    depth = draw(st.integers(min_value=1, max_value=5))
-    dictionary = {}
-    for _ in range(depth):
-        key = draw(st.text(alphabet=string.ascii_letters + string.digits, min_size=1, max_size=10))
-        value = draw(st.recursive(st.floats(allow_nan=False, allow_infinity=False),
-                                    lambda children: st.lists(children, min_size=1, max_size=5).map(tuple)))
-        dictionary[key] = value
-
-    return dictionary
-
-strategy = dictionary_strategy()
+                
+d = fixed_dictionaries({"a": integers(), "b": fixed_dictionaries({"c": integers()})})
+strategy = d
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 
@@ -34,5 +21,6 @@ def dict_depth(d):
     return 0
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, dict_depth, *args)

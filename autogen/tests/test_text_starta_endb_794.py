@@ -4,14 +4,18 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-from hypothesis import strategies as st
+import re
 
-text = st.from_regex(r'a.*b$')
-strategy = text
+def text_starta_endb():
+    return text(min_size=1, alphabet='ab').filter(lambda x: 'a' in x and x.endswith('b'))
+
+strategy = text_starta_endb()
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 
@@ -21,5 +25,6 @@ def text_starta_endb(text):
         return re.search(patterns,  text)
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, text_starta_endb, *args)

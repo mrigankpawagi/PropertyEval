@@ -4,13 +4,15 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-n = integers(min_value=0, max_value=255).map(lambda x: '0' * (3 - len(str(x))) + str(x))
-ip = builds(lambda a, b, c, d: '.'.join([a, b, c, d]), n, n, n, n)
-strategy = ip
+ip = from_regex(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}")
+
+strategy = ip,
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 
@@ -21,5 +23,6 @@ def removezero_ip(ip):
 
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, removezero_ip, *args)

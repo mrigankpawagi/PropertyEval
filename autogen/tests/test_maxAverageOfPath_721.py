@@ -4,17 +4,15 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-@composite
-def create_cost_matrix(draw):
-    n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
-    matrix = draw(lists(lists(integers(), min_size=n, max_size=n), min_size=n, max_size=n))
-    return matrix
+N = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
+cost = lists(lists(floats(min_value=0.0, max_value=100.0), min_size=N, max_size=N), min_size=N, max_size=N)
 
-cost = create_cost_matrix()
 strategy = cost
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
@@ -34,5 +32,6 @@ def maxAverageOfPath(cost):
   return dp[N - 1][N - 1] / (2 * N - 1)
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, maxAverageOfPath, *args)

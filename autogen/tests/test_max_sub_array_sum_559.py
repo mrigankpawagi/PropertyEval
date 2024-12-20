@@ -4,13 +4,14 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-L = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
-a = builds(lambda l: lists(integers(min_value=MIN_INT, max_value=MAX_INT), min_size=l, max_size=l), shared(L))
-size = shared(L)
+a = lists(integers(), max_size=MAX_SEQUENCE_LEN)
+size = integers(min_value=0, max_value=MAX_SEQUENCE_LEN)
 
 strategy = a, size
 if not isinstance(strategy, tuple):
@@ -28,5 +29,6 @@ def max_sub_array_sum(a, size):
   return max_so_far
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, max_sub_array_sum, *args)

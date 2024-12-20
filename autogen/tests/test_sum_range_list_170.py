@@ -4,13 +4,15 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
 list1 = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
-m = builds(lambda l: integers(min_value=0, max_value=len(l) - 1), list1)
-n = builds(lambda l, k: integers(min_value=k, max_value=len(l) - 1), list1, m)
+m = integers(min_value=0)
+n = integers(min_value=0)
 
 strategy = list1, m, n
 if not isinstance(strategy, tuple):
@@ -23,5 +25,6 @@ def sum_range_list(list1, m, n):
     return sum_range   
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, sum_range_list, *args)

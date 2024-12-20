@@ -4,11 +4,13 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-text = text(alphabet='abcdefghijklmnopqrstuvwxyz_', min_size=1, max_size=MAX_SEQUENCE_LEN)
+text = text(alphabet='abcdefghijklmnopqrstuvwxyz_', min_size=2, max_size=MAX_SEQUENCE_LEN)
 strategy = text
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
@@ -22,5 +24,6 @@ def text_lowercase_underscore(text):
                 return False
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, text_lowercase_underscore, *args)

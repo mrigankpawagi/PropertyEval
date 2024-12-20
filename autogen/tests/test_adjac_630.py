@@ -4,14 +4,15 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-ele = tuples(floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT), floats(min_value=MIN_FLOAT, max_value=MAX_FLOAT))
-sub = lists(ele)
+test_tup = tuples(integers(), integers())
 
-strategy = ele, sub
+strategy = test_tup
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
 
@@ -25,5 +26,6 @@ def get_coordinates(test_tup):
   return list(adjac(test_tup))
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, adjac, *args)

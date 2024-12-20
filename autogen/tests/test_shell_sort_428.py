@@ -4,11 +4,13 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-my_list = lists(integers(), max_size=MAX_SEQUENCE_LEN)
+my_list = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
 strategy = my_list
 if not isinstance(strategy, tuple):
     strategy = (strategy,)
@@ -28,5 +30,6 @@ def shell_sort(my_list):
     return my_list
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, shell_sort, *args)

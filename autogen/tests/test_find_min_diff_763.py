@@ -4,18 +4,14 @@ sys.path.append("..")
 
 from limits.limits import *
 from hypothesis.strategies import *
-from hypothesis import given
+from hypothesis import given, settings
 from timeout import run_with_timeout
 from typing import *
+import math
+import string
                 
-@composite
-def create(draw):
-  n = draw(integers(min_value=1, max_value=MAX_SEQUENCE_LEN))
-  arr = draw(lists(integers(), min_size=n, max_size=n))
-  return tuple(arr), n
-
-arr = shared(create(), key="eval").map(lambda x: x[0])
-n = shared(create(), key="eval").map(lambda x: x[1])
+arr = lists(integers(), min_size=1, max_size=MAX_SEQUENCE_LEN)
+n = integers(min_value=1, max_value=MAX_SEQUENCE_LEN)
 
 strategy = arr, n
 if not isinstance(strategy, tuple):
@@ -30,5 +26,6 @@ def find_min_diff(arr,n):
     return diff 
 
 @given(tuples(*strategy))
+@settings(max_examples=1000)
 def test_fuzz(args):
     run_with_timeout(0.3, find_min_diff, *args)
