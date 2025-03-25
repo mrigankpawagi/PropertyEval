@@ -1,6 +1,20 @@
 # PropertyEval
 A repository of property-based tests for thorough benchmarking of LLM code generation.
 
+## Citation
+
+If you use or modify this dataset or related tools, please cite it as below.
+
+```bibtex
+@software{propertyEval,
+    author  = {Pawagi, Mrigank},
+    doi     = {10.5281/zenodo.15081893},
+    title   = {{PropertyEval: Synthesizing Thorough Test Cases for LLM Code Generation Benchmarks using Property-Based Testing}},
+    url     = {https://github.com/mrigankpawagi/PropertyEval},
+    year    = {2025}
+}
+```
+
 ## Usage
 The `/tests` directory contains directories labeled from `0` to `163`, each of which contains a `strategy.py` file. This file contains the [hypothesis strategy](https://hypothesis.readthedocs.io/en/latest/index.html) for the corresponding problem from the [HumanEval](https://github.com/openai/human-eval) dataset. `__init__.py` files have been placed in each directory to allow for importing of the tests as modules. The strategies are available as the `strategy` attribute of these `strategy` modules. Usage of the strategies is as follows.
 
