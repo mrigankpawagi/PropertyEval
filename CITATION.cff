@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use or modify this dataset or related tools, please cite it as below."
+authors:
+- family-names: "Pawagi"
+  given-names: "Mrigank"
+  orcid: "https://orcid.org/0009-0002-6169-4766"
+title: "PropertyEval: Synthesizing Thorough Test Cases for LLM Code Generation Benchmarks using Property-Based Testing"
+version: 0.1.0-alpha
+doi: 10.5281/zenodo.15081893
+date-released: 2025-03-25
+url: "https://github.com/mrigankpawagi/PropertyEval"
